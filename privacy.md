@@ -1,7 +1,7 @@
 # BudgeTrak Privacy Policy
 
 **Effective date:** April 11, 2026
-**Last updated:** April 11, 2026
+**Last updated:** May 2, 2026
 
 ## Plain-English Summary
 
@@ -161,6 +161,27 @@ You have full control over your data in BudgeTrak.
 - **Limit ad tracking**: Reset or limit your advertising identifier in your Android device settings under Privacy → Ads.
 
 If you want us to confirm what data we hold about you (note: in nearly all cases, the answer is "nothing personally identifying") or have any other privacy request, contact us at **techadvantagesupport@gmail.com**.
+
+## Data Deletion
+
+You can request deletion of your BudgeTrak data through any of the following options:
+
+### 1. In-app deletion (admin of a SYNC group)
+Open BudgeTrak → Settings → SYNC → **Dissolve Group**. This permanently deletes all server-side data for the group: transactions, categories, recurring expenses, income sources, savings goals, amortization entries, period ledger, encrypted receipt photos, and group metadata. The cascade is performed by a Cloud Function that removes data from Firestore, Realtime Database, and Cloud Storage. Each member device retains its local copy unless they also uninstall the app.
+
+### 2. In-app removal (member of a SYNC group)
+Open BudgeTrak → Settings → SYNC → **Leave Group**. Your device is marked as removed in the group's device roster, your real-time presence record is deleted, and your device's encryption keys to the group are wiped. The shared data itself stays in the group for the remaining members; if you want the entire group deleted, the admin must dissolve it.
+
+### 3. Local-only deletion
+Uninstalling BudgeTrak removes all on-device data immediately (transactions, settings, receipt photos, encrypted backups stored in the app's private folder). If you only used BudgeTrak in solo mode (no SYNC), no cloud-side data ever existed and uninstall fully completes the deletion.
+
+### 4. Email request
+For any other deletion request — including manual deletion of cloud data when you no longer have access to the original device, deletion of a group whose admin has lost access, or any other special case — email **techadvantagesupport@gmail.com**. We will respond and complete the deletion within 30 days.
+
+### 5. Automatic deletion
+SYNC groups that have not been opened by any member device for 90 consecutive days are automatically and permanently deleted by a server-side cleanup process. This includes all transactions, encrypted photos, and metadata. There is no recovery from this automatic cleanup; ensure you have a local backup before letting a group go inactive.
+
+What deletion does **not** affect: anonymous Crashlytics records (retained by Google for 90 days per their standard policy regardless of in-app actions), and AdMob advertising identifiers (managed by Google at the device level — reset via your Android settings).
 
 ## Data Retention
 
