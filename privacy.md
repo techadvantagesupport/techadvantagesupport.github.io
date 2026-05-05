@@ -104,7 +104,7 @@ We do **not**:
 - **Encrypted at rest** in cloud storage — even Google's servers only ever see ciphertext.
 - **Encrypted in transit** using HTTPS / TLS for all network communication.
 - **App Check** verification using Google Play Integrity to block unauthorized clients from accessing the SYNC backend.
-- **Optional password-encrypted backups** using PBKDF2 key derivation if you enable backup encryption in Settings.
+- **Password-encrypted backups** using PBKDF2-SHA256 key derivation — every backup is encrypted with a password you provide; without it, the backup cannot be decrypted.
 - **No server-side decryption capability** — by design, we cannot read your data even if we wanted to or were compelled to.
 
 No system is perfectly secure, but we follow industry best practices and have designed BudgeTrak to minimize what we ever have access to.
