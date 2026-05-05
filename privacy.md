@@ -1,7 +1,7 @@
 # BudgeTrak Privacy Policy
 
 **Effective date:** April 11, 2026
-**Last updated:** May 2, 2026
+**Last updated:** May 5, 2026
 
 ## Plain-English Summary
 
@@ -175,11 +175,13 @@ Open BudgeTrak → Settings → SYNC → **Leave Group**. Your device is marked 
 ### 3. Local-only deletion
 Uninstalling BudgeTrak removes all on-device data immediately (transactions, settings, receipt photos, encrypted backups stored in the app's private folder). If you only used BudgeTrak in solo mode (no SYNC), no cloud-side data ever existed and uninstall fully completes the deletion.
 
-### 4. Email request
-For any other deletion request — including manual deletion of cloud data when you no longer have access to the original device, deletion of a group whose admin has lost access, or any other special case — email **techadvantagesupport@gmail.com**. We will respond and complete the deletion within 30 days.
-
-### 5. Automatic deletion
+### 4. Automatic deletion
 SYNC groups that have not been opened by any member device for 90 consecutive days are automatically and permanently deleted by a server-side cleanup process. This includes all transactions, encrypted photos, and metadata. There is no recovery from this automatic cleanup; ensure you have a local backup before letting a group go inactive.
+
+### Why we do not offer manual deletion by email
+BudgeTrak deliberately does not associate your cloud data with your name, email address, or any identifier we could use to look up "your" records on request. Anonymous authentication, end-to-end encryption, and randomly-generated group identifiers are what make the privacy guarantees in this policy possible — but the same design means that if you email asking us to delete a specific group, we have no way to verify the group is yours or even to locate it among the encrypted blobs on our servers.
+
+If you have lost access to your device or to a group whose admin you can no longer reach, the 90-day inactivity cleanup above is the deletion mechanism. Make sure you have a local backup of any data you would like to keep before that window expires.
 
 What deletion does **not** affect: anonymous Crashlytics records (retained by Google for 90 days per their standard policy regardless of in-app actions), and AdMob advertising identifiers (managed by Google at the device level — reset via your Android settings).
 
