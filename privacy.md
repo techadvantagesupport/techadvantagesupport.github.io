@@ -43,20 +43,22 @@ When you leave a SYNC group or dissolve it, your local data is preserved on your
 
 ### Diagnostic and Crash Data
 
-To keep BudgeTrak stable and identify bugs, we use **Google Firebase Crashlytics** to collect crash reports and basic diagnostic information. This collection is **on by default** but can be turned off at any time in **Settings → Privacy → Send crash reports**.
+To keep BudgeTrak stable and identify bugs, we use **Google Firebase Crashlytics** for crash reports and **Google Firebase Analytics** for anonymous usage telemetry. Both are **on by default** and share a single opt-out at **Settings → Privacy → Send crash reports and anonymous usage data**. Unchecking that box stops both immediately.
 
-When crash reporting is enabled, the data we collect includes:
+When this collection is enabled, the data we collect includes:
 
 - Crash stack traces and error messages.
 - Anonymous device information (model, OS version, app version).
-- An anonymous Firebase Authentication user ID (if you use SYNC) — this is a random identifier, not your name or email.
+- An anonymous Firebase Authentication user ID (if you use SYNC) — a random identifier, not your name or email.
 - Diagnostic counters: the number of transactions, recurring expenses, and period-ledger entries you have; sync status (`healthy`, `dead`, or `off`); the number of devices in your SYNC group; and the date of your last period refresh.
 - A **one-way hash digest** of your available cash balance (computed locally as a hex digest before being sent). The actual cash value never leaves your device, and the hash cannot be reversed to recover the original number.
 - Timestamped lifecycle events like "listener started," "token refreshed," or "period boundary crossed" used to debug sync issues.
+- Two anonymous usage events: **`ocr_feedback`** records whether you changed the merchant, date, or amount on a transaction populated by AI receipt scanning (deltas and booleans only — never the values themselves), and **`health_beacon`** records once a day whether your SYNC listener is connected and the *count* of records on your device.
+- Standard Firebase Analytics startup events (`first_open`, `session_start`, `app_update`) recording that the app was used, but no information about *what* you did inside it.
 
-Crash data does **not** include any of the following: the contents of your transactions, merchant names, amounts, dates, descriptions, categories, receipt photos, encryption keys, or any other personal financial information. We hash the only piece of financial data that touches Crashlytics (your cash balance) precisely so that even we cannot read it.
+Crash and telemetry data do **not** include the contents of your transactions, merchant names, amounts, dates, descriptions, categories, receipt photos, encryption keys, or any other personal financial information. We hash the only piece of financial data that touches diagnostics (your cash balance) so that even we cannot read it. We have also disabled IP-based country/region derivation in our Analytics configuration, so no approximate location is collected.
 
-If you disable crash reporting, none of the above is collected — and the daily diagnostic snapshot we use to confirm devices are healthy is also skipped. We recommend leaving it on so we can detect and fix bugs that affect real users, but the choice is yours.
+If you disable diagnostic reporting, none of the above is collected — the daily heartbeat used to confirm devices are healthy and the OCR-accuracy events used to improve receipt scanning are both skipped. We recommend leaving it on so we can detect and fix bugs that affect real users, but the choice is yours.
 
 ### Authentication and Anti-Abuse
 
@@ -119,6 +121,7 @@ BudgeTrak relies on the following third-party services. Each has its own privacy
 | **Google Firebase Authentication** | Anonymous sign-in for SYNC | Anonymous user token |
 | **Google Firebase App Check** | Anti-abuse verification | Play Integrity attestation |
 | **Google Firebase Crashlytics** | Crash reports and diagnostics | Crash data, no financial data |
+| **Google Firebase Analytics** | Anonymous usage events (OCR accuracy + daily heartbeat) | Counts and booleans only — no transaction content, no location |
 | **Google Gemini** (opt-in AI features only) | Receipt reading; CSV transaction categorization | Receipt image contents; merchant, amount, date of imported bank transactions |
 | **Google Play Billing** | Subscription and one-time purchases | Payment info (handled entirely by Google) |
 | **Google AdMob** (free tier only) | Banner advertising | Advertising ID, basic device info |
@@ -157,7 +160,7 @@ You have full control over your data in BudgeTrak.
 - **Leave a SYNC group**: Tap "Leave Group" on the SYNC screen. Your local data is preserved; cloud data tied to your device is removed.
 - **Dissolve a SYNC group** (admin only): Tap "Dissolve Group" on the SYNC screen. All cloud data for the group is permanently deleted; each device retains its local copy.
 - **Export your data**: Use the Save feature on the Transactions screen to export your transactions in CSV, Excel, or PDF format. Backups via Settings include all your budget data in a single file.
-- **Disable crash reporting**: Open **Settings → Privacy → Send crash reports** in BudgeTrak and uncheck the box. The change takes effect immediately, the daily diagnostic snapshot stops, and Firebase Crashlytics is told to stop collecting any data from your device.
+- **Disable crash reporting and usage telemetry**: Open **Settings → Privacy → Send crash reports and anonymous usage data** in BudgeTrak and uncheck the box. The change takes effect immediately — Firebase Crashlytics and Firebase Analytics are both told to stop collecting any data from your device, including the daily heartbeat and the OCR-accuracy events.
 - **Limit ad tracking**: Reset or limit your advertising identifier in your Android device settings under Privacy → Ads.
 
 If you want us to confirm what data we hold about you (note: in nearly all cases, the answer is "nothing personally identifying") or have any other privacy request, contact us at **techadvantagesupport@gmail.com**.
