@@ -56,7 +56,7 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 **Privacy First**
 - Zero permissions beyond internet access — no contacts, no location, no phone access
 - No account required for solo use (anonymous authentication for sync only)
-- Optional crash reporting with a clear opt-out toggle — and even when enabled, no financial data is ever sent
+- Optional crash reporting and anonymous usage telemetry, both gated by a single opt-out toggle in Settings — and even when enabled, no financial data is ever sent
 - Your data stays on your device unless you explicitly enable sync
 
 ## Pricing
@@ -92,7 +92,7 @@ BudgeTrak's core budgeting features are **free forever** with no account require
 
 ## Links
 
-- [Privacy Policy](https://techadvantagesupport.github.io/budgetrak-legal/privacy)
+- [Privacy Policy](https://techadvantagesupport.github.io/privacy)
 - [Contact Us](mailto:techadvantagesupport@gmail.com) — questions, support, or feedback
 
 ## About
