@@ -122,7 +122,7 @@ BudgeTrak relies on the following third-party services. Each has its own privacy
 | **Google Firebase App Check** | Anti-abuse verification | Play Integrity attestation |
 | **Google Firebase Crashlytics** | Crash reports and diagnostics | Crash data, no financial data |
 | **Google Firebase Analytics** | Anonymous usage events (OCR accuracy + daily heartbeat) | Counts and booleans only — no transaction content, no location |
-| **Google Gemini** (opt-in AI features only) | Receipt reading; CSV transaction categorization | Receipt image contents; merchant, amount, date of imported bank transactions |
+| **Google Gemini** (opt-in AI features only) | Receipt reading; CSV transaction categorization | Receipt image contents; merchant and amount of imported bank transactions |
 | **Google Play Billing** | Subscription and one-time purchases | Payment info (handled entirely by Google) |
 | **Google AdMob** (free tier only) | Banner advertising | Advertising ID, basic device info |
 
@@ -136,7 +136,7 @@ BudgeTrak offers two optional AI-assisted features powered by Google's Gemini mo
 When a subscriber taps the sparkle icon in the transaction dialog, BudgeTrak sends the receipt photo to Google Gemini to extract the merchant, date, amount, and category. The response is returned directly to your device and stored only in your transaction record.
 
 ### AI CSV Categorization (Paid and Subscriber tiers, off by default)
-When enabled in Settings, BudgeTrak sends the merchant name, amount, and date of newly-imported bank transactions to Google Gemini to choose the best-matching category for each one. Only transactions that BudgeTrak's on-device categorizer cannot confidently classify are sent.
+When enabled in Settings, BudgeTrak sends the merchant name and amount of newly-imported bank transactions to Google Gemini to choose the best-matching category for each one. The transaction date is **not** sent. Only transactions that BudgeTrak's on-device categorizer cannot confidently classify are sent.
 
 ### What's never sent to the AI provider
 - Your account balances or totals
