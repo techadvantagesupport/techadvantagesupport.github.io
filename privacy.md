@@ -70,7 +70,7 @@ If you upgrade to a paid tier or subscribe to BudgeTrak Premium, the purchase is
 
 ### Advertising (Free Tier Only)
 
-The free tier of BudgeTrak displays banner ads served by **Google AdMob**. AdMob may collect a limited advertising identifier and basic device information to serve ads, subject to Google's own privacy policy. You can reset or limit your advertising identifier in your Android device settings at any time. If you upgrade to a paid tier or subscribe to Premium, ads are removed and AdMob is no longer loaded.
+The free tier of BudgeTrak displays native ads served by **Google AdMob**. AdMob may collect a limited advertising identifier and basic device information to serve ads, subject to Google's own privacy policy. You can reset or limit your advertising identifier in your Android device settings at any time. If you upgrade to a paid tier or subscribe to Premium, ads are removed and AdMob is no longer loaded.
 
 ### What We Do **Not** Collect
 
@@ -124,7 +124,7 @@ BudgeTrak relies on the following third-party services. Each has its own privacy
 | **Google Firebase Analytics** | Anonymous usage events (OCR accuracy + daily heartbeat) | Counts and booleans only — no transaction content, no location |
 | **Google Gemini** (opt-in AI features only) | Receipt reading; CSV transaction categorization | Receipt image contents; merchant and amount of imported bank transactions |
 | **Google Play Billing** | Subscription and one-time purchases | Payment info (handled entirely by Google) |
-| **Google AdMob** (free tier only) | Banner advertising | Advertising ID, basic device info |
+| **Google AdMob** (free tier only) | Native advertising | Advertising ID, basic device info |
 
 You can review Google's privacy practices at [https://policies.google.com/privacy](https://policies.google.com/privacy).
 
