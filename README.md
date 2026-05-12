@@ -80,7 +80,7 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 - Goodbudget: $10/month ($80/year)
 - EveryDollar (Ramsey+): $17.99/month
 
-BudgeTrak's core budgeting features are **free forever** with no account required. The one-time $9.99 paid upgrade unlocks CSV/Excel/PDF import and export, receipt photos and PDFs, AI CSV Categorization, the Cash Flow Simulation chart, and ad removal — less than a single month of most competitors. The $4.99/month subscription adds AI Receipt Scanning and SYNC groups at a fraction of what others charge.
+BudgeTrak's core budgeting features are **free forever** with no account required. The one-time $9.99 paid upgrade unlocks unlimited home-screen-widget transactions, CSV/Excel/PDF import and export, receipt photos and PDFs, AI CSV Categorization, the Cash Flow Simulation chart, and ad removal — less than a single month of most competitors. The $4.99/month subscription adds AI Receipt Scanning and SYNC groups at a fraction of what others charge.
 
 ## Download
 
