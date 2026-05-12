@@ -1,3 +1,5 @@
+<p align="right"><a href="/es/privacy"><b>Español</b></a></p>
+
 # BudgeTrak Privacy Policy
 
 **Effective date:** April 11, 2026

@@ -1,3 +1,5 @@
+<p align="right"><a href="/es/"><b>Español</b></a></p>
+
 <p align="center">
   <img src="budgetrak_logo.png" alt="BudgeTrak SYNC" width="600">
 </p>
