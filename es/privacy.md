@@ -3,13 +3,13 @@
 # Política de Privacidad de BudgeTrak
 
 **Fecha de entrada en vigor:** 11 de abril de 2026
-**Última actualización:** 5 de mayo de 2026
+**Última actualización:** 19 de mayo de 2026
 
 > **Nota:** Esta es una traducción de cortesía al español. En caso de discrepancia entre versiones, prevalece la [versión original en inglés](/privacy).
 
 ## Resumen en Lenguaje Sencillo
 
-BudgeTrak es una aplicación personal de presupuesto. Sus datos financieros se guardan en su dispositivo. Si decide activar la función SYNC para compartir su presupuesto entre varios dispositivos de su hogar, esos datos se cifran de extremo a extremo antes de salir de su dispositivo — ni nosotros ni ningún proveedor de la nube podemos leer sus transacciones, saldos o nombres de comercios. No vendemos sus datos, no los mostramos a anunciantes y no los analizamos para construir un perfil de usted. La política completa a continuación explica exactamente qué se recopila, a dónde va y cómo eliminarlo.
+BudgeTrak es una aplicación personal de presupuesto. Sus datos financieros se guardan en su dispositivo. Si decide activar la función SYNC para compartir su presupuesto entre varios dispositivos de su hogar, esos datos se cifran de extremo a extremo antes de salir de su dispositivo — ni nosotros ni ningún proveedor de la nube podemos leer sus transacciones, saldos o nombres de comercios. Si opta por usar el asistente de Chat de Ayuda dentro de la app, el texto que escribe se envía a Google Gemini para generar respuestas y se almacena **de forma anónima** en nuestros servidores hasta 7 días para revisión de calidad (sin vincularse a su identidad). No vendemos sus datos, no los mostramos a anunciantes y no los analizamos para construir un perfil de usted. La política completa a continuación explica exactamente qué se recopila, a dónde va y cómo eliminarlo.
 
 ## Quiénes Somos
 
@@ -66,7 +66,7 @@ Si desactiva los reportes de diagnóstico, nada de lo anterior se recopila — e
 
 ### Autenticación y Anti-abuso
 
-Si usa SYNC, BudgeTrak lo inicia sesión en Firebase mediante **autenticación anónima** (no se requiere correo ni contraseña). Su dispositivo también se verifica con **Google Play Integrity (App Check)** para evitar que clientes no autorizados accedan al relevo en la nube. Ninguno de estos sistemas recopila información personal sobre usted.
+Si usa SYNC, BudgeTrak lo inicia sesión en Firebase mediante **autenticación anónima** (no se requiere correo ni contraseña). El mismo inicio de sesión anónimo también se usa si ha habilitado el Chat de Ayuda y aún no ha iniciado sesión para SYNC: su dispositivo recibe un token anónimo de usuario Firebase únicamente para que la carga de transcripciones del Chat de Ayuda pueda satisfacer el requisito de autenticación de nuestro servidor. Su dispositivo también se verifica con **Google Play Integrity (App Check)** para evitar que clientes no autorizados accedan al relevo en la nube. Ninguno de estos sistemas recopila información personal sobre usted.
 
 ### Datos de Suscripción y Compra
 
@@ -126,15 +126,15 @@ BudgeTrak depende de los siguientes servicios de terceros. Cada uno tiene su pro
 | **Google Firebase App Check** | Verificación anti-abuso | Atestación de Play Integrity |
 | **Google Firebase Crashlytics** | Reportes de fallos y diagnóstico | Datos de fallos, sin datos financieros |
 | **Google Firebase Analytics** | Eventos anónimos de uso (precisión OCR + latido diario) | Solo conteos y valores booleanos — sin contenido de transacciones, sin ubicación |
-| **Google Gemini** (solo funciones de IA opcionales) | Lectura de recibos; categorización de transacciones CSV | Contenido de la imagen del recibo; comercio y monto de transacciones bancarias importadas |
+| **Google Gemini** (solo funciones de IA opcionales) | Lectura de recibos; categorización de transacciones CSV; asistente de Chat de Ayuda | Contenido de la imagen del recibo; comercio y monto de transacciones bancarias importadas; el texto que escribe en el Chat de Ayuda más un extracto relevante de la documentación de ayuda de la app |
 | **Google Play Billing** | Suscripciones y compras únicas | Información de pago (manejada en su totalidad por Google) |
 | **Google AdMob** (solo nivel gratuito) | Publicidad nativa | ID de publicidad, información básica del dispositivo |
 
 Puede consultar las prácticas de privacidad de Google en [https://policies.google.com/privacy](https://policies.google.com/privacy).
 
-## Funciones Asistidas por IA (Opcionales, Niveles Pagado y Suscriptor)
+## Funciones Asistidas por IA (Opcionales)
 
-BudgeTrak ofrece dos funciones opcionales asistidas por IA, impulsadas por los modelos Gemini de Google y accedidas a través de Firebase AI Logic.
+BudgeTrak ofrece tres funciones opcionales asistidas por IA, impulsadas por los modelos Gemini de Google. Las dos primeras están disponibles para los niveles Pagado y Suscriptor y se acceden a través de Firebase AI Logic. La tercera, Chat de Ayuda, está disponible para todos los niveles (incluido el Gratuito) y se comunica directamente con la API de Gemini.
 
 ### Lectura de Recibos con IA (Suscriptores)
 Cuando un suscriptor toca el ícono de chispa en el diálogo de transacción, BudgeTrak envía la foto del recibo a Google Gemini para extraer el comercio, la fecha, el monto y la categoría. La respuesta se devuelve directamente a su dispositivo y se guarda solo en su registro de transacción.
@@ -142,19 +142,29 @@ Cuando un suscriptor toca el ícono de chispa en el diálogo de transacción, Bu
 ### Categorización CSV con IA (Niveles Pagado y Suscriptor, desactivada por defecto)
 Cuando se activa en Configuración, BudgeTrak envía el nombre del comercio y el monto de las transacciones bancarias recién importadas a Google Gemini para que elija la categoría que mejor coincida con cada una. La fecha de la transacción **no** se envía. Solo se envían las transacciones que el categorizador local de BudgeTrak no puede clasificar con confianza.
 
+### Asistente de Chat de Ayuda (Todos los niveles, desactivado por defecto)
+Si activa la casilla del Chat de Ayuda en **Ajustes → Privacidad → Permitir que el chatbot transmita y almacene sus mensajes…** y toca **Aceptar** en el diálogo de consentimiento dentro de la app, la función de Chat de Ayuda le permite escribir preguntas sobre cómo funciona la app y recibir respuestas generadas por IA basadas en las páginas de ayuda de la app. Cuando la función está habilitada:
+
+- El texto que escribe se envía a Google Gemini para generar una respuesta. Cada solicitud también incluye un breve extracto de la documentación de ayuda incorporada de la app para que Gemini pueda fundamentar su respuesta en el comportamiento real de BudgeTrak. No se envían datos financieros personales, detalles de transacciones, saldos de cuentas ni configuraciones.
+- La transcripción completa del chat también se almacena **de forma anónima** en Firebase Firestore bajo un identificador de chat aleatorio de 128 bits generado en su dispositivo. La transcripción es anónima en sentido literal: **no** registramos su ID de usuario Firebase, ID de dispositivo, dirección IP, nombre, correo ni ningún otro identificador junto a ella — solo el ID del chat, el texto de los mensajes, marcas de tiempo y la versión de la app. Usamos estas transcripciones anónimas para revisar periódicamente la precisión del chatbot y detectar usos abusivos; no podemos vincularlas a ningún usuario específico. Las transcripciones se eliminan automáticamente después de **7 días** mediante una política de tiempo de vida del lado del servidor.
+- Cada dispositivo gestiona su consentimiento de forma independiente. La casilla está desactivada por defecto al instalar y **no** se sincroniza entre dispositivos SYNC. Desmarcarla en cualquier momento revoca el consentimiento — las transcripciones que ya estén en nuestros servidores siguen sujetas al TTL de 7 días descrito arriba y luego se eliminarán automáticamente, y no se subirán más mensajes desde su dispositivo.
+- Puede tocar **Borrar** en el diálogo del Chat de Ayuda en cualquier momento para subir la transcripción existente una última vez y borrar el búfer local, comenzando un nuevo chat con un nuevo identificador anónimo. Los mensajes locales con más de 48 horas también se eliminan automáticamente en cada dispositivo, sin importar si los borra.
+- **No** necesita una suscripción pagada, y el Chat de Ayuda **no** requiere SYNC. Si no ha habilitado SYNC, BudgeTrak iniciará sesión de forma anónima en Firebase la primera vez que necesite subir una transcripción, únicamente para satisfacer el requisito de autenticación del lado del servidor; no se recopila información personal identificable mediante este inicio de sesión anónimo.
+
 ### Lo que nunca se envía al proveedor de IA
 - Sus saldos o totales
 - Su historial de transacciones (más allá de las filas importadas o el recibo específico que se esté procesando)
 - Sus claves de cifrado, identificadores de dispositivo o tokens de autenticación
-- Sus fotos de recibos (solo se envían en la Lectura de Recibos arriba descrita, nunca por la Categorización CSV)
+- Sus fotos de recibos (solo se envían en la Lectura de Recibos arriba descrita, nunca por la Categorización CSV ni por el Chat de Ayuda)
+- Cualquier dato de cualquier función de BudgeTrak salvo que haya optado explícitamente por esa función específica
 
 ### Cómo se protegen sus datos
 - Todas las solicitudes se cifran en tránsito (HTTPS/TLS).
-- Google elimina los datos de solicitud y respuesta una vez que la solicitud se completa; nada se almacena en los servidores de Google para estas funciones.
-- Según la configuración por defecto de Firebase AI Logic, **sus datos no se usan para entrenar los modelos de Google**.
-- Ambas funciones pueden desactivarse en Configuración en cualquier momento, y la aplicación vuelve al comportamiento totalmente en el dispositivo.
+- Para la Lectura de Recibos y la Categorización CSV, Google elimina los datos de solicitud y respuesta una vez que la solicitud se completa; nada se almacena en los servidores de Google para estas funciones. Según la configuración por defecto de Firebase AI Logic, **sus datos no se usan para entrenar los modelos de Google**.
+- Para el Chat de Ayuda, sus mensajes escritos y las respuestas de Gemini se almacenan en Firebase Firestore (por BudgeTrak, no por Google) hasta 7 días para la revisión de precisión/abuso descrita arriba, y luego se eliminan automáticamente. La API de Gemini de Google no retiene la solicitud después de generar la respuesta.
+- Todas las funciones de IA pueden desactivarse en Configuración en cualquier momento, y la aplicación vuelve al comportamiento totalmente en el dispositivo (o al enlace de escape por correo dentro de la app para el Chat de Ayuda).
 
-Los usuarios del nivel gratuito no tienen acceso a ninguna de las funciones de IA, y nunca se envían datos de cuentas del nivel gratuito al proveedor de IA.
+Los usuarios del nivel gratuito tienen acceso al **Chat de Ayuda** (con consentimiento) pero no a la **Lectura de Recibos con IA** ni a la **Categorización CSV con IA**.
 
 ## Sus Derechos y Opciones
 
@@ -165,6 +175,7 @@ Usted tiene control total sobre sus datos en BudgeTrak.
 - **Disolver un grupo SYNC** (solo administrador): Toque "Disolver grupo" en la pantalla de SYNC. Todos los datos en la nube del grupo se eliminan de forma permanente; cada dispositivo conserva su copia local.
 - **Exportar sus datos**: Use la función Guardar en la pantalla de Transacciones para exportar sus transacciones en formato CSV, Excel o PDF. Los respaldos desde Configuración incluyen todos sus datos de presupuesto en un solo archivo.
 - **Desactivar reportes de fallos y telemetría de uso**: Abra **Configuración → Privacidad → Enviar reportes de fallos y datos de uso anónimos** en BudgeTrak y desmarque la casilla. El cambio entra en vigor inmediatamente — se le indica a Firebase Crashlytics y a Firebase Analytics que dejen de recopilar datos de su dispositivo, incluyendo el latido diario y los eventos de precisión OCR.
+- **Revocar el consentimiento del Chat de Ayuda**: Abra **Ajustes → Privacidad → Permitir que el chatbot transmita y almacene sus mensajes…** en BudgeTrak y desmarque la casilla. No se subirán más mensajes desde su dispositivo. Cualquier transcripción anónima ya en nuestros servidores se seguirá eliminando automáticamente tras el período de retención de 7 días descrito arriba; como se almacenan sin su identidad, no podemos eliminar las transcripciones pasadas de un usuario específico bajo solicitud.
 - **Limitar el seguimiento de anuncios**: Restablezca o limite su identificador de publicidad en la configuración de su dispositivo Android en Privacidad → Anuncios.
 
 Si quiere que le confirmemos qué datos tenemos sobre usted (nota: en casi todos los casos, la respuesta es "nada que lo identifique personalmente") o tiene cualquier otra solicitud de privacidad, contáctenos en **techadvantagesupport@gmail.com**.
@@ -196,6 +207,7 @@ Lo que la eliminación **no** afecta: los registros anónimos de Crashlytics (re
 
 - **Los datos en el dispositivo** se conservan hasta que usted los elimine o desinstale la aplicación.
 - **Los datos en la nube de SYNC** se eliminan automáticamente 90 días después de la última actividad en un grupo, y se eliminan inmediatamente cuando se disuelve un grupo.
+- **Las transcripciones del Chat de Ayuda** se almacenan de forma anónima y se eliminan automáticamente **7 días** después de la última actualización mediante una política de tiempo de vida del lado del servidor. Las copias locales en su dispositivo se eliminan tras 48 horas en cualquier caso.
 - **Los reportes de fallos** son retenidos por Google Firebase Crashlytics según las políticas estándar de retención de Google (actualmente 90 días para datos de fallos).
 - **Las fotos de recibos en almacenamiento en la nube** siguen el período de retención que el administrador de su grupo configure en Configuración, o se conservan indefinidamente si no se configura un período. Se eliminan inmediatamente cuando elimina la transacción o foto correspondiente.
 
