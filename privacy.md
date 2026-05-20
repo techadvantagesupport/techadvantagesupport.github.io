@@ -3,11 +3,11 @@
 # BudgeTrak Privacy Policy
 
 **Effective date:** April 11, 2026
-**Last updated:** May 19, 2026
+**Last updated:** May 20, 2026
 
 ## Plain-English Summary
 
-BudgeTrak is a personal budgeting app. Your financial data lives on your device. If you choose to enable the SYNC feature to share your budget across multiple devices in your household, that data is end-to-end encrypted before it leaves your device — neither we nor any cloud provider can read your transactions, balances, or merchant names. If you opt in to the in-app Help Chat assistant, the text you type into it is sent to Google Gemini to generate answers and is stored **anonymously** on our servers for up to 7 days for quality review (not linked to your identity). We do not sell your data, we do not show it to advertisers, and we do not analyze it to build a profile of you. The full policy below explains exactly what is collected, where it goes, and how to delete it.
+BudgeTrak is a personal budgeting app. Your financial data lives on your device. If you choose to enable the SYNC feature to share your budget across multiple devices in your household, that data is end-to-end encrypted before it leaves your device — neither we nor any cloud provider can read your transactions, balances, or merchant names. If you opt in to the in-app Help Chat assistant, the text you type into it is sent to our AI service provider to generate answers and is stored **anonymously** on our servers for up to 7 days for quality review (not linked to your identity). We do not sell your data, we do not show it to advertisers, and we do not analyze it to build a profile of you. The full policy below explains exactly what is collected, where it goes, and how to delete it.
 
 ## Who We Are
 
@@ -37,49 +37,49 @@ If you enable SYNC, the following happens:
 
 - An encryption key is generated on your device when you create a group, or shared securely via a 6-character pairing code when you join one.
 - Your transactions, income sources, recurring expenses, savings goals, amortization entries, app settings, and receipt photos are encrypted **on your device** using ChaCha20-Poly1305 encryption with that key.
-- Only the encrypted data is uploaded to Google Firebase (Firestore, Cloud Storage, and Realtime Database) for relay to other devices in your group.
-- The encryption key never leaves your devices. Google, our servers, and any third party with access to the cloud storage **cannot** decrypt your financial data — they can only see encrypted blobs.
+- Only the encrypted data is uploaded to our cloud infrastructure provider for relay to other devices in your group.
+- The encryption key never leaves your devices. Our cloud infrastructure provider, our servers, and any third party with access to the cloud storage **cannot** decrypt your financial data — they can only see encrypted blobs.
 - Each linked device decrypts the data locally using the shared key.
 
 When you leave a SYNC group or dissolve it, your local data is preserved on your device but the cloud copy is deleted (with a 90-day cleanup window for orphan data).
 
 ### Diagnostic and Crash Data
 
-To keep BudgeTrak stable and identify bugs, we use **Google Firebase Crashlytics** for crash reports and **Google Firebase Analytics** for anonymous usage telemetry. Both are **on by default** and share a single opt-out at **Settings → Privacy → Send crash reports and anonymous usage data**. Unchecking that box stops both immediately.
+To keep BudgeTrak stable and identify bugs, we use anonymous **crash reporting** and **usage telemetry** services from our cloud infrastructure provider. Both are **on by default** and share a single opt-out at **Settings → Privacy → Send crash reports and anonymous usage data**. Unchecking that box stops both immediately.
 
 When this collection is enabled, the data we collect includes:
 
 - Crash stack traces and error messages.
 - Anonymous device information (model, OS version, app version).
-- An anonymous Firebase Authentication user ID (if you use SYNC) — a random identifier, not your name or email.
+- An anonymous backend authentication user ID (if you use SYNC) — a random identifier, not your name or email.
 - Diagnostic counters: the number of transactions, recurring expenses, and period-ledger entries you have; sync status (`healthy`, `dead`, or `off`); the number of devices in your SYNC group; and the date of your last period refresh.
 - A **one-way hash digest** of your available cash balance (computed locally as a hex digest before being sent). The actual cash value never leaves your device, and the hash cannot be reversed to recover the original number.
 - Timestamped lifecycle events like "listener started," "token refreshed," or "period boundary crossed" used to debug sync issues.
 - Two anonymous usage events: **`ocr_feedback`** records whether you changed the merchant, date, or amount on a transaction populated by AI receipt scanning (deltas and booleans only — never the values themselves), and **`health_beacon`** records once a day whether your SYNC listener is connected and the *count* of records on your device.
-- Standard Firebase Analytics startup events (`first_open`, `session_start`, `app_update`) recording that the app was used, but no information about *what* you did inside it.
+- Standard analytics startup events (`first_open`, `session_start`, `app_update`) recording that the app was used, but no information about *what* you did inside it.
 
-Crash and telemetry data do **not** include the contents of your transactions, merchant names, amounts, dates, descriptions, categories, receipt photos, encryption keys, or any other personal financial information. We hash the only piece of financial data that touches diagnostics (your cash balance) so that even we cannot read it. We have also disabled IP-based country/region derivation in our Analytics configuration, so no approximate location is collected.
+Crash and telemetry data do **not** include the contents of your transactions, merchant names, amounts, dates, descriptions, categories, receipt photos, encryption keys, or any other personal financial information. We hash the only piece of financial data that touches diagnostics (your cash balance) so that even we cannot read it. We have also disabled IP-based country/region derivation in our analytics configuration, so no approximate location is collected.
 
 If you disable diagnostic reporting, none of the above is collected — the daily heartbeat used to confirm devices are healthy and the OCR-accuracy events used to improve receipt scanning are both skipped. We recommend leaving it on so we can detect and fix bugs that affect real users, but the choice is yours.
 
 ### Authentication and Anti-Abuse
 
-If you use SYNC, BudgeTrak signs you in to Firebase using **anonymous authentication** (no email or password required). The same anonymous sign-in is also used if you have enabled the Help Chat feature and have not already signed in for SYNC — your device is granted an anonymous Firebase user token solely so the Help Chat transcript upload can pass our server's authentication requirement. Your device is verified using **Google Play Integrity (App Check)** to prevent unauthorized clients from accessing the cloud relay. Neither of these systems collects personal information about you.
+If you use SYNC, BudgeTrak signs you in to our backend using **anonymous authentication** (no email or password required). The same anonymous sign-in is also used if you have enabled the Help Chat feature and have not already signed in for SYNC — your device is granted an anonymous user token solely so the Help Chat transcript upload can pass our server's authentication requirement. Your device is also verified using the Android platform's app-integrity attestation to prevent unauthorized clients from accessing the cloud relay. Neither of these systems collects personal information about you.
 
 ### Subscription and Purchase Data
 
-If you upgrade to a paid tier or subscribe to BudgeTrak Premium, the purchase is processed entirely by **Google Play Billing**. We do not see your payment method, credit card number, or billing address — Google handles all of that. We only receive a confirmation that your purchase is valid, used to unlock the corresponding features in the app.
+If you upgrade to a paid tier or subscribe to BudgeTrak Premium, the purchase is processed entirely by **Google Play Billing** (the standard Android in-app purchase system). We do not see your payment method, credit card number, or billing address — Google Play handles all of that. We only receive a confirmation that your purchase is valid, used to unlock the corresponding features in the app.
 
 ### Advertising (Free Tier Only)
 
-The free tier of BudgeTrak displays native ads served by **Google AdMob**. AdMob may collect a limited advertising identifier and basic device information to serve ads, subject to Google's own privacy policy. You can reset or limit your advertising identifier in your Android device settings at any time. If you upgrade to a paid tier or subscribe to Premium, ads are removed and AdMob is no longer loaded.
+The free tier of BudgeTrak displays native ads served through an advertising network. The network may collect a limited Android advertising identifier and basic device information to serve ads. You can reset or limit your **Android advertising identifier** in your device settings at any time. If you upgrade to a paid tier or subscribe to Premium, ads are removed entirely.
 
 ### What We Do **Not** Collect
 
 We want to be specific about this. BudgeTrak does **not** collect:
 
 - Your name, email address, phone number, or any other directly identifying personal information.
-- Your physical location, GPS coordinates, or IP address (beyond what Google services receive automatically for routing).
+- Your physical location, GPS coordinates, or IP address (beyond what the platform services receive automatically for routing).
 - Your contacts, calendar, photos library (other than receipt photos you explicitly attach), call history, SMS messages, or browsing history.
 - Your bank account credentials, routing numbers, or login details for any financial institution.
 - Any health, fitness, or biometric data.
@@ -91,65 +91,65 @@ We use the limited information we collect for exactly these purposes, and nothin
 - **To provide the app's core functionality** (calculate your budget, sync data across your devices if you opted in, display your transactions).
 - **To diagnose crashes and bugs** so we can fix them in the next release.
 - **To verify the integrity of your subscription** if you have upgraded.
-- **To serve ads** on the free tier via AdMob.
+- **To serve ads** on the free tier through our advertising network.
 
 We do **not**:
 
 - Sell your data to anyone, ever, for any purpose.
-- Share your data with data brokers, marketing networks, or analytics companies (other than the Google services listed above).
+- Share your data with data brokers, marketing networks, or analytics companies (other than the third-party processors listed below).
 - Use your financial data to train machine learning models or AI systems.
 - Build a profile of you for advertising or any other purpose.
 
 ## How We Protect Your Information
 
 - **End-to-end encryption** for all SYNC data using ChaCha20-Poly1305, with the encryption key generated and stored only on your devices.
-- **Encrypted at rest** in cloud storage — even Google's servers only ever see ciphertext.
+- **Encrypted at rest** in cloud storage — even our cloud infrastructure provider only ever sees ciphertext.
 - **Encrypted in transit** using HTTPS / TLS for all network communication.
-- **App Check** verification using Google Play Integrity to block unauthorized clients from accessing the SYNC backend.
+- **App-integrity verification** to block unauthorized clients from accessing the SYNC backend.
 - **Password-encrypted backups** using PBKDF2-SHA256 key derivation — every backup is encrypted with a password you provide; without it, the backup cannot be decrypted.
 - **No server-side decryption capability** — by design, we cannot read your data even if we wanted to or were compelled to.
 
 No system is perfectly secure, but we follow industry best practices and have designed BudgeTrak to minimize what we ever have access to.
 
-## Third-Party Services
+## Third-Party Processors
 
-BudgeTrak relies on the following third-party services. Each has its own privacy policy that governs how they handle the limited data we share with them.
+BudgeTrak relies on the following third-party processors. Each has its own privacy policy that governs how they handle the limited data we share with them. We list the specific providers here so this disclosure is exhaustive and verifiable; the rest of this policy refers to them by their function (e.g., "our cloud infrastructure provider") to keep the prose readable.
 
-| Service | Purpose | What it sees |
-|---|---|---|
-| **Google Firebase Firestore** | Encrypted SYNC data relay | Encrypted blobs only |
-| **Google Firebase Cloud Storage** | Encrypted receipt photo storage (SYNC) | Encrypted blobs only |
-| **Google Firebase Realtime Database** | Device presence (online/offline) | Anonymous device IDs |
-| **Google Firebase Authentication** | Anonymous sign-in for SYNC | Anonymous user token |
-| **Google Firebase App Check** | Anti-abuse verification | Play Integrity attestation |
-| **Google Firebase Crashlytics** | Crash reports and diagnostics | Crash data, no financial data |
-| **Google Firebase Analytics** | Anonymous usage events (OCR accuracy + daily heartbeat) | Counts and booleans only — no transaction content, no location |
-| **Google Gemini** (opt-in AI features only) | Receipt reading; CSV transaction categorization; Help Chat assistant | Receipt image contents; merchant and amount of imported bank transactions; the text you type into Help Chat plus a relevant excerpt of the app's help documentation |
-| **Google Play Billing** | Subscription and one-time purchases | Payment info (handled entirely by Google) |
-| **Google AdMob** (free tier only) | Native advertising | Advertising ID, basic device info |
+| Service | Provider | Purpose | What it sees |
+|---|---|---|---|
+| Encrypted SYNC data relay | Google Firebase Firestore | Cloud database for encrypted blobs | Encrypted blobs only |
+| Encrypted receipt photo storage (SYNC) | Google Firebase Cloud Storage | Cloud object storage for encrypted images | Encrypted blobs only |
+| Device presence tracking | Google Firebase Realtime Database | Online/offline indicators for SYNC | Anonymous device IDs |
+| Backend authentication | Google Firebase Authentication | Anonymous sign-in for SYNC / Help Chat | Anonymous user token |
+| Anti-abuse verification | Google Firebase App Check + Play Integrity | Blocks unauthorized clients | Platform attestation |
+| Crash reporting | Google Firebase Crashlytics | Crash diagnostics | Crash data, no financial data |
+| Usage analytics | Google Firebase Analytics | Anonymous usage events (OCR accuracy + daily heartbeat) | Counts and booleans only — no transaction content, no location |
+| AI processing (opt-in features only) | Google Gemini | Receipt reading; CSV transaction categorization; Help Chat assistant | Receipt image contents; merchant and amount of imported bank transactions; the text you type into Help Chat plus a relevant excerpt of the app's help documentation |
+| In-app purchases and subscriptions | Google Play Billing | Subscription and one-time purchases | Payment info (handled entirely by Google Play) |
+| Advertising (free tier only) | Google AdMob | Native advertising | Advertising ID, basic device info |
 
-You can review Google's privacy practices at [https://policies.google.com/privacy](https://policies.google.com/privacy).
+You can review the privacy practices of these providers at [https://policies.google.com/privacy](https://policies.google.com/privacy).
 
 ## AI-Assisted Features (Opt-In)
 
-BudgeTrak offers three optional AI-assisted features powered by Google's Gemini models. The first two are available to Paid and Subscriber tiers and are accessed through Firebase AI Logic. The third, Help Chat, is available to all tiers (including Free) and goes through the Gemini API directly.
+BudgeTrak offers three optional AI-assisted features. The first two are available to Paid and Subscriber tiers; the third, Help Chat, is available to all tiers (including Free). All three are off by default and require an explicit user action to enable.
 
 ### AI Receipt Scanning (Subscribers)
-When a subscriber taps the sparkle icon in the transaction dialog, BudgeTrak sends the receipt photo to Google Gemini to extract the merchant, date, amount, and category. The response is returned directly to your device and stored only in your transaction record.
+When a subscriber taps the sparkle icon in the transaction dialog, BudgeTrak sends the receipt photo to our AI service provider to extract the merchant, date, amount, and category. The response is returned directly to your device and stored only in your transaction record.
 
 ### AI CSV Categorization (Paid and Subscriber tiers, off by default)
-When enabled in Settings, BudgeTrak sends the merchant name and amount of newly-imported bank transactions to Google Gemini to choose the best-matching category for each one. The transaction date is **not** sent. Only transactions that BudgeTrak's on-device categorizer cannot confidently classify are sent.
+When enabled in Settings, BudgeTrak sends the merchant name and amount of newly-imported bank transactions to our AI service provider to choose the best-matching category for each one. The transaction date is **not** sent. Only transactions that BudgeTrak's on-device categorizer cannot confidently classify are sent.
 
 ### Help Chat Assistant (All tiers, off by default)
 If you enable the Help Chat checkbox in **Settings → Privacy → Allow Chatbot to transmit and store your messages…** and tap **Accept** on the in-app consent dialog, BudgeTrak's Help Chat feature lets you type questions about how the app works and receive AI-generated answers grounded in the app's help pages. When the feature is enabled:
 
-- The text you type is sent to Google Gemini to generate a reply. Each request also includes a short excerpt from the app's built-in help documentation so Gemini can ground its answer in BudgeTrak's actual behavior. No personal financial data, transaction details, account balances, or settings are sent.
-- The full chat transcript is also stored **anonymously** on Firebase Firestore under a random 128-bit chat ID generated on your device. The transcript is anonymous in the literal sense: we do **not** record your Firebase user ID, device ID, IP address, name, email, or any other identifier alongside it — only the chat ID, the message text, timestamps, and the app version. We use these anonymously stored transcripts to periodically review the chatbot's accuracy and detect abusive use; we cannot tie them back to any specific user. Transcripts are automatically deleted after **7 days** by a server-side time-to-live policy.
+- The text you type is sent to our AI service provider to generate a reply. Each request also includes a short excerpt from the app's built-in help documentation so the AI can ground its answer in BudgeTrak's actual behavior. No personal financial data, transaction details, account balances, or settings are sent.
+- The full chat transcript is also stored **anonymously** on our cloud infrastructure under a random 128-bit chat ID generated on your device. The transcript is anonymous in the literal sense: we do **not** record your backend authentication user ID, device ID, IP address, name, email, or any other identifier alongside it — only the chat ID, the message text, timestamps, and the app version. We use these anonymously stored transcripts to periodically review the chatbot's accuracy and detect abusive use; we cannot tie them back to any specific user. Transcripts are automatically deleted after **7 days** by a server-side time-to-live policy.
 - Each device manages its own consent independently. The checkbox is off by default on install and is **not** synced between SYNC devices. Unchecking it at any time revokes consent — past transcripts already on our servers remain subject to the 7-day TTL above and will then be deleted automatically, and no further messages will be uploaded from your device.
 - You can tap **Clear** in the Help Chat dialog at any time to immediately upload the existing transcript one last time and wipe the local buffer, starting a fresh chat with a new anonymous chat ID. Local messages older than 48 hours are also pruned automatically on each device regardless of whether you clear them.
-- You do **not** need a paid subscription, and Help Chat does **not** require SYNC. If you have not enabled SYNC, BudgeTrak will sign in anonymously to Firebase the first time it needs to upload a transcript, solely so our server-side authentication requirement is satisfied; no personally-identifying information is collected through this anonymous sign-in.
+- You do **not** need a paid subscription, and Help Chat does **not** require SYNC. If you have not enabled SYNC, BudgeTrak will sign in anonymously the first time it needs to upload a transcript, solely so our server-side authentication requirement is satisfied; no personally-identifying information is collected through this anonymous sign-in.
 
-### What's never sent to the AI provider
+### What's never sent to the AI service provider
 - Your account balances or totals
 - Your historical transactions (other than the specific imported rows or receipt being processed)
 - Your encryption keys, device identifiers, or authentication tokens
@@ -158,8 +158,8 @@ If you enable the Help Chat checkbox in **Settings → Privacy → Allow Chatbot
 
 ### How your data is protected
 - All requests are encrypted in transit (HTTPS/TLS).
-- For Receipt Scanning and CSV Categorization, Google deletes request and response data once the request completes; nothing is stored on Google's servers for these features. Per Firebase AI Logic's default configuration, **your data is not used to train Google's models**.
-- For Help Chat, your typed messages and Gemini's replies are stored by BudgeTrak (not by Google) in Firebase Firestore for up to 7 days for the accuracy/abuse review described above, and are then automatically deleted. Google's Gemini API does not retain the request after the response is generated.
+- For Receipt Scanning and CSV Categorization, the AI service provider deletes request and response data once the request completes; nothing is stored on the provider's servers for these features. Per the provider's default configuration, **your data is not used to train the provider's AI models**.
+- For Help Chat, your typed messages and the AI's replies are stored by BudgeTrak (not by the AI service provider) for up to 7 days for the accuracy/abuse review described above, and are then automatically deleted. The AI provider does not retain the request after the response is generated.
 - All AI features can be disabled in Settings at any time, which falls back to BudgeTrak's fully on-device behavior (or to the in-app email escape link for Help Chat).
 
 Free-tier users have access to **Help Chat** (with consent) but not to **AI Receipt Scanning** or **AI CSV Categorization**.
@@ -172,9 +172,9 @@ You have full control over your data in BudgeTrak.
 - **Leave a SYNC group**: Tap "Leave Group" on the SYNC screen. Your local data is preserved; cloud data tied to your device is removed.
 - **Dissolve a SYNC group** (admin only): Tap "Dissolve Group" on the SYNC screen. All cloud data for the group is permanently deleted; each device retains its local copy.
 - **Export your data**: Use the Save feature on the Transactions screen to export your transactions in CSV, Excel, or PDF format. Backups via Settings include all your budget data in a single file.
-- **Disable crash reporting and usage telemetry**: Open **Settings → Privacy → Send crash reports and anonymous usage data** in BudgeTrak and uncheck the box. The change takes effect immediately — Firebase Crashlytics and Firebase Analytics are both told to stop collecting any data from your device, including the daily heartbeat and the OCR-accuracy events.
+- **Disable crash reporting and usage telemetry**: Open **Settings → Privacy → Send crash reports and anonymous usage data** in BudgeTrak and uncheck the box. The change takes effect immediately — crash reporting and analytics are both told to stop collecting any data from your device, including the daily heartbeat and the OCR-accuracy events.
 - **Revoke Help Chat consent**: Open **Settings → Privacy → Allow Chatbot to transmit and store your messages…** in BudgeTrak and uncheck the box. No further messages from your device will be uploaded. Any anonymously stored transcripts already on our servers continue to be deleted automatically after the 7-day retention period described above; because they are stored without your identity, we cannot delete a specific user's past transcripts on request.
-- **Limit ad tracking**: Reset or limit your advertising identifier in your Android device settings under Privacy → Ads.
+- **Limit ad tracking**: Reset or limit your Android advertising identifier in your device settings under Privacy → Ads.
 
 If you want us to confirm what data we hold about you (note: in nearly all cases, the answer is "nothing personally identifying") or have any other privacy request, contact us at **techadvantagesupport@gmail.com**.
 
@@ -183,7 +183,7 @@ If you want us to confirm what data we hold about you (note: in nearly all cases
 You can request deletion of your BudgeTrak data through any of the following options:
 
 ### 1. In-app deletion (admin of a SYNC group)
-Open BudgeTrak → Settings → SYNC → **Dissolve Group**. This permanently deletes all server-side data for the group: transactions, categories, recurring expenses, income sources, savings goals, amortization entries, period ledger, encrypted receipt photos, and group metadata. The cascade is performed by a Cloud Function that removes data from Firestore, Realtime Database, and Cloud Storage. Each member device retains its local copy unless they also uninstall the app.
+Open BudgeTrak → Settings → SYNC → **Dissolve Group**. This permanently deletes all server-side data for the group: transactions, categories, recurring expenses, income sources, savings goals, amortization entries, period ledger, encrypted receipt photos, and group metadata. The cascade is performed by a server-side function that removes data from our cloud infrastructure. Each member device retains its local copy unless they also uninstall the app.
 
 ### 2. In-app removal (member of a SYNC group)
 Open BudgeTrak → Settings → SYNC → **Leave Group**. Your device is marked as removed in the group's device roster, your real-time presence record is deleted, and your device's encryption keys to the group are wiped. The shared data itself stays in the group for the remaining members; if you want the entire group deleted, the admin must dissolve it.
@@ -199,14 +199,14 @@ BudgeTrak deliberately does not associate your cloud data with your name, email 
 
 If you have lost access to your device or to a group whose admin you can no longer reach, the 90-day inactivity cleanup above is the deletion mechanism. Make sure you have a local backup of any data you would like to keep before that window expires.
 
-What deletion does **not** affect: anonymous Crashlytics records (retained by Google for 90 days per their standard policy regardless of in-app actions), and AdMob advertising identifiers (managed by Google at the device level — reset via your Android settings).
+What deletion does **not** affect: anonymous crash records (retained by the crash reporting provider for 90 days per their standard policy regardless of in-app actions), and advertising identifiers (managed by Android at the device level — reset via your device settings).
 
 ## Data Retention
 
 - **On-device data** is retained until you delete it or uninstall the app.
 - **SYNC cloud data** is automatically deleted 90 days after the last activity on a group, and immediately deleted when a group is dissolved.
 - **Help Chat transcripts** are stored anonymously and automatically deleted **7 days** after the last update by a server-side time-to-live policy. Local copies on your device are pruned after 48 hours regardless.
-- **Crash reports** are retained by Google Firebase Crashlytics according to Google's standard retention policies (currently 90 days for crash data).
+- **Crash reports** are retained by the crash reporting provider according to their standard retention policies (currently 90 days for crash data).
 - **Receipt photos in cloud storage** follow the retention period your group admin sets in Settings, or are kept indefinitely if no retention period is configured. They are immediately deleted when you remove the corresponding transaction or photo.
 
 ## Children's Privacy
@@ -215,7 +215,7 @@ BudgeTrak is a personal finance tool intended for users aged 13 and over. We do 
 
 ## International Users
 
-BudgeTrak is published from the United States. If you use the app from outside the United States, please be aware that any data you choose to sync to the cloud (which is encrypted before it leaves your device) may be relayed through servers operated by Google in the United States or other countries where Google maintains infrastructure. By using BudgeTrak's SYNC feature, you consent to this relay.
+BudgeTrak is published from the United States. If you use the app from outside the United States, please be aware that any data you choose to sync to the cloud (which is encrypted before it leaves your device) may be relayed through servers operated by our third-party processors in the United States or other countries where they maintain infrastructure. By using BudgeTrak's SYNC feature, you consent to this relay.
 
 ## Changes to This Policy
 
