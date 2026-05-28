@@ -37,10 +37,15 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 - **AI Receipt Scanning** — tap the sparkle icon to auto-fill merchant, date, amount, and category splits from a receipt photo using Gemini 2.5 Flash-Lite (Subscriber)
 - PDF expense reports for taxes, reimbursement, or sharing with an accountant
 
+**Recurring Expenses & Bill Reminders**
+- Register bills, subscriptions, and loan payments so the budget engine accounts for them automatically
+- Accelerated set-aside mode for new bills you want fully funded before the first payment hits
+- **Due-date notifications** — customize reminder lead time and time of day, with per-bill overrides (Paid / Subscriber)
+- Reminders fire device-locally, respect your timezone, and don't sync across SYNC group members — so the bill-payer gets alerts without nagging the rest of the household
+
 **Savings Goals & Amortization**
 - Save before a planned purchase (Savings Goals) or spread an unexpected expense over time (Amortization)
 - Target-date and fixed-contribution goal types
-- Accelerated set-aside mode for bills you want fully funded before they arrive
 - 18-month Cash Flow Simulation to visualize your financial trajectory
 
 **SYNC Groups (BudgeTrak SYNC)**
@@ -54,6 +59,11 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 - Visual monthly calendar showing when income and expenses are scheduled
 - Color-coded days: green for income, red for expenses, blue for budget reset days
 - Tap any day to see the breakdown
+
+**Help & Support**
+- **AI Help Chatbot** — ask questions about any feature from the chatbot icon on every in-app help page (daily message cap by tier)
+- 12 detailed help screens covering every major feature with mockup illustrations
+- Direct email contact for issues the chatbot can't resolve
 
 **Privacy First**
 - Zero permissions beyond internet access — no contacts, no location, no phone access
@@ -72,8 +82,10 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 | Save to CSV / Excel / PDF | — | Yes | Yes |
 | Receipt photos + PDFs (up to 5 per transaction) | — | Yes | Yes |
 | AI CSV Categorization | — | Yes | Yes |
+| Bill due-date notifications | — | Yes | Yes |
 | Cash Flow Simulation chart | — | Yes | Yes |
 | Join a SYNC group | Yes | Yes | Yes |
+| AI Help Chatbot daily messages | 10 | 25 | 50 |
 | AI Receipt Scanning | — | — | Yes |
 | Create + Admin a SYNC group | — | — | Yes |
 
@@ -82,7 +94,7 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 - Goodbudget: $10/month ($80/year)
 - EveryDollar (Ramsey+): $17.99/month
 
-BudgeTrak's core budgeting features are **free forever** with no account required. The one-time $9.99 paid upgrade unlocks unlimited home-screen-widget transactions, CSV/Excel/PDF import and export, receipt photos and PDFs, AI CSV Categorization, the Cash Flow Simulation chart, and ad removal — less than a single month of most competitors. The $4.99/month subscription adds AI Receipt Scanning and SYNC groups at a fraction of what others charge.
+BudgeTrak's core budgeting features are **free forever** with no account required. The one-time $9.99 paid upgrade unlocks unlimited home-screen-widget transactions, CSV/Excel/PDF import and export, receipt photos and PDFs, AI CSV Categorization, bill due-date notifications, the Cash Flow Simulation chart, and ad removal — less than a single month of most competitors. The $4.99/month subscription adds AI Receipt Scanning and SYNC groups at a fraction of what others charge.
 
 ## Download
 

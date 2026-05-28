@@ -37,10 +37,15 @@ La mayoría de las aplicaciones de presupuesto le hacen categorizar cada compra 
 - **Lectura de Recibos con IA** — toque el ícono de chispa para completar automáticamente comercio, fecha, monto y categorías a partir de la foto de un recibo usando Gemini 2.5 Flash-Lite (plan Suscriptor)
 - Reportes de gastos en PDF para impuestos, reembolsos o para compartir con un contador
 
+**Gastos Recurrentes y Recordatorios de Cuentas**
+- Registre cuentas, suscripciones y pagos de préstamos para que el motor de presupuesto los considere automáticamente
+- Modo de aporte acelerado para cuentas nuevas que quiera tener totalmente cubiertas antes del primer pago
+- **Notificaciones de vencimiento** — personalice los días previos y la hora del recordatorio, con configuraciones individuales por cuenta (planes Pagado / Suscriptor)
+- Los recordatorios se disparan localmente en el dispositivo, respetan su zona horaria y no se sincronizan entre miembros del grupo SYNC — para que quien paga las cuentas reciba los avisos sin molestar al resto del hogar
+
 **Metas de Ahorro y Amortización**
 - Ahorre antes de una compra planeada (Metas de Ahorro) o reparta un gasto inesperado a lo largo del tiempo (Amortización)
 - Metas por fecha objetivo o por contribución fija
-- Modo de aporte acelerado para cuentas que quiera tener totalmente cubiertas antes de que lleguen
 - Simulación de Flujo de Efectivo a 18 meses para visualizar su trayectoria financiera
 
 **Grupos SYNC (BudgeTrak SYNC)**
@@ -54,6 +59,11 @@ La mayoría de las aplicaciones de presupuesto le hacen categorizar cada compra 
 - Calendario mensual visual que muestra cuándo están programados sus ingresos y gastos
 - Días con código de colores: verde para ingresos, rojo para gastos, azul para días de reinicio del presupuesto
 - Toque cualquier día para ver el detalle
+
+**Ayuda y Soporte**
+- **Asistente de Ayuda con IA** — haga preguntas sobre cualquier función desde el ícono de chatbot en cada página de ayuda dentro de la app (con un cupo diario de mensajes según su nivel)
+- 12 páginas de ayuda detalladas que cubren todas las funciones principales con ilustraciones
+- Contacto directo por correo electrónico para asuntos que el asistente no pueda resolver
 
 **Privacidad Primero**
 - Cero permisos más allá del acceso a Internet — sin contactos, sin ubicación, sin acceso al teléfono
@@ -72,8 +82,10 @@ La mayoría de las aplicaciones de presupuesto le hacen categorizar cada compra 
 | Guardar a CSV / Excel / PDF | — | Sí | Sí |
 | Fotos de recibos + PDF (hasta 5 por transacción) | — | Sí | Sí |
 | Categorización CSV con IA | — | Sí | Sí |
+| Notificaciones de vencimiento de cuentas | — | Sí | Sí |
 | Gráfico de Simulación de Flujo de Efectivo | — | Sí | Sí |
 | Unirse a un grupo SYNC | Sí | Sí | Sí |
+| Mensajes diarios del Asistente de Ayuda con IA | 10 | 25 | 50 |
 | Lectura de Recibos con IA | — | — | Sí |
 | Crear y administrar un grupo SYNC | — | — | Sí |
 
@@ -82,7 +94,7 @@ La mayoría de las aplicaciones de presupuesto le hacen categorizar cada compra 
 - Goodbudget: $10/mes ($80/año)
 - EveryDollar (Ramsey+): $17.99/mes
 
-Las funciones básicas de presupuesto de BudgeTrak son **gratis para siempre** y no requieren cuenta. La actualización Pagada de $9.99 (un solo pago) desbloquea transacciones ilimitadas del widget, importación y exportación CSV/Excel/PDF, fotos y PDF de recibos, Categorización CSV con IA, el gráfico de Simulación de Flujo de Efectivo y elimina los anuncios — menos de lo que cuesta un solo mes de la mayoría de los competidores. La suscripción de $4.99/mes agrega Lectura de Recibos con IA y grupos SYNC por una fracción de lo que cobran los demás.
+Las funciones básicas de presupuesto de BudgeTrak son **gratis para siempre** y no requieren cuenta. La actualización Pagada de $9.99 (un solo pago) desbloquea transacciones ilimitadas del widget, importación y exportación CSV/Excel/PDF, fotos y PDF de recibos, Categorización CSV con IA, notificaciones de vencimiento de cuentas, el gráfico de Simulación de Flujo de Efectivo y elimina los anuncios — menos de lo que cuesta un solo mes de la mayoría de los competidores. La suscripción de $4.99/mes agrega Lectura de Recibos con IA y grupos SYNC por una fracción de lo que cobran los demás.
 
 ## Descargar
 
