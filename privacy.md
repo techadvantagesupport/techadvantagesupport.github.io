@@ -51,7 +51,7 @@ When this collection is enabled, the data we collect includes:
 
 - Crash stack traces and error messages.
 - Anonymous device information (model, OS version, app version).
-- An anonymous backend authentication user ID (if you use SYNC) — a random identifier, not your name or email.
+- An anonymous backend authentication user ID — present only if you have used a feature that requires backend authentication (SYNC, Help Chat, AI Receipt Scanning, AI CSV Categorization, or a paid purchase). A random identifier generated on first use, not your name or email. Users who never use any of those features never receive a backend user ID at all.
 - Diagnostic counters: the number of transactions, recurring expenses, and period-ledger entries you have; sync status (`healthy`, `dead`, or `off`); the number of devices in your SYNC group; and the date of your last period refresh.
 - A **one-way hash digest** of your available cash balance (computed locally as a hex digest before being sent). The actual cash value never leaves your device, and the hash cannot be reversed to recover the original number.
 - Timestamped lifecycle events like "listener started," "token refreshed," or "period boundary crossed" used to debug sync issues.
@@ -64,7 +64,7 @@ If you disable diagnostic reporting, none of the above is collected — the dail
 
 ### Authentication and Anti-Abuse
 
-If you use SYNC, BudgeTrak signs you in to our backend using **anonymous authentication** (no email or password required). The same anonymous sign-in is also used if you have enabled the Help Chat feature and have not already signed in for SYNC — your device is granted an anonymous user token solely so the Help Chat transcript upload can pass our server's authentication requirement. Your device is also verified using the Android platform's app-integrity attestation to prevent unauthorized clients from accessing the cloud relay. Neither of these systems collects personal information about you.
+BudgeTrak signs you in to our backend using **anonymous authentication** (no email or password required) only when you first use a feature that needs it: **SYNC** (joining or creating a household sync group), **Help Chat** (sending a message to the AI assistant), **AI Receipt Scanning**, **AI CSV Categorization**, or completing a **paid purchase or subscription**. Until you use one of those features, your device has no backend user ID — the app runs entirely on-device with no authenticated session. The first time you do use one, a random anonymous token is generated, persists for the life of that install, and is used only to satisfy our server's authentication requirement on the corresponding feature. Your device is also verified using the Android platform's app-integrity attestation to prevent unauthorized clients from accessing the cloud relay. Neither of these systems collects personal information about you.
 
 ### Subscription and Purchase Data
 
@@ -120,7 +120,7 @@ BudgeTrak relies on the following third-party processors. Each has its own priva
 | Encrypted SYNC data relay | Google Firebase Firestore | Cloud database for encrypted blobs | Encrypted blobs only |
 | Encrypted receipt photo storage (SYNC) | Google Firebase Cloud Storage | Cloud object storage for encrypted images | Encrypted blobs only |
 | Device presence tracking | Google Firebase Realtime Database | Online/offline indicators for SYNC | Anonymous device IDs |
-| Backend authentication | Google Firebase Authentication | Anonymous sign-in for SYNC / Help Chat | Anonymous user token |
+| Backend authentication | Google Firebase Authentication | Anonymous sign-in triggered only by first use of SYNC, Help Chat, AI features, or a paid purchase | Anonymous user token |
 | Anti-abuse verification | Google Firebase App Check + Play Integrity | Blocks unauthorized clients | Platform attestation |
 | Crash reporting | Google Firebase Crashlytics | Crash diagnostics | Crash data, no financial data |
 | Usage analytics | Google Firebase Analytics | Anonymous usage events (OCR accuracy + daily heartbeat) | Counts and booleans only — no transaction content, no location |

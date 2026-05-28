@@ -53,7 +53,7 @@ Cuando esta recopilación está habilitada, los datos que recopilamos incluyen:
 
 - Trazas de errores y mensajes de fallo.
 - Información anónima del dispositivo (modelo, versión del sistema operativo, versión de la aplicación).
-- Un ID anónimo de usuario de autenticación del backend (si usa SYNC) — un identificador aleatorio, no su nombre ni su correo.
+- Un ID anónimo de usuario de autenticación del backend — presente únicamente si ha usado una función que requiere autenticación del backend (SYNC, Chat de Ayuda, Lectura de Recibos con IA, Categorización CSV con IA, o una compra pagada). Un identificador aleatorio generado al primer uso, no su nombre ni su correo. Los usuarios que nunca usan ninguna de esas funciones jamás reciben un ID de usuario del backend.
 - Contadores de diagnóstico: la cantidad de transacciones, gastos recurrentes y entradas del libro mayor de período que tiene; estado de la sincronización (`healthy`, `dead` u `off`); la cantidad de dispositivos en su grupo SYNC; y la fecha de su última actualización de período.
 - Un **resumen unidireccional con hash** del saldo de efectivo disponible (calculado localmente como un dígito hexadecimal antes de enviarse). El valor real del efectivo nunca sale de su dispositivo, y el hash no puede revertirse para recuperar el número original.
 - Eventos de ciclo de vida con marca de tiempo como "listener iniciado", "token renovado" o "límite de período cruzado", usados para depurar problemas de sincronización.
@@ -66,7 +66,7 @@ Si desactiva los reportes de diagnóstico, nada de lo anterior se recopila — e
 
 ### Autenticación y Anti-abuso
 
-Si usa SYNC, BudgeTrak lo inicia sesión en nuestro backend mediante **autenticación anónima** (no se requiere correo ni contraseña). El mismo inicio de sesión anónimo también se usa si ha habilitado el Chat de Ayuda y aún no ha iniciado sesión para SYNC: su dispositivo recibe un token anónimo de usuario únicamente para que la carga de transcripciones del Chat de Ayuda pueda satisfacer el requisito de autenticación de nuestro servidor. Su dispositivo también se verifica con la atestación de integridad de la plataforma Android para evitar que clientes no autorizados accedan al relevo en la nube. Ninguno de estos sistemas recopila información personal sobre usted.
+BudgeTrak lo inicia sesión en nuestro backend mediante **autenticación anónima** (no se requiere correo ni contraseña) solamente cuando usa por primera vez una función que la requiere: **SYNC** (unirse o crear un grupo de sincronización del hogar), **Chat de Ayuda** (enviar un mensaje al asistente de IA), **Lectura de Recibos con IA**, **Categorización CSV con IA**, o completar una **compra o suscripción pagada**. Hasta que use una de esas funciones, su dispositivo no tiene un ID de usuario del backend — la app se ejecuta totalmente en el dispositivo sin sesión autenticada. La primera vez que sí use alguna, se genera un token anónimo aleatorio, persiste durante la vida de esa instalación y se usa únicamente para satisfacer el requisito de autenticación de nuestro servidor en la función correspondiente. Su dispositivo también se verifica con la atestación de integridad de la plataforma Android para evitar que clientes no autorizados accedan al relevo en la nube. Ninguno de estos sistemas recopila información personal sobre usted.
 
 ### Datos de Suscripción y Compra
 
@@ -122,7 +122,7 @@ BudgeTrak depende de los siguientes terceros encargados del tratamiento. Cada un
 | Relevo de datos cifrados de SYNC | Google Firebase Firestore | Base de datos en la nube para bloques cifrados | Solo bloques cifrados |
 | Almacenamiento de fotos de recibos cifradas (SYNC) | Google Firebase Cloud Storage | Almacenamiento de objetos en la nube para imágenes cifradas | Solo bloques cifrados |
 | Presencia de dispositivos | Google Firebase Realtime Database | Indicadores en línea/desconectado para SYNC | IDs anónimos de dispositivo |
-| Autenticación del backend | Google Firebase Authentication | Inicio de sesión anónimo para SYNC / Chat de Ayuda | Token de usuario anónimo |
+| Autenticación del backend | Google Firebase Authentication | Inicio de sesión anónimo activado solo al primer uso de SYNC, Chat de Ayuda, funciones de IA o una compra pagada | Token de usuario anónimo |
 | Verificación anti-abuso | Google Firebase App Check + Play Integrity | Bloquea clientes no autorizados | Atestación de la plataforma |
 | Reporte de fallos | Google Firebase Crashlytics | Diagnóstico de fallos | Datos de fallos, sin datos financieros |
 | Analítica de uso | Google Firebase Analytics | Eventos anónimos de uso (precisión OCR + latido diario) | Solo conteos y valores booleanos — sin contenido de transacciones, sin ubicación |
