@@ -7,7 +7,7 @@
 
 ## Plain-English Summary
 
-BudgeTrak is a personal budgeting app. Your financial data lives on your device. If you choose to enable the SYNC feature to share your budget across multiple devices in your household, that data is end-to-end encrypted before it leaves your device — neither we nor any cloud provider can read your transactions, balances, or merchant names. If you opt in to the in-app Help Chat assistant, the text you type into it is sent to our AI service provider to generate answers and is stored **anonymously** on our servers for up to 7 days for quality review (not linked to your identity). We do not sell your data, we do not show it to advertisers, and we do not analyze it to build a profile of you. The full policy below explains exactly what is collected, where it goes, and how to delete it.
+BudgeTrak is a personal budgeting app. Your financial data lives on your device. If you choose to enable the SYNC feature to share your budget across multiple devices in your household, that data is end-to-end encrypted before it leaves your device — neither we nor any cloud provider can read your transactions, balances, or merchant names. If you opt in to the in-app Help Chat assistant, the text you type into it is sent to our AI service provider to generate answers and is stored **anonymously** on our servers for up to 7 days for quality review (not linked to your identity). Your financial data is never shared with advertisers or used to profile you. The free tier is supported by ads from Google AdMob, which uses your device's advertising ID to show personalized ads (resettable in your device settings; ads removed entirely if you upgrade or subscribe). The full policy below explains exactly what is collected, where it goes, and how to delete it.
 
 ## Who We Are
 
@@ -98,7 +98,7 @@ We do **not**:
 - Sell your data to anyone, ever, for any purpose.
 - Share your data with data brokers, marketing networks, or analytics companies (other than the third-party processors listed below).
 - Use your financial data to train machine learning models or AI systems.
-- Build a profile of you for advertising or any other purpose.
+- Use your financial data for advertising or to build a profile of you.
 
 ## How We Protect Your Information
 

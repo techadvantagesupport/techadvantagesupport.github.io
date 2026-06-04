@@ -9,7 +9,7 @@
 
 ## Resumen en Lenguaje Sencillo
 
-BudgeTrak es una aplicación personal de presupuesto. Sus datos financieros se guardan en su dispositivo. Si decide activar la función SYNC para compartir su presupuesto entre varios dispositivos de su hogar, esos datos se cifran de extremo a extremo antes de salir de su dispositivo — ni nosotros ni ningún proveedor de la nube podemos leer sus transacciones, saldos o nombres de comercios. Si opta por usar el asistente de Chat de Ayuda dentro de la app, el texto que escribe se envía a nuestro proveedor de servicio de IA para generar respuestas y se almacena **de forma anónima** en nuestros servidores hasta 7 días para revisión de calidad (sin vincularse a su identidad). No vendemos sus datos, no los mostramos a anunciantes y no los analizamos para construir un perfil de usted. La política completa a continuación explica exactamente qué se recopila, a dónde va y cómo eliminarlo.
+BudgeTrak es una aplicación personal de presupuesto. Sus datos financieros se guardan en su dispositivo. Si decide activar la función SYNC para compartir su presupuesto entre varios dispositivos de su hogar, esos datos se cifran de extremo a extremo antes de salir de su dispositivo — ni nosotros ni ningún proveedor de la nube podemos leer sus transacciones, saldos o nombres de comercios. Si opta por usar el asistente de Chat de Ayuda dentro de la app, el texto que escribe se envía a nuestro proveedor de servicio de IA para generar respuestas y se almacena **de forma anónima** en nuestros servidores hasta 7 días para revisión de calidad (sin vincularse a su identidad). Sus datos financieros nunca se comparten con anunciantes ni se usan para crear un perfil de usted. El nivel gratuito se financia con anuncios de Google AdMob, que usa el identificador de publicidad de su dispositivo para mostrar anuncios personalizados (puede restablecerlo en la configuración de su dispositivo; los anuncios se eliminan por completo si actualiza o se suscribe). La política completa a continuación explica exactamente qué se recopila, a dónde va y cómo eliminarlo.
 
 ## Quiénes Somos
 
@@ -100,7 +100,7 @@ Usamos la información limitada que recopilamos exclusivamente para estos propó
 - Vendemos sus datos a nadie, jamás, por ningún motivo.
 - Compartimos sus datos con corredores de datos, redes de marketing o empresas de análisis (más allá de los terceros encargados del tratamiento enumerados a continuación).
 - Usamos sus datos financieros para entrenar modelos de aprendizaje automático o sistemas de IA.
-- Construimos un perfil de usted con fines publicitarios ni para ningún otro propósito.
+- Usamos sus datos financieros con fines publicitarios ni para crear un perfil de usted.
 
 ## Cómo Protegemos su Información
 
