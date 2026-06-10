@@ -410,6 +410,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <button class="tbtn" id="tourNext" aria-label="Next step">›</button>
         <button class="tbtn" id="tourVoice"></button>
       </div>
+      <p id="voiceHint" hidden style="max-width:480px;text-align:center;color:#C7D3DE;font-size:.82rem;margin:0"></p>
     </div>
   </div>
 </section>
@@ -615,7 +616,8 @@ var ES = {
   'chat.err':'Lo siento — no pude conectar con el asistente. Intenta de nuevo, o escríbenos a techadvantagesupport@gmail.com.',
   'chat.limit':'Alcanzaste el límite diario de mensajes. Vuelve mañana, o escríbenos a techadvantagesupport@gmail.com.',
   'chat.q1':'¿Cuánto cuesta BudgeTrak?','chat.q2':'¿Tengo que conectar mi banco?','chat.q3':'¿Qué es BudgeTrak SYNC?',
-  'tour.play':'Reproducir','tour.pause':'Pausa','tour.voiceOn':'Voz: Sí','tour.voiceOff':'Voz: No'
+  'tour.play':'Reproducir','tour.pause':'Pausa','tour.voiceOn':'Voz: Sí','tour.voiceOff':'Voz: No',
+  'tour.noVoice':'Tu dispositivo no tiene instalada una voz para este idioma, así que la narración está silenciada. Las voces provienen de la configuración de texto a voz de tu dispositivo.'
 };
 var DE = {
   'nav.features':'Funktionen','nav.tour':'App-Tour','nav.sync':'SYNC','nav.pricing':'Preise','nav.faq':'FAQ','nav.get':'App holen',
@@ -675,7 +677,8 @@ var DE = {
   'chat.err':'Entschuldigung — ich konnte den Assistenten nicht erreichen. Versuch es noch einmal oder schreib an techadvantagesupport@gmail.com.',
   'chat.limit':'Du hast das Tageslimit an Nachrichten erreicht. Komm morgen wieder oder schreib an techadvantagesupport@gmail.com.',
   'chat.q1':'Was kostet BudgeTrak?','chat.q2':'Muss ich meine Bank verbinden?','chat.q3':'Was ist BudgeTrak SYNC?',
-  'tour.play':'Abspielen','tour.pause':'Pause','tour.voiceOn':'Stimme: An','tour.voiceOff':'Stimme: Aus'
+  'tour.play':'Abspielen','tour.pause':'Pause','tour.voiceOn':'Stimme: An','tour.voiceOff':'Stimme: Aus',
+  'tour.noVoice':'Auf deinem Gerät ist keine Stimme für diese Sprache installiert, daher ist die Erzählung stumm. Die Stimmen kommen aus den Text-zu-Sprache-Einstellungen deines Geräts.'
 };
 var FR = {
   'nav.features':'Fonctionnalités','nav.tour':'Visite','nav.sync':'SYNC','nav.pricing':'Tarifs','nav.faq':'FAQ','nav.get':'Télécharger',
@@ -735,7 +738,8 @@ var FR = {
   'chat.err':"Désolé — impossible de joindre l'assistant. Réessaie, ou écris-nous à techadvantagesupport@gmail.com.",
   'chat.limit':'Tu as atteint la limite quotidienne de messages. Reviens demain, ou écris-nous à techadvantagesupport@gmail.com.',
   'chat.q1':'Combien coûte BudgeTrak ?','chat.q2':'Dois-je connecter ma banque ?','chat.q3':"Qu'est-ce que BudgeTrak SYNC ?",
-  'tour.play':'Lecture','tour.pause':'Pause','tour.voiceOn':'Voix : Oui','tour.voiceOff':'Voix : Non'
+  'tour.play':'Lecture','tour.pause':'Pause','tour.voiceOn':'Voix : Oui','tour.voiceOff':'Voix : Non',
+  'tour.noVoice':"Aucune voix pour cette langue n'est installée sur ton appareil, la narration est donc coupée. Les voix proviennent des réglages de synthèse vocale de ton appareil."
 };
 var DICTS = { es: ES, de: DE, fr: FR };
 var BADGES = {
@@ -745,6 +749,40 @@ var BADGES = {
   fr: 'https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png'
 };
 var VOICE_LANG = { en: 'en-US', es: 'es-US', de: 'de-DE', fr: 'fr-FR' };
+
+/* ── voice selection ──
+   Voices come from the visitor's OS/browser TTS engine. Quality varies
+   wildly and a missing language pack makes browsers read German with
+   the default English voice — worse than silence. So: score available
+   voices (exact region > Google/neural/network > plain prefix match),
+   and if the device has voices but NONE for the requested language,
+   mute narration and show a hint instead of faking the accent. */
+var voiceCache = [];
+function refreshVoices(){
+  if ('speechSynthesis' in window) voiceCache = window.speechSynthesis.getVoices() || [];
+}
+if ('speechSynthesis' in window) {
+  refreshVoices();
+  window.speechSynthesis.onvoiceschanged = refreshVoices;
+}
+function pickVoice(target){
+  var base = target.slice(0, 2).toLowerCase();
+  var cands = voiceCache.filter(function(v){
+    return ((v.lang || '').replace('_', '-').toLowerCase()).indexOf(base) === 0;
+  });
+  if (cands.length === 0) return null;
+  function score(v){
+    var L = (v.lang || '').replace('_', '-').toLowerCase();
+    var s = 0;
+    if (L === target.toLowerCase()) s += 4;
+    if (/google/i.test(v.name)) s += 2;
+    if (/natural|neural|premium|enhanced|wavenet/i.test(v.name)) s += 2;
+    if (v.localService === false) s += 1;
+    return s;
+  }
+  cands.sort(function(a, b){ return score(b) - score(a); });
+  return cands[0];
+}
 var EN_SNAPSHOT = {}; // filled at init from the DOM
 var EN_FIXED = {
   'chat.placeholder':'Type a question…',
@@ -752,7 +790,8 @@ var EN_FIXED = {
   'chat.err':"Sorry — I couldn't reach the assistant. Please try again, or email techadvantagesupport@gmail.com.",
   'chat.limit':"You've reached today's message limit. Come back tomorrow, or email techadvantagesupport@gmail.com.",
   'chat.q1':'How much does BudgeTrak cost?','chat.q2':'Do I have to connect my bank?','chat.q3':'What is BudgeTrak SYNC?',
-  'tour.play':'Play','tour.pause':'Pause','tour.voiceOn':'Voice: On','tour.voiceOff':'Voice: Off'
+  'tour.play':'Play','tour.pause':'Pause','tour.voiceOn':'Voice: On','tour.voiceOff':'Voice: Off',
+  'tour.noVoice':"Your device has no voice installed for this language, so narration is muted. Voices come from your device's text-to-speech settings."
 };
 var lang = 'en';
 
@@ -783,6 +822,7 @@ function applyLang(){
   document.getElementById('footPrivacy').href = (lang === 'en') ? '/privacy' : '/' + lang + '/privacy';
   document.getElementById('chatInput').placeholder = t('chat.placeholder');
   renderTourStrings(); renderFaq(); refreshChatStatics();
+  setVoiceHint(false);  // re-evaluated on the next narration in the new language
   try { localStorage.setItem('btk_lang', lang); } catch(e){}
 }
 
@@ -991,15 +1031,26 @@ function stepDurationMs(s){
   if (voiceOn && ('speechSynthesis' in window)) return Math.max(TOUR_STEP_MS, Math.round(len * 75) + 2000);
   return Math.max(TOUR_STEP_MS, Math.round(len * 45));
 }
+function setVoiceHint(show){
+  var el = document.getElementById('voiceHint');
+  if (!el) return;
+  el.hidden = !show;
+  if (show) el.textContent = t('tour.noVoice');
+}
 function speak(text){
   if (!voiceOn || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
+  refreshVoices();
+  var target = VOICE_LANG[lang] || 'en-US';
+  var match = pickVoice(target);
+  // Voices are known but none exists for this language: stay silent
+  // (the step timer still advances the tour) and explain why.
+  if (!match && voiceCache.length > 0 && lang !== 'en') { setVoiceHint(true); return; }
+  setVoiceHint(false);
   var u = new SpeechSynthesisUtterance(text);
   var id = ++utterSeq;
-  u.lang = VOICE_LANG[lang] || 'en-US';
+  u.lang = target;
   u.rate = 1.0;
-  var voices = window.speechSynthesis.getVoices();
-  var match = voices.find(function(v){ return v.lang && v.lang.indexOf(lang) === 0; });
   if (match) u.voice = match;
   // Advance shortly after the narrator finishes instead of cutting her
   // off on a fixed timer. Utterances cancelled by a newer speak() are
@@ -1050,6 +1101,7 @@ document.getElementById('tourNext').addEventListener('click', function(){ goTour
 document.getElementById('tourVoice').addEventListener('click', function(){
   voiceOn = !voiceOn;
   if (!voiceOn && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+  if (!voiceOn) setVoiceHint(false);
   renderTourStrings();
   if (voiceOn) speak(narrationText(TOUR[tourIdx]));
   // re-pace the current step for the new mode (speech-end vs reading time)
