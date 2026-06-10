@@ -4,7 +4,7 @@ title: BudgeTrak Datenschutzerklärung
 lang: de
 ---
 
-<p align="right"><a href="/privacy"><b>English</b></a></p>
+<p align="right"><a href="/privacy"><b>English</b></a> · <a href="/es/privacy"><b>Español</b></a> · <a href="/fr/privacy"><b>Français</b></a></p>
 
 # BudgeTrak Datenschutzerklärung
 

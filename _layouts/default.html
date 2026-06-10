@@ -44,7 +44,7 @@ footer a{color:#D8E1E9}
 <header class="nav">
   <div class="nav-in">
     <a class="brand" href="/"><img src="/ic_app_icon.png" alt="BudgeTrak icon">BudgeTrak</a>
-    <a class="back" href="/{% if page.lang == 'es' %}?lang=es{% endif %}">{% if page.lang == 'es' %}← Volver al sitio{% else %}← Back to site{% endif %}</a>
+    <a class="back" href="{% if page.lang and page.lang != 'en' %}/?lang={{ page.lang }}{% else %}/{% endif %}">{% if page.lang == 'es' %}← Volver al sitio{% elsif page.lang == 'de' %}← Zurück zur Website{% elsif page.lang == 'fr' %}← Retour au site{% else %}← Back to site{% endif %}</a>
   </div>
 </header>
 <main>
@@ -56,6 +56,10 @@ footer a{color:#D8E1E9}
     <span>
       {% if page.lang == 'es' %}
         <a href="/?lang=es">Inicio</a> · <a href="mailto:techadvantagesupport@gmail.com">Contacto</a>
+      {% elsif page.lang == 'de' %}
+        <a href="/?lang=de">Startseite</a> · <a href="mailto:techadvantagesupport@gmail.com">Kontakt</a>
+      {% elsif page.lang == 'fr' %}
+        <a href="/?lang=fr">Accueil</a> · <a href="mailto:techadvantagesupport@gmail.com">Contact</a>
       {% else %}
         <a href="/">Home</a> · <a href="mailto:techadvantagesupport@gmail.com">Contact</a>
       {% endif %}

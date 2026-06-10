@@ -4,7 +4,7 @@ title: Política de Privacidad de BudgeTrak
 lang: es
 ---
 
-<p align="right"><a href="/privacy"><b>English</b></a></p>
+<p align="right"><a href="/privacy"><b>English</b></a> · <a href="/de/privacy"><b>Deutsch</b></a> · <a href="/fr/privacy"><b>Français</b></a></p>
 
 # Política de Privacidad de BudgeTrak
 
