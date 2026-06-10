@@ -149,6 +149,13 @@ If you enable the Help Chat checkbox in **Settings → Privacy → Allow Chatbot
 - You can tap **Clear** in the Help Chat dialog at any time to immediately upload the existing transcript one last time and wipe the local buffer, starting a fresh chat with a new anonymous chat ID. Local messages older than 48 hours are also pruned automatically on each device regardless of whether you clear them.
 - You do **not** need a paid subscription, and Help Chat does **not** require SYNC. If you have not enabled SYNC, BudgeTrak will sign in anonymously the first time it needs to upload a transcript, solely so our server-side authentication requirement is satisfied; no personally-identifying information is collected through this anonymous sign-in.
 
+### Website Chatbot (techadvantagesupport.github.io)
+Our website hosts an AI assistant that answers visitor questions about BudgeTrak, grounded in the same built-in help documentation as the in-app Help Chat. If you use it:
+
+- The text you type is sent to our servers and forwarded to our AI service provider to generate a reply. Do not enter personal, financial, or account information — the assistant does not need it and we ask you not to share it.
+- We store each message and reply for up to **7 days** to review the assistant's accuracy and detect abuse, together with a one-way cryptographic hash of your IP address. The hash is used **only** to enforce a daily per-visitor message limit; we cannot recover your IP address from it, and we store no name, email, account, or device identifier with website chats.
+- No account or sign-in is required, and using the website chatbot is entirely optional.
+
 ### What's never sent to the AI service provider
 - Your account balances or totals
 - Your historical transactions (other than the specific imported rows or receipt being processed)

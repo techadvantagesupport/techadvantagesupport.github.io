@@ -151,6 +151,13 @@ Si activa la casilla del Chat de Ayuda en **Ajustes → Privacidad → Permitir 
 - Puede tocar **Borrar** en el diálogo del Chat de Ayuda en cualquier momento para subir la transcripción existente una última vez y borrar el búfer local, comenzando un nuevo chat con un nuevo identificador anónimo. Los mensajes locales con más de 48 horas también se eliminan automáticamente en cada dispositivo, sin importar si los borra.
 - **No** necesita una suscripción pagada, y el Chat de Ayuda **no** requiere SYNC. Si no ha habilitado SYNC, BudgeTrak iniciará sesión de forma anónima la primera vez que necesite subir una transcripción, únicamente para satisfacer el requisito de autenticación del lado del servidor; no se recopila información personal identificable mediante este inicio de sesión anónimo.
 
+### Chatbot del sitio web (techadvantagesupport.github.io)
+Nuestro sitio web aloja un asistente de IA que responde preguntas de los visitantes sobre BudgeTrak, basándose en la misma documentación de ayuda integrada que el Chat de Ayuda dentro de la app. Si lo usa:
+
+- El texto que escribe se envía a nuestros servidores y se reenvía a nuestro proveedor de servicio de IA para generar una respuesta. No ingrese información personal, financiera ni de cuentas — el asistente no la necesita y le pedimos que no la comparta.
+- Almacenamos cada mensaje y respuesta hasta por **7 días** para revisar la precisión del asistente y detectar abusos, junto con un hash criptográfico unidireccional de su dirección IP. El hash se usa **únicamente** para aplicar un límite diario de mensajes por visitante; no podemos recuperar su dirección IP a partir de él, y no almacenamos nombre, correo, cuenta ni identificador de dispositivo con los chats del sitio web.
+- No se requiere cuenta ni inicio de sesión, y usar el chatbot del sitio web es completamente opcional.
+
 ### Lo que nunca se envía al proveedor de servicio de IA
 - Sus saldos o totales
 - Su historial de transacciones (más allá de las filas importadas o el recibo específico que se esté procesando)
