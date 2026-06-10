@@ -287,6 +287,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <option value="de">Deutsch</option>
         <option value="fr">Français</option>
       </select>
+      <select class="lang-btn" id="countrySel" aria-label="Country (for pricing)" title="Country — sets your local pricing"></select>
       <a class="cta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak" data-i18n="nav.get">Get the app</a>
     </nav>
   </div>
@@ -442,7 +443,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
     <div class="plans" style="text-align:left">
       <div class="plan">
         <h3 data-i18n="price.f">Free</h3>
-        <div class="price">$0</div>
+        <div class="price"><span id="priceFree">$0</span></div>
         <small style="color:var(--mut)" data-i18n="price.fNote">forever, no account</small>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.f1">Full budget engine &amp; tracking</span></li>
@@ -456,7 +457,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       <div class="plan pop">
         <span class="tag" data-i18n="price.popTag">Best value</span>
         <h3 data-i18n="price.p">Paid</h3>
-        <div class="price">$9.99 <small data-i18n="price.pNote">one time — yours forever</small></div>
+        <div class="price"><span id="pricePaid">$9.99</span> <small data-i18n="price.pNote">one time — yours forever</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p1">Everything in Free, ad-free</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p2">CSV / Excel import &amp; export, PDF reports</span></li>
@@ -469,7 +470,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       </div>
       <div class="plan">
         <h3 data-i18n="price.s">Subscriber</h3>
-        <div class="price">$4.99 <small data-i18n="price.sNote">/ month</small></div>
+        <div class="price"><span id="priceSub">$4.99</span> <small data-i18n="price.sNote">/ month</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.s1">Everything in Paid</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.s2">Create &amp; admin SYNC groups (5 devices)</span></li>
@@ -479,6 +480,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <a class="cta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak" data-i18n="price.sBtn">Go Subscriber</a>
       </div>
     </div>
+    <p class="price-region" id="priceRegion" style="margin-top:14px;font-size:.85rem;color:var(--mut)"></p>
     <p class="compare" data-i18n-html="price.compare">Compare: YNAB <b>$14.99/mo</b> · Goodbudget <b>$10/mo</b> · EveryDollar <b>$17.99/mo</b>. BudgeTrak's one-time upgrade costs less than a single month of any of them.</p>
   </div>
 </section>
@@ -795,6 +797,86 @@ var EN_FIXED = {
 };
 var lang = 'en';
 
+/* ═══════════════ regional pricing ═══════════════
+   Real per-country prices read from Play Console (2026-06-10). Display
+   formatting via Intl.NumberFormat so each currency gets its native
+   symbol + separators. Country defaults from the browser's region, with
+   an override dropdown. Refresh this table if Play pricing changes. */
+var PRICES = {US:{n:'United States',l:'en-US',c:'USD',p:9.99,s:4.99},GB:{n:'United Kingdom',l:'en-GB',c:'GBP',p:8.99,s:4.39},CA:{n:'Canada',l:'en-CA',c:'CAD',p:13.99,s:6.99},AU:{n:'Australia',l:'en-AU',c:'AUD',p:14.99,s:7.49},IE:{n:'Ireland',l:'en-IE',c:'EUR',p:9.99,s:4.99},NZ:{n:'New Zealand',l:'en-NZ',c:'NZD',p:18.99,s:9.49},DE:{n:'Germany',l:'de-DE',c:'EUR',p:9.99,s:4.99},AT:{n:'Austria',l:'de-AT',c:'EUR',p:9.99,s:4.99},CH:{n:'Switzerland',l:'de-CH',c:'CHF',p:7.8,s:3.9},FR:{n:'France',l:'fr-FR',c:'EUR',p:9.99,s:4.99},BE:{n:'Belgium',l:'fr-BE',c:'EUR',p:9.99,s:4.99},NL:{n:'Netherlands',l:'nl-NL',c:'EUR',p:9.99,s:4.99},ES:{n:'Spain',l:'es-ES',c:'EUR',p:9.99,s:4.99},IT:{n:'Italy',l:'it-IT',c:'EUR',p:9.99,s:4.99},PT:{n:'Portugal',l:'pt-PT',c:'EUR',p:9.99,s:4.99},MX:{n:'Mexico',l:'es-MX',c:'MXN',p:199,s:99},CO:{n:'Colombia',l:'es-CO',c:'COP',p:37500,s:18500},CL:{n:'Chile',l:'es-CL',c:'CLP',p:10600,s:5300},BR:{n:'Brazil',l:'pt-BR',c:'BRL',p:48.99,s:23.99},PE:{n:'Peru',l:'es-PE',c:'PEN',p:33.99,s:16.99},JP:{n:'Japan',l:'ja-JP',c:'JPY',p:1720,s:860},IN:{n:'India',l:'en-IN',c:'INR',p:1100,s:550},PL:{n:'Poland',l:'pl-PL',c:'PLN',p:43.99,s:21.99},SE:{n:'Sweden',l:'sv-SE',c:'SEK',p:115,s:59},NO:{n:'Norway',l:'nb-NO',c:'NOK',p:115,s:59},DK:{n:'Denmark',l:'da-DK',c:'DKK',p:79,s:40},ZA:{n:'South Africa',l:'en-ZA',c:'ZAR',p:189.99,s:93.99},AE:{n:'United Arab Emirates',l:'en-AE',c:'AED',p:38.99,s:18.99},SG:{n:'Singapore',l:'en-SG',c:'SGD',p:13.98,s:6.98},PH:{n:'Philippines',l:'en-PH',c:'PHP',p:679,s:339},ID:{n:'Indonesia',l:'id-ID',c:'IDR',p:169000,s:87000}};
+// language → default country when the browser locale has no region.
+var LANG_COUNTRY = { en:'US', es:'ES', de:'DE', fr:'FR' };
+// small "prices for X" line, per UI language.
+var PRICE_REGION_MSG = {
+  en: function(c){ return 'Prices shown for ' + c + '. <a href="#" id="changeCountry">Change country</a> · exact prices on Google Play.'; },
+  es: function(c){ return 'Precios para ' + c + '. <a href="#" id="changeCountry">Cambiar país</a> · precios exactos en Google Play.'; },
+  de: function(c){ return 'Preise für ' + c + '. <a href="#" id="changeCountry">Land ändern</a> · genaue Preise bei Google Play.'; },
+  fr: function(c){ return 'Prix pour ' + c + '. <a href="#" id="changeCountry">Changer de pays</a> · prix exacts sur Google Play.'; }
+};
+var country = 'US';
+function fmtPrice(code, amount){
+  var d = PRICES[code];
+  try { return new Intl.NumberFormat(d.l, {style:'currency', currency:d.c, maximumFractionDigits: amount % 1 === 0 ? 0 : 2}).format(amount); }
+  catch(e){ return d.c + ' ' + amount; }
+}
+function countryName(code){
+  try { return new Intl.DisplayNames([lang], {type:'region'}).of(code) || PRICES[code].n; }
+  catch(e){ return PRICES[code].n; }
+}
+function relabelCountries(){
+  var sel = document.getElementById('countrySel');
+  if (!sel) return;
+  Array.prototype.forEach.call(sel.options, function(o){ o.textContent = countryName(o.value); });
+  // re-sort by the localized label, preserving the current selection
+  var cur = sel.value;
+  var opts = Array.prototype.slice.call(sel.options)
+    .sort(function(a,b){ return a.textContent.localeCompare(b.textContent, lang); });
+  opts.forEach(function(o){ sel.appendChild(o); });
+  sel.value = cur;
+}
+function detectCountry(){
+  var stored = null; try { stored = localStorage.getItem('btk_country'); } catch(e){}
+  if (stored && PRICES[stored]) return stored;
+  var q = new URLSearchParams(location.search).get('country');
+  if (q && PRICES[q.toUpperCase()]) return q.toUpperCase();
+  var loc = (navigator.language || '').split('-');
+  var region = loc[1] ? loc[1].toUpperCase() : null;
+  if (region && PRICES[region]) return region;
+  if (loc[0] && LANG_COUNTRY[loc[0].toLowerCase()]) return LANG_COUNTRY[loc[0].toLowerCase()];
+  return 'US';
+}
+function buildCountrySelect(){
+  var sel = document.getElementById('countrySel');
+  if (!sel || sel.options.length) return;
+  Object.keys(PRICES).sort(function(a,b){ return PRICES[a].n.localeCompare(PRICES[b].n); })
+    .forEach(function(code){
+      var o = document.createElement('option');
+      o.value = code; o.textContent = PRICES[code].n;
+      sel.appendChild(o);
+    });
+  sel.addEventListener('change', function(){
+    country = sel.value;
+    try { localStorage.setItem('btk_country', country); } catch(e){}
+    applyPricing();
+  });
+}
+function applyPricing(){
+  var d = PRICES[country] || PRICES.US;
+  document.getElementById('priceFree').textContent = fmtPrice(country, 0);
+  document.getElementById('pricePaid').textContent = fmtPrice(country, d.p);
+  document.getElementById('priceSub').textContent = fmtPrice(country, d.s);
+  relabelCountries();
+  document.getElementById('countrySel').value = country;
+  var msg = document.getElementById('priceRegion');
+  msg.innerHTML = (PRICE_REGION_MSG[lang] || PRICE_REGION_MSG.en)(countryName(country));
+  var change = document.getElementById('changeCountry');
+  if (change) change.addEventListener('click', function(ev){
+    ev.preventDefault();
+    var sel = document.getElementById('countrySel');
+    sel.scrollIntoView({block:'center'}); sel.focus();
+    try { sel.showPicker && sel.showPicker(); } catch(e){}
+  });
+}
+
 function dictLookup(key){
   var d = DICTS[lang];
   return d && d[key] !== undefined ? d[key] : undefined;
@@ -827,6 +909,7 @@ function applyLang(){
   }
   document.getElementById('chatInput').placeholder = t('chat.placeholder');
   renderTourStrings(); renderFaq(); refreshChatStatics();
+  applyPricing();  // refresh the localized "prices for X" line in the new language
   setVoiceHint(false);  // re-evaluated on the next narration in the new language
   try { localStorage.setItem('btk_lang', lang); } catch(e){}
 }
@@ -1248,6 +1331,8 @@ document.getElementById('chatForm').addEventListener('submit', function(ev){
   if (LANGS.indexOf(q) !== -1) lang = q;
   else if (LANGS.indexOf(stored) !== -1) lang = stored;
   else if (LANGS.indexOf(nav2) !== -1) lang = nav2;
+  country = detectCountry();
+  buildCountrySelect();
   applyLang();
   goTour(0, false);
 })();
