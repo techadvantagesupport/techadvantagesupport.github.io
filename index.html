@@ -429,7 +429,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg><div><b data-i18n="sync.l4t">One admin, zero chaos</b><span data-i18n="sync.l4d">One device administers shared settings; the rest follow automatically. Joining is free for everyone.</span></div></li>
       </ul>
     </div>
-    <div class="phone"><div class="screen"><img src="/assets/tour-sync.webp" alt="BudgeTrak SYNC screen with device roster" loading="lazy" width="540" height="960"></div></div>
+    <div class="phone"><div class="screen"><img id="syncShot" src="/assets/tour/en/sync.webp" alt="BudgeTrak SYNC screen with device roster" loading="lazy" width="540" height="960"></div></div>
   </div>
 </section>
 
@@ -821,6 +821,7 @@ function applyLang(){
   document.getElementById('langSel').value = lang;
   document.getElementById('footPrivacy').href = (lang === 'en') ? '/privacy' : '/' + lang + '/privacy';
   document.getElementById('heroShot').src = '/assets/tour/' + lang + '/dashboard.webp';
+  document.getElementById('syncShot').src = '/assets/tour/' + lang + '/sync.webp';
   if (typeof TOUR !== 'undefined' && typeof tourSrc === 'function') {
     document.getElementById('tourImg').src = tourSrc(TOUR[tourIdx || 0]);
   }
@@ -882,7 +883,7 @@ var TOUR = [
          es:'¿Sobró dinero al final del período? El Impulso lo envía directo a tus metas.',
          de:'Geld übrig am Periodenende? Der Boost schickt es direkt in deine Ziele.',
          fr:"Un surplus en fin de période ? Le Boost l'envoie droit vers tes objectifs."} },
-  { img:'/assets/tour-sync.webp', x:50, y:68,
+  { key:'sync', x:50, y:60,
     title:{en:'BudgeTrak SYNC', es:'BudgeTrak SYNC', de:'BudgeTrak SYNC', fr:'BudgeTrak SYNC'},
     text:{en:'Budget together: up to five devices share one budget in real time, end-to-end encrypted. The device roster shows who is online and synced.',
           es:'Presupuesten juntos: hasta cinco dispositivos comparten un presupuesto en tiempo real, cifrado de extremo a extremo. La lista muestra quién está en línea y sincronizado.',
