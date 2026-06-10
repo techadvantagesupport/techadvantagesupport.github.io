@@ -1,3 +1,8 @@
+---
+layout: default
+title: BudgeTrak Privacy Policy
+---
+
 <p align="right"><a href="/es/privacy"><b>Español</b></a></p>
 
 # BudgeTrak Privacy Policy
