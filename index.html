@@ -519,7 +519,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
     <div class="foot">
       <a class="brand" href="#top"><img src="/budgetrak_logo.png" alt="BudgeTrak SYNC logo" style="height:26px"></a>
       <nav>
-        <a href="https://techadvantagesupport.github.io/privacy" data-i18n="foot.privacy">Privacy Policy</a>
+        <a id="footPrivacy" href="/privacy" data-i18n="foot.privacy">Privacy Policy</a>
         <a href="mailto:techadvantagesupport@gmail.com" data-i18n="foot.contact">Contact Support</a>
         <a href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">Google Play</a>
       </nav>
@@ -669,7 +669,7 @@ var DE = {
   'foot.privacy':'Datenschutzerklärung','foot.contact':'Support kontaktieren',
   'foot.tm':'Google Play und das Google-Play-Logo sind Marken von Google LLC. Android ist eine Marke von Google LLC.',
   'chat.title':'BudgeTrak-Assistent','chat.subtitle':'Frag alles über die App',
-  'chat.note':'KI-Assistent — Antworten können gelegentlich ungenau sein. Teile keine persönlichen Daten. <a href="/privacy">Datenschutzerklärung</a>',
+  'chat.note':'KI-Assistent — Antworten können gelegentlich ungenau sein. Teile keine persönlichen Daten. <a href="/de/privacy">Datenschutzerklärung</a>',
   'chat.placeholder':'Stell eine Frage…',
   'chat.hello':'Hallo! Ich bin der BudgeTrak-Assistent. Frag mich zu Funktionen, Preisen oder Datenschutz.',
   'chat.err':'Entschuldigung — ich konnte den Assistenten nicht erreichen. Versuch es noch einmal oder schreib an techadvantagesupport@gmail.com.',
@@ -729,7 +729,7 @@ var FR = {
   'foot.privacy':'Politique de confidentialité','foot.contact':'Contacter le support',
   'foot.tm':'Google Play et le logo Google Play sont des marques de Google LLC. Android est une marque de Google LLC.',
   'chat.title':'Assistant BudgeTrak','chat.subtitle':"Pose tes questions sur l'appli",
-  'chat.note':"Assistant IA — les réponses peuvent parfois être inexactes. Ne partage pas d'informations personnelles. <a href=\"/privacy\">Politique de confidentialité</a>",
+  'chat.note':"Assistant IA — les réponses peuvent parfois être inexactes. Ne partage pas d'informations personnelles. <a href=\"/fr/privacy\">Politique de confidentialité</a>",
   'chat.placeholder':'Écris une question…',
   'chat.hello':"Salut ! Je suis l'assistant BudgeTrak. Pose-moi tes questions sur les fonctionnalités, les tarifs ou la confidentialité.",
   'chat.err':"Désolé — impossible de joindre l'assistant. Réessaie, ou écris-nous à techadvantagesupport@gmail.com.",
@@ -780,6 +780,7 @@ function applyLang(){
   document.getElementById('playBadgeHero').src = BADGES[lang];
   document.getElementById('playBadgeDl').src = BADGES[lang];
   document.getElementById('langSel').value = lang;
+  document.getElementById('footPrivacy').href = (lang === 'en') ? '/privacy' : '/' + lang + '/privacy';
   document.getElementById('chatInput').placeholder = t('chat.placeholder');
   renderTourStrings(); renderFaq(); refreshChatStatics();
   try { localStorage.setItem('btk_lang', lang); } catch(e){}

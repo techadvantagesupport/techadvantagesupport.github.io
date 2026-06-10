@@ -3,7 +3,7 @@ layout: default
 title: BudgeTrak Privacy Policy
 ---
 
-<p align="right"><a href="/es/privacy"><b>Español</b></a></p>
+<p align="right"><a href="/es/privacy"><b>Español</b></a> · <a href="/de/privacy"><b>Deutsch</b></a> · <a href="/fr/privacy"><b>Français</b></a></p>
 
 # BudgeTrak Privacy Policy
 
