@@ -311,7 +311,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       </div>
     </div>
     <div class="phone float">
-      <div class="screen"><img src="/assets/tour-dashboard.webp" alt="BudgeTrak dashboard showing available cash and spending chart" width="540" height="960" fetchpriority="high"></div>
+      <div class="screen"><img id="heroShot" src="/assets/tour/en/dashboard.webp" alt="BudgeTrak dashboard showing available cash and spending chart" width="540" height="960" fetchpriority="high"></div>
     </div>
   </div>
 </section>
@@ -391,7 +391,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
     <div class="tour-stage">
       <div class="phone">
         <div class="screen">
-          <img class="tour-img" id="tourImg" src="/assets/tour-dashboard.webp" alt="BudgeTrak app screen" width="540" height="960">
+          <img class="tour-img" id="tourImg" src="/assets/tour/en/dashboard.webp" alt="BudgeTrak app screen" width="540" height="960">
           <div class="ripple" id="ripple"></div>
           <div class="pointer" id="pointer">
             <svg viewBox="0 0 24 24"><path fill="#fff" stroke="#2F4153" stroke-width=".7" d="M9 11.24V7.5C9 6.12 10.12 5 11.5 5S14 6.12 14 7.5v3.74c1.21-.81 2-2.18 2-3.74C16 5.01 13.99 3 11.5 3S7 5.01 7 7.5c0 1.56.79 2.93 2 3.74zm9.84 4.63l-4.54-2.26c-.17-.07-.35-.11-.54-.11H13v-6c0-.83-.67-1.5-1.5-1.5S10 6.67 10 7.5v10.74l-3.43-.72c-.08-.01-.15-.03-.24-.03-.31 0-.59.13-.79.33l-.79.8 4.94 4.94c.27.27.65.44 1.06.44h6.79c.75 0 1.33-.55 1.44-1.28l.75-5.27c.01-.07.02-.14.02-.2 0-.62-.38-1.16-.91-1.38z"/></svg>
@@ -820,6 +820,10 @@ function applyLang(){
   document.getElementById('playBadgeDl').src = BADGES[lang];
   document.getElementById('langSel').value = lang;
   document.getElementById('footPrivacy').href = (lang === 'en') ? '/privacy' : '/' + lang + '/privacy';
+  document.getElementById('heroShot').src = '/assets/tour/' + lang + '/dashboard.webp';
+  if (typeof TOUR !== 'undefined' && typeof tourSrc === 'function') {
+    document.getElementById('tourImg').src = tourSrc(TOUR[tourIdx || 0]);
+  }
   document.getElementById('chatInput').placeholder = t('chat.placeholder');
   renderTourStrings(); renderFaq(); refreshChatStatics();
   setVoiceHint(false);  // re-evaluated on the next narration in the new language
@@ -828,7 +832,7 @@ function applyLang(){
 
 /* ═══════════════ tour data ═══════════════ */
 var TOUR = [
-  { img:'/assets/tour-dashboard.webp', x:50, y:24,
+  { key:'dashboard', x:50, y:24,
     title:{en:'The Dashboard', es:'El Panel', de:'Das Dashboard', fr:'Le tableau de bord'},
     text:{en:'The flip-board shows your Available Cash — the one number BudgeTrak keeps current so you always know what is safe to spend. Below it, your spending breaks down by category.',
           es:'El tablero muestra tu Efectivo Disponible — el número que BudgeTrak mantiene al día para que siempre sepas cuánto puedes gastar. Debajo, tus gastos se desglosan por categoría.',
@@ -848,7 +852,7 @@ var TOUR = [
          es:'Los suscriptores pueden saltarse el teclado: escanea el recibo y la IA completa todo.',
          de:'Abonnenten sparen sich das Tippen: Beleg scannen, die KI füllt alles aus.',
          fr:"Les abonnés peuvent éviter la saisie : scanne le reçu et l'IA remplit tout."} },
-  { img:'/assets/tour-transactions.webp', x:50, y:13,
+  { key:'transactions', x:50, y:13,
     title:{en:'Transactions, organized', es:'Transacciones, organizadas', de:'Transaktionen, geordnet', fr:'Transactions, organisées'},
     text:{en:'Every expense in one place — filter by date or category, or search. Import bank statements (CSV or Excel) and duplicates are caught automatically.',
           es:'Cada gasto en un solo lugar — filtra por fecha o categoría, o busca. Importa extractos bancarios (CSV o Excel) y los duplicados se detectan automáticamente.',
@@ -858,7 +862,7 @@ var TOUR = [
          es:'La categorización con IA clasifica los comercios desconocidos al importar.',
          de:'Die KI-Kategorisierung sortiert unbekannte Händler beim Import für dich.',
          fr:"La catégorisation IA classe les commerçants inconnus à l'import."} },
-  { img:'/assets/tour-recurring.webp', x:50, y:16,
+  { key:'recurring', x:50, y:16,
     title:{en:'Bills that pay attention', es:'Facturas que se cuidan solas', de:'Rechnungen, die mitdenken', fr:'Des factures qui veillent'},
     text:{en:'Register your Recurring Expenses once and the budget engine sets money aside before each due date — so bills never surprise you.',
           es:'Registra tus Gastos Recurrentes una vez y el motor de presupuesto aparta el dinero antes de cada vencimiento — las facturas nunca te sorprenden.',
@@ -868,7 +872,7 @@ var TOUR = [
          es:'Los usuarios del nivel Pago reciben notificaciones de vencimiento, con control por factura.',
          de:'Bezahlnutzer erhalten Fälligkeits-Benachrichtigungen, mit Kontrolle pro Rechnung.',
          fr:"Les utilisateurs payants reçoivent des notifications d'échéance, avec contrôle par facture."} },
-  { img:'/assets/tour-goals.webp', x:45, y:48,
+  { key:'goals', x:45, y:48,
     title:{en:'Savings Goals that fund themselves', es:'Metas de Ahorro que se financian solas', de:'Sparziele, die sich selbst füllen', fr:"Des objectifs d'épargne qui se financent seuls"},
     text:{en:'Set a target and BudgeTrak carves a little out of each budget period. Watch the progress bars fill while your daily number stays honest.',
           es:'Define una meta y BudgeTrak aparta un poco en cada período. Mira las barras de progreso llenarse mientras tu número diario se mantiene honesto.',
@@ -888,7 +892,7 @@ var TOUR = [
          es:'Cada transacción muestra qué miembro de la familia la registró.',
          de:'Jede Transaktion zeigt, welches Familienmitglied sie erfasst hat.',
          fr:"Chaque transaction montre quel membre de la famille l'a enregistrée."} },
-  { img:'/assets/tour-calendar.webp', x:50, y:45,
+  { key:'calendar', x:50, y:45,
     title:{en:'Your month at a glance', es:'Tu mes de un vistazo', de:'Dein Monat auf einen Blick', fr:"Ton mois d'un coup d'œil"},
     text:{en:'The Budget Calendar lays your month out — green income days, red bill days, blue reset days. Tap any day for the breakdown.',
           es:'El Calendario muestra tu mes — días verdes de ingresos, rojos de facturas, azules de reinicio. Toca cualquier día para ver el detalle.',
@@ -898,7 +902,7 @@ var TOUR = [
          es:'Ideal para detectar semanas ajustadas antes de que lleguen.',
          de:'Ideal, um knappe Wochen zu erkennen, bevor sie da sind.',
          fr:"Parfait pour repérer les semaines serrées avant qu'elles arrivent."} },
-  { img:'/assets/tour-simulation.webp', x:50, y:48,
+  { key:'simulation', x:50, y:48,
     title:{en:'See 18 months ahead', es:'Mira 18 meses hacia adelante', de:'Blicke 18 Monate voraus', fr:'Vois 18 mois en avance'},
     text:{en:'The Cash Flow Simulation projects your balance month by month, so you can see exactly when money gets tight — before it does.',
           es:'La Simulación de Flujo proyecta tu saldo mes a mes, para que veas exactamente cuándo el dinero se pondrá ajustado — antes de que pase.',
@@ -907,8 +911,22 @@ var TOUR = [
     tip:{en:'Test a planned purchase and watch your trajectory change instantly.',
          es:'Prueba una compra planificada y mira tu trayectoria cambiar al instante.',
          de:'Teste eine geplante Anschaffung und sieh deine Kurve sich sofort ändern.',
-         fr:'Teste un achat prévu et regarde ta trajectoire changer instantanément.'} }
+         fr:'Teste un achat prévu et regarde ta trajectoire changer instantanément.'} },
+  { key:'chat', x:50, y:38,
+    title:{en:'Help, built in', es:'Ayuda integrada', de:'Hilfe, eingebaut', fr:"L'aide, intégrée"},
+    text:{en:'Stuck on anything? The AI Help Chat answers questions about every feature, grounded in the app’s own help pages — in your language.',
+          es:'¿Atascado con algo? El Chat de Ayuda con IA responde preguntas sobre cada función, basado en las páginas de ayuda de la propia app — en tu idioma.',
+          de:'Kommst du nicht weiter? Der KI-Hilfe-Chat beantwortet Fragen zu jeder Funktion, gestützt auf die Hilfeseiten der App — in deiner Sprache.',
+          fr:"Bloqué quelque part ? Le Chat d'aide IA répond aux questions sur chaque fonctionnalité, en s'appuyant sur les pages d'aide de l'appli — dans ta langue."},
+    tip:{en:'Try it right now — the assistant in the corner of this website runs on the same knowledge.',
+         es:'Pruébalo ahora mismo — el asistente en la esquina de este sitio usa el mismo conocimiento.',
+         de:'Probier es gleich aus — der Assistent in der Ecke dieser Website nutzt dasselbe Wissen.',
+         fr:"Essaie tout de suite — l'assistant dans le coin de ce site s'appuie sur les mêmes connaissances."} }
 ];
+// Localized tour screenshots: steps with `key` resolve per language;
+// steps with a fixed `img` (Add Transaction, SYNC) use the English
+// capture in all languages until localized versions exist.
+function tourSrc(s){ return s.img || ('/assets/tour/' + lang + '/' + s.key + '.webp'); }
 
 /* ═══════════════ FAQ data ═══════════════ */
 var FAQ = [
@@ -1067,7 +1085,7 @@ function goTour(i, userInitiated){
   var s = TOUR[tourIdx];
   tourImg.classList.add('fade');
   setTimeout(function(){
-    tourImg.src = s.img;
+    tourImg.src = tourSrc(s);
     tourImg.classList.remove('fade');
   }, 280);
   pointer.style.left = s.x + '%'; pointer.style.top = s.y + '%';
