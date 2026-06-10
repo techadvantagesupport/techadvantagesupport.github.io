@@ -803,8 +803,25 @@ var lang = 'en';
    symbol + separators. Country defaults from the browser's region, with
    an override dropdown. Refresh this table if Play pricing changes. */
 var PRICES = {US:{n:'United States',l:'en-US',c:'USD',p:9.99,s:4.99},GB:{n:'United Kingdom',l:'en-GB',c:'GBP',p:8.99,s:4.39},CA:{n:'Canada',l:'en-CA',c:'CAD',p:13.99,s:6.99},AU:{n:'Australia',l:'en-AU',c:'AUD',p:14.99,s:7.49},IE:{n:'Ireland',l:'en-IE',c:'EUR',p:9.99,s:4.99},NZ:{n:'New Zealand',l:'en-NZ',c:'NZD',p:18.99,s:9.49},DE:{n:'Germany',l:'de-DE',c:'EUR',p:9.99,s:4.99},AT:{n:'Austria',l:'de-AT',c:'EUR',p:9.99,s:4.99},CH:{n:'Switzerland',l:'de-CH',c:'CHF',p:7.8,s:3.9},FR:{n:'France',l:'fr-FR',c:'EUR',p:9.99,s:4.99},BE:{n:'Belgium',l:'fr-BE',c:'EUR',p:9.99,s:4.99},NL:{n:'Netherlands',l:'nl-NL',c:'EUR',p:9.99,s:4.99},ES:{n:'Spain',l:'es-ES',c:'EUR',p:9.99,s:4.99},IT:{n:'Italy',l:'it-IT',c:'EUR',p:9.99,s:4.99},PT:{n:'Portugal',l:'pt-PT',c:'EUR',p:9.99,s:4.99},MX:{n:'Mexico',l:'es-MX',c:'MXN',p:199,s:99},CO:{n:'Colombia',l:'es-CO',c:'COP',p:37500,s:18500},CL:{n:'Chile',l:'es-CL',c:'CLP',p:10600,s:5300},BR:{n:'Brazil',l:'pt-BR',c:'BRL',p:48.99,s:23.99},PE:{n:'Peru',l:'es-PE',c:'PEN',p:33.99,s:16.99},JP:{n:'Japan',l:'ja-JP',c:'JPY',p:1720,s:860},IN:{n:'India',l:'en-IN',c:'INR',p:1100,s:550},PL:{n:'Poland',l:'pl-PL',c:'PLN',p:43.99,s:21.99},SE:{n:'Sweden',l:'sv-SE',c:'SEK',p:115,s:59},NO:{n:'Norway',l:'nb-NO',c:'NOK',p:115,s:59},DK:{n:'Denmark',l:'da-DK',c:'DKK',p:79,s:40},ZA:{n:'South Africa',l:'en-ZA',c:'ZAR',p:189.99,s:93.99},AE:{n:'United Arab Emirates',l:'en-AE',c:'AED',p:38.99,s:18.99},SG:{n:'Singapore',l:'en-SG',c:'SGD',p:13.98,s:6.98},PH:{n:'Philippines',l:'en-PH',c:'PHP',p:679,s:339},ID:{n:'Indonesia',l:'id-ID',c:'IDR',p:169000,s:87000}};
-// language → default country when the browser locale has no region.
+// language → default country, and the countries that "belong" to each
+// language (used to refine the default by browser region only when the
+// region speaks the chosen language — so a German UI on a US-region
+// device still defaults to Germany, not the US).
 var LANG_COUNTRY = { en:'US', es:'ES', de:'DE', fr:'FR' };
+var LANG_REGIONS = {
+  en: ['US','GB','CA','AU','IE','NZ','SG','ZA','IN','AE','PH'],
+  es: ['ES','MX','CO','CL','PE'],
+  de: ['DE','AT','CH'],
+  fr: ['FR','BE','CH','CA']
+};
+var countryPinned = false;  // true once the visitor explicitly picks a country
+function deriveCountry(forLang){
+  var loc = (navigator.language || '').split('-');
+  var region = loc[1] ? loc[1].toUpperCase() : null;
+  // region wins only if it speaks the current UI language
+  if (region && PRICES[region] && (LANG_REGIONS[forLang] || []).indexOf(region) !== -1) return region;
+  return LANG_COUNTRY[forLang] || 'US';
+}
 // small "prices for X" line, per UI language.
 var PRICE_REGION_MSG = {
   en: function(c){ return 'Prices shown for ' + c + '. <a href="#" id="changeCountry">Change country</a> · exact prices on Google Play.'; },
@@ -835,14 +852,10 @@ function relabelCountries(){
 }
 function detectCountry(){
   var stored = null; try { stored = localStorage.getItem('btk_country'); } catch(e){}
-  if (stored && PRICES[stored]) return stored;
+  if (stored && PRICES[stored]) { countryPinned = true; return stored; }
   var q = new URLSearchParams(location.search).get('country');
-  if (q && PRICES[q.toUpperCase()]) return q.toUpperCase();
-  var loc = (navigator.language || '').split('-');
-  var region = loc[1] ? loc[1].toUpperCase() : null;
-  if (region && PRICES[region]) return region;
-  if (loc[0] && LANG_COUNTRY[loc[0].toLowerCase()]) return LANG_COUNTRY[loc[0].toLowerCase()];
-  return 'US';
+  if (q && PRICES[q.toUpperCase()]) { countryPinned = true; return q.toUpperCase(); }
+  return deriveCountry(lang);  // language-led default, region-refined within that language
 }
 function buildCountrySelect(){
   var sel = document.getElementById('countrySel');
@@ -855,6 +868,7 @@ function buildCountrySelect(){
     });
   sel.addEventListener('change', function(){
     country = sel.value;
+    countryPinned = true;  // explicit choice — stop auto-deriving from language
     try { localStorage.setItem('btk_country', country); } catch(e){}
     applyPricing();
   });
@@ -909,7 +923,10 @@ function applyLang(){
   }
   document.getElementById('chatInput').placeholder = t('chat.placeholder');
   renderTourStrings(); renderFaq(); refreshChatStatics();
-  applyPricing();  // refresh the localized "prices for X" line in the new language
+  // Unless the visitor pinned a country, follow the language (German UI
+  // → German pricing) so the page never shows e.g. German text + USD.
+  if (!countryPinned) country = deriveCountry(lang);
+  applyPricing();  // refresh prices + the localized "prices for X" line
   setVoiceHint(false);  // re-evaluated on the next narration in the new language
   try { localStorage.setItem('btk_lang', lang); } catch(e){}
 }
