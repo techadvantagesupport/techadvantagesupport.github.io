@@ -281,7 +281,12 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       <a href="#sync" data-i18n="nav.sync">SYNC</a>
       <a href="#pricing" data-i18n="nav.pricing">Pricing</a>
       <a href="#faq" data-i18n="nav.faq">FAQ</a>
-      <button class="lang-btn" id="langBtn">Español</button>
+      <select class="lang-btn" id="langSel" aria-label="Language">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+        <option value="fr">Français</option>
+      </select>
       <a class="cta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak" data-i18n="nav.get">Get the app</a>
     </nav>
   </div>
@@ -612,6 +617,134 @@ var ES = {
   'chat.q1':'¿Cuánto cuesta BudgeTrak?','chat.q2':'¿Tengo que conectar mi banco?','chat.q3':'¿Qué es BudgeTrak SYNC?',
   'tour.play':'Reproducir','tour.pause':'Pausa','tour.voiceOn':'Voz: Sí','tour.voiceOff':'Voz: No'
 };
+var DE = {
+  'nav.features':'Funktionen','nav.tour':'App-Tour','nav.sync':'SYNC','nav.pricing':'Preise','nav.faq':'FAQ','nav.get':'App holen',
+  'hero.h1':'Wisse, was du ausgeben kannst.<br><span class="accent">Jeden Tag.</span>',
+  'hero.lead':'BudgeTrak verwandelt deine echten Einnahmen und Rechnungen in eine sichere Ausgaben-Zahl, aktualisiert in Echtzeit. Keine Tabellen, kein Bank-Login, kein Rätselraten.',
+  'hero.tourBtn':'Tour ansehen','hero.p1':'Kostenlos starten','hero.p2':'Kein Bank-Login','hero.p3':'Kein Konto nötig',
+  'trust.t1':'Ende-zu-Ende-verschlüsselt','trust.d1':'SYNC-Daten werden verschlüsselt, bevor sie dein Handy verlassen — selbst unsere Server können sie nicht lesen.',
+  'trust.t2':'Keine Bank-Zugangsdaten','trust.d2':'Deine Logins bleiben bei deiner Bank. Importiere stattdessen Kontoauszüge — oder tippe es einfach ein.',
+  'trust.t3':'Funktioniert offline','trust.d3':'Die komplette App läuft auf deinem Gerät. Synchronisierung ist optional, nicht Pflicht.',
+  'trust.t4':'Die eine Zahl, die zählt','trust.d4':'Dein verfügbares Bargeld, live als Widget auf deinem Startbildschirm.',
+  'how.kick':'So funktioniert es','how.h2':'Drei Schritte zu „ausgeben ohne Sorgen“',
+  'how.sub':'Die meisten Budget-Apps lassen dich die Buchhaltung machen. BudgeTrak dreht den Spieß um: ein paar Minuten Einrichtung, dann rechnet alles von selbst.',
+  'how.s1t':'Sag ihr, was du verdienst und zahlst','how.s1d':'Trage dein Einkommen und deine wiederkehrenden Rechnungen einmal ein — Zahltage, Miete, Abos, Kreditraten.',
+  'how.s2t':'Erhalte deine sichere Zahl','how.s2d':'BudgeTrak berechnet genau, was du pro Tag, Woche oder Monat ausgeben kannst — Geld für Rechnungen und Ziele ist schon beiseitegelegt.',
+  'how.s3t':'Gib mit gutem Gefühl aus','how.s3d':'Erfasse Einkäufe in Sekunden (oder importiere Kontoauszüge) und sieh zu, wie sich deine Zahl in Echtzeit aktualisiert — direkt auf dem Startbildschirm.',
+  'feat.kick':'Funktionen','feat.h2':'Alles, was ein Budget braucht. Nichts darüber hinaus.',
+  'feat.sub':'Gemacht für echte Haushalte: schnell im Alltag, stark wenn du es brauchst.',
+  'feat.c1t':'Intelligente Budget-Engine','feat.c1d':'Meistert unregelmäßige Zahltage, schwankendes Einkommen und geballte Rechnungen. Tages-, Wochen- oder Monatsperioden — du entscheidest.',
+  'feat.c2t':'Startbildschirm-Widget','feat.c2d':'Dein verfügbares Bargeld auf einem Solari-Anzeigetafel-Widget — und du kannst Ausgaben erfassen, ohne die App zu öffnen.',
+  'feat.c3t':'Kontoauszug-Import <span class="badge paid">BEZAHLT</span>','feat.c3d':'CSV- und Excel-Import mit Duplikat-Erkennung, intelligenter Händler-Zuordnung und optionaler KI-Kategorisierung.',
+  'feat.c4t':'KI-Beleg-Scan <span class="badge sub">ABONNENT</span>','feat.c4d':'Fotografiere einen Beleg und die KI füllt Händler, Datum und Betrag aus — sogar Kategorie-Aufteilungen, Zeile für Zeile.',
+  'feat.c5t':'Rechnungs-Erinnerungen <span class="badge paid">BEZAHLT</span>','feat.c5d':'Fälligkeits-Benachrichtigungen mit anpassbarem Vorlauf und Kontrolle pro Rechnung — der Zahler bekommt die Meldung, nicht die ganze Familie.',
+  'feat.c6t':'Sparziele & Amortisation','feat.c6d':'Spare auf geplante Anschaffungen, oder verteile eine überraschende Ausgabe über Monate — deine Tages-Zahl bleibt ehrlich.',
+  'feat.c7t':'Cashflow-Simulation <span class="badge paid">BEZAHLT</span>','feat.c7d':'Eine interaktive 18-Monats-Projektion, die zeigt, wann das Geld knapp wird — bevor es passiert.',
+  'feat.c8t':'BudgeTrak SYNC <span class="badge sub">ABONNENT</span>','feat.c8d':'Ein Budget, bis zu fünf Geräte, in Echtzeit — mit Ende-zu-Ende-Verschlüsselung und Zuordnung pro Mitglied.',
+  'tour.kick':'Geführte Tour','tour.h2':'Sieh sie in Aktion',
+  'tour.sub':'Ein zweiminütiger Rundgang durch die Bildschirme, die du täglich nutzt. Drücke auf Abspielen — oder tippe auf einen Schritt.',
+  'sync.h2':'Gemeinsam budgetieren, privat',
+  'sync.sub':'Die meisten Apps für gemeinsame Budgets legen die Finanzen deiner Familie auf fremde Dashboards. SYNC teilt ein Budget auf bis zu fünf Geräten — Ende-zu-Ende-verschlüsselt, sodass nur dein Haushalt es lesen kann.',
+  'sync.l1t':'Echtzeit auf allen Geräten','sync.l1d':'Ein Einkauf, erfasst auf einem Handy, aktualisiert das verfügbare Bargeld aller in Sekunden.',
+  'sync.l2t':'Verschlüsselung, die selbst unsere Server nicht knacken','sync.l2d':'Jedes Feld wird auf deinem Handy verschlüsselt, bevor es hochgeladen wird. Die Cloud leitet nur Geheimtext weiter.',
+  'sync.l3t':'Wer hat was ausgegeben','sync.l3d':'Zuordnung pro Mitglied und Anwesenheits-Anzeigen halten den ganzen Haushalt auf demselben Stand.',
+  'sync.l4t':'Ein Admin, null Chaos','sync.l4d':'Ein Gerät verwaltet die gemeinsamen Einstellungen; die anderen folgen automatisch. Beitreten ist für alle kostenlos.',
+  'price.kick':'Preise','price.h2':'Ehrliche Preise. Keine Paywall fürs Wesentliche.',
+  'price.sub':'Die Budget-Engine ist für immer kostenlos — keine Testuhr, kein Konto. Einmal upgraden für Power-Funktionen, oder abonnieren für SYNC und KI-Scan.',
+  'price.f':'Kostenlos','price.fNote':'für immer, ohne Konto',
+  'price.f1':'Komplette Budget-Engine & Tracking','price.f2':'Startbildschirm-Widget (1 Eintrag/Tag)','price.f3':'Wiederkehrende Ausgaben, Sparziele, Kalender','price.f4':'Einer SYNC-Gruppe beitreten','price.f5':'— Mit Werbung',
+  'price.fBtn':'Kostenlos starten','price.popTag':'Bestes Angebot','price.p':'Bezahlt',
+  'price.pNote':'einmalig — für immer deins',
+  'price.p1':'Alles aus Kostenlos, werbefrei','price.p2':'CSV-/Excel-Import & -Export, PDF-Berichte','price.p3':'Beleg-Fotos & PDFs (5 pro Transaktion)','price.p4':'KI-CSV-Kategorisierung','price.p5':'Fälligkeits-Benachrichtigungen','price.p6':'Cashflow-Simulation & unbegrenztes Widget',
+  'price.pBtn':'Einmal upgraden','price.s':'Abonnent','price.sNote':'/ Monat',
+  'price.s1':'Alles aus Bezahlt','price.s2':'SYNC-Gruppen erstellen & verwalten (5 Geräte)','price.s3':'KI-Beleg-Scan','price.s4':'Höchste Limits im KI-Hilfe-Chat',
+  'price.sBtn':'Abonnent werden',
+  'price.compare':'Zum Vergleich: YNAB <b>14,99 $/Monat</b> · Goodbudget <b>10 $/Monat</b> · EveryDollar <b>17,99 $/Monat</b>. BudgeTraks einmaliges Upgrade kostet weniger als ein einziger Monat bei jedem von ihnen.',
+  'faq.h2':'Fragen, beantwortet','faq.sub':'Noch etwas? Frag den Assistenten in der Ecke — er kennt die App in- und auswendig.',
+  'ask.h2':'Noch unentschlossen? Frag einfach.',
+  'ask.sub':'Unser KI-Assistent beantwortet Fragen zu Funktionen, Preisen und Datenschutz — gestützt auf dieselbe Wissensbasis wie die Hilfe in der App.',
+  'ask.btn':'Mit dem Assistenten chatten',
+  'dl.h2':'Dein Geld. Deine Daten. Deine Kontrolle.','dl.sub':'Kostenlos starten. In Minuten eingerichtet. Verfügbar für Android — iOS folgt bald.',
+  'dl.note':'BudgeTrak wird von Tech Advantage LLC entwickelt und veröffentlicht.',
+  'foot.privacy':'Datenschutzerklärung','foot.contact':'Support kontaktieren',
+  'foot.tm':'Google Play und das Google-Play-Logo sind Marken von Google LLC. Android ist eine Marke von Google LLC.',
+  'chat.title':'BudgeTrak-Assistent','chat.subtitle':'Frag alles über die App',
+  'chat.note':'KI-Assistent — Antworten können gelegentlich ungenau sein. Teile keine persönlichen Daten. <a href="/privacy">Datenschutzerklärung</a>',
+  'chat.placeholder':'Stell eine Frage…',
+  'chat.hello':'Hallo! Ich bin der BudgeTrak-Assistent. Frag mich zu Funktionen, Preisen oder Datenschutz.',
+  'chat.err':'Entschuldigung — ich konnte den Assistenten nicht erreichen. Versuch es noch einmal oder schreib an techadvantagesupport@gmail.com.',
+  'chat.limit':'Du hast das Tageslimit an Nachrichten erreicht. Komm morgen wieder oder schreib an techadvantagesupport@gmail.com.',
+  'chat.q1':'Was kostet BudgeTrak?','chat.q2':'Muss ich meine Bank verbinden?','chat.q3':'Was ist BudgeTrak SYNC?',
+  'tour.play':'Abspielen','tour.pause':'Pause','tour.voiceOn':'Stimme: An','tour.voiceOff':'Stimme: Aus'
+};
+var FR = {
+  'nav.features':'Fonctionnalités','nav.tour':'Visite','nav.sync':'SYNC','nav.pricing':'Tarifs','nav.faq':'FAQ','nav.get':'Télécharger',
+  'hero.h1':'Sache combien tu peux dépenser.<br><span class="accent">Chaque jour.</span>',
+  'hero.lead':"BudgeTrak transforme tes revenus et factures réels en un montant sûr à dépenser, mis à jour en temps réel. Pas de tableurs, pas d'identifiants bancaires, pas de devinettes.",
+  'hero.tourBtn':'Voir la visite','hero.p1':'Gratuit pour commencer','hero.p2':"Pas d'accès bancaire",'hero.p3':'Aucun compte requis',
+  'trust.t1':'Chiffré de bout en bout','trust.d1':'Les données SYNC sont chiffrées avant de quitter ton téléphone — même nos serveurs ne peuvent pas les lire.',
+  'trust.t2':"Pas d'identifiants bancaires",'trust.d2':'Tes identifiants restent chez ta banque. Importe des relevés à la place — ou saisis-le simplement.',
+  'trust.t3':'Fonctionne hors ligne','trust.d3':"L'appli complète tourne sur ton appareil. La synchronisation est optionnelle, pas obligatoire.",
+  'trust.t4':'Le seul chiffre qui compte','trust.d4':"Ton argent disponible, en direct sur un widget de ton écran d'accueil.",
+  'how.kick':'Comment ça marche','how.h2':'Trois étapes pour « dépenser sans stresser »',
+  'how.sub':'La plupart des applis de budget te font tenir la comptabilité. BudgeTrak inverse les rôles : quelques minutes de configuration, puis les calculs se font tout seuls.',
+  'how.s1t':'Dis-lui ce que tu gagnes et dois','how.s1d':'Ajoute ton calendrier de revenus et tes factures récurrentes une seule fois — paies, loyer, abonnements, crédits.',
+  'how.s2t':'Reçois ton montant sûr','how.s2d':"BudgeTrak calcule exactement ce que tu peux dépenser par jour, semaine ou mois — l'argent des factures et des objectifs est déjà mis de côté.",
+  'how.s3t':'Dépense en toute confiance','how.s3d':"Enregistre tes achats en quelques secondes (ou importe des relevés bancaires) et regarde ton montant se mettre à jour en temps réel — directement sur ton écran d'accueil.",
+  'feat.kick':'Fonctionnalités','feat.h2':"Tout ce qu'un budget exige. Rien de superflu.",
+  'feat.sub':'Conçue pour de vrais foyers : rapide au quotidien, puissante quand il le faut.',
+  'feat.c1t':'Moteur de budget intelligent','feat.c1d':'Gère les paies irrégulières, les revenus variables et les factures groupées. Périodes journalières, hebdomadaires ou mensuelles — à toi de choisir.',
+  'feat.c2t':"Widget d'écran d'accueil",'feat.c2d':"Ton argent disponible sur un widget façon tableau Solari — et tu peux enregistrer une dépense sans ouvrir l'appli.",
+  'feat.c3t':'Import de relevés bancaires <span class="badge paid">PAYANT</span>','feat.c3d':'Imports CSV et Excel avec détection des doublons, rapprochement intelligent des commerçants et catégorisation IA optionnelle.',
+  'feat.c4t':'Scan de reçus par IA <span class="badge sub">ABONNÉ</span>','feat.c4d':"Photographie un reçu et l'IA remplit commerçant, date et montant — même les répartitions par catégorie, ligne par ligne.",
+  'feat.c5t':'Rappels de factures <span class="badge paid">PAYANT</span>','feat.c5d':"Notifications d'échéance avec délai personnalisable et contrôle par facture — l'alerte va à celui qui paie, pas à toute la famille.",
+  'feat.c6t':"Objectifs d'épargne & amortissement",'feat.c6d':'Épargne pour les achats prévus, ou étale une dépense surprise sur plusieurs mois — ton montant quotidien reste honnête.',
+  'feat.c7t':'Simulation de flux de trésorerie <span class="badge paid">PAYANT</span>','feat.c7d':"Une projection interactive sur 18 mois qui montre quand l'argent va manquer — avant que ça arrive.",
+  'feat.c8t':'BudgeTrak SYNC <span class="badge sub">ABONNÉ</span>','feat.c8d':"Un budget, jusqu'à cinq appareils, en temps réel — avec chiffrement de bout en bout et attribution par membre.",
+  'tour.kick':'Visite guidée','tour.h2':'Vois-la en action',
+  'tour.sub':'Un tour de deux minutes des écrans que tu utiliseras chaque jour. Lance la lecture — ou touche une étape.',
+  'sync.h2':'Budgétiser ensemble, en privé',
+  'sync.sub':"La plupart des applis de budget partagé mettent les finances de ta famille sur le tableau de bord de quelqu'un d'autre. SYNC partage un budget entre jusqu'à cinq appareils — chiffré de bout en bout, pour que seul ton foyer puisse le lire.",
+  'sync.l1t':'Temps réel entre appareils','sync.l1d':"Un achat enregistré sur un téléphone met à jour l'argent disponible de tous en quelques secondes.",
+  'sync.l2t':'Un chiffrement que même nos serveurs ne peuvent pas casser','sync.l2d':'Chaque champ est chiffré sur ton téléphone avant envoi. Le cloud ne relaie que du texte chiffré.',
+  'sync.l3t':'Qui a dépensé quoi','sync.l3d':"L'attribution par membre et les indicateurs de présence gardent tout le foyer sur la même page.",
+  'sync.l4t':'Un admin, zéro chaos','sync.l4d':'Un appareil gère les réglages partagés ; les autres suivent automatiquement. Rejoindre est gratuit pour tous.',
+  'price.kick':'Tarifs','price.h2':"Des prix honnêtes. Pas de paywall sur l'essentiel.",
+  'price.sub':"Le moteur de budget est gratuit pour toujours — pas de compte à rebours, pas de compte. Passe au Payant une seule fois pour les fonctions avancées, ou abonne-toi pour SYNC et le scan IA.",
+  'price.f':'Gratuit','price.fNote':'pour toujours, sans compte',
+  'price.f1':'Moteur de budget et suivi complets','price.f2':"Widget d'écran d'accueil (1 saisie/jour)",'price.f3':"Dépenses récurrentes, objectifs d'épargne, calendrier",'price.f4':'Rejoindre un groupe SYNC','price.f5':'— Avec publicités',
+  'price.fBtn':'Commencer gratuitement','price.popTag':'Meilleur rapport','price.p':'Payant',
+  'price.pNote':'une seule fois — à toi pour toujours',
+  'price.p1':'Tout le Gratuit, sans pubs','price.p2':'Import/export CSV & Excel, rapports PDF','price.p3':'Photos de reçus & PDF (5 par transaction)','price.p4':'Catégorisation CSV par IA','price.p5':"Notifications d'échéance",'price.p6':'Simulation de flux de trésorerie & widget illimité',
+  'price.pBtn':'Passer au Payant','price.s':'Abonné','price.sNote':'/ mois',
+  'price.s1':'Tout le niveau Payant','price.s2':'Créer et gérer des groupes SYNC (5 appareils)','price.s3':'Scan de reçus par IA','price.s4':"Limites maximales du chat d'aide IA",
+  'price.sBtn':"S'abonner",
+  'price.compare':"Compare : YNAB <b>14,99 $/mois</b> · Goodbudget <b>10 $/mois</b> · EveryDollar <b>17,99 $/mois</b>. La mise à niveau unique de BudgeTrak coûte moins qu'un seul mois chez n'importe lequel d'entre eux.",
+  'faq.h2':'Questions, réponses','faq.sub':"Autre chose ? Demande à l'assistant dans le coin — il connaît l'appli sur le bout des doigts.",
+  'ask.h2':"Encore en train d'hésiter ? Demande.",
+  'ask.sub':"Notre assistant IA répond aux questions sur les fonctionnalités, les tarifs et la confidentialité — appuyé sur la même base de connaissances que l'aide intégrée à l'appli.",
+  'ask.btn':"Discuter avec l'assistant",
+  'dl.h2':'Ton argent. Tes données. Ton contrôle.','dl.sub':'Gratuit pour commencer. Prêt en quelques minutes. Disponible sur Android — iOS bientôt.',
+  'dl.note':'BudgeTrak est développée et publiée par Tech Advantage LLC.',
+  'foot.privacy':'Politique de confidentialité','foot.contact':'Contacter le support',
+  'foot.tm':'Google Play et le logo Google Play sont des marques de Google LLC. Android est une marque de Google LLC.',
+  'chat.title':'Assistant BudgeTrak','chat.subtitle':"Pose tes questions sur l'appli",
+  'chat.note':"Assistant IA — les réponses peuvent parfois être inexactes. Ne partage pas d'informations personnelles. <a href=\"/privacy\">Politique de confidentialité</a>",
+  'chat.placeholder':'Écris une question…',
+  'chat.hello':"Salut ! Je suis l'assistant BudgeTrak. Pose-moi tes questions sur les fonctionnalités, les tarifs ou la confidentialité.",
+  'chat.err':"Désolé — impossible de joindre l'assistant. Réessaie, ou écris-nous à techadvantagesupport@gmail.com.",
+  'chat.limit':'Tu as atteint la limite quotidienne de messages. Reviens demain, ou écris-nous à techadvantagesupport@gmail.com.',
+  'chat.q1':'Combien coûte BudgeTrak ?','chat.q2':'Dois-je connecter ma banque ?','chat.q3':"Qu'est-ce que BudgeTrak SYNC ?",
+  'tour.play':'Lecture','tour.pause':'Pause','tour.voiceOn':'Voix : Oui','tour.voiceOff':'Voix : Non'
+};
+var DICTS = { es: ES, de: DE, fr: FR };
+var BADGES = {
+  en: 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png',
+  es: 'https://play.google.com/intl/en_us/badges/static/images/badges/es-419_badge_web_generic.png',
+  de: 'https://play.google.com/intl/en_us/badges/static/images/badges/de_badge_web_generic.png',
+  fr: 'https://play.google.com/intl/en_us/badges/static/images/badges/fr_badge_web_generic.png'
+};
+var VOICE_LANG = { en: 'en-US', es: 'es-US', de: 'de-DE', fr: 'fr-FR' };
 var EN_SNAPSHOT = {}; // filled at init from the DOM
 var EN_FIXED = {
   'chat.placeholder':'Type a question…',
@@ -623,26 +756,30 @@ var EN_FIXED = {
 };
 var lang = 'en';
 
+function dictLookup(key){
+  var d = DICTS[lang];
+  return d && d[key] !== undefined ? d[key] : undefined;
+}
 function t(key){
-  if (lang === 'es' && ES[key]) return ES[key];
+  var v = dictLookup(key);
+  if (v !== undefined) return v;
   return EN_FIXED[key] !== undefined ? EN_FIXED[key] : (EN_SNAPSHOT[key] || '');
 }
 function applyLang(){
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach(function(el){
     var k = el.getAttribute('data-i18n');
-    el.textContent = (lang === 'es' && ES[k]) ? ES[k] : EN_SNAPSHOT[k];
+    var v = dictLookup(k);
+    el.textContent = v !== undefined ? v : EN_SNAPSHOT[k];
   });
   document.querySelectorAll('[data-i18n-html]').forEach(function(el){
     var k = el.getAttribute('data-i18n-html');
-    el.innerHTML = (lang === 'es' && ES[k]) ? ES[k] : EN_SNAPSHOT[k];
+    var v = dictLookup(k);
+    el.innerHTML = v !== undefined ? v : EN_SNAPSHOT[k];
   });
-  var badge = lang === 'es'
-    ? 'https://play.google.com/intl/en_us/badges/static/images/badges/es-419_badge_web_generic.png'
-    : 'https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png';
-  document.getElementById('playBadgeHero').src = badge;
-  document.getElementById('playBadgeDl').src = badge;
-  document.getElementById('langBtn').textContent = lang === 'es' ? 'English' : 'Español';
+  document.getElementById('playBadgeHero').src = BADGES[lang];
+  document.getElementById('playBadgeDl').src = BADGES[lang];
+  document.getElementById('langSel').value = lang;
   document.getElementById('chatInput').placeholder = t('chat.placeholder');
   renderTourStrings(); renderFaq(); refreshChatStatics();
   try { localStorage.setItem('btk_lang', lang); } catch(e){}
@@ -651,84 +788,134 @@ function applyLang(){
 /* ═══════════════ tour data ═══════════════ */
 var TOUR = [
   { img:'/assets/tour-dashboard.webp', x:50, y:24,
-    title:{en:'The Dashboard', es:'El Panel'},
+    title:{en:'The Dashboard', es:'El Panel', de:'Das Dashboard', fr:'Le tableau de bord'},
     text:{en:'The flip-board shows your Available Cash — the one number BudgeTrak keeps current so you always know what is safe to spend. Below it, your spending breaks down by category.',
-          es:'El tablero muestra tu Efectivo Disponible — el número que BudgeTrak mantiene al día para que siempre sepas cuánto puedes gastar. Debajo, tus gastos se desglosan por categoría.'},
+          es:'El tablero muestra tu Efectivo Disponible — el número que BudgeTrak mantiene al día para que siempre sepas cuánto puedes gastar. Debajo, tus gastos se desglosan por categoría.',
+          de:'Die Anzeigetafel zeigt dein Verfügbares Bargeld — die eine Zahl, die BudgeTrak aktuell hält, damit du immer weißt, was du gefahrlos ausgeben kannst. Darunter: deine Ausgaben nach Kategorie.',
+          fr:"Le tableau affiche ton Argent disponible — le chiffre que BudgeTrak garde à jour pour que tu saches toujours ce que tu peux dépenser sans risque. En dessous, tes dépenses par catégorie."},
     tip:{en:'The same number lives on a home-screen widget — no need to even open the app.',
-         es:'El mismo número vive en un widget en tu pantalla de inicio — ni siquiera necesitas abrir la app.'} },
+         es:'El mismo número vive en un widget en tu pantalla de inicio — ni siquiera necesitas abrir la app.',
+         de:'Dieselbe Zahl lebt als Widget auf deinem Startbildschirm — du musst die App nicht einmal öffnen.',
+         fr:"Le même chiffre vit sur un widget de ton écran d'accueil — pas même besoin d'ouvrir l'appli."} },
   { img:'/assets/tour-add.webp', x:86, y:86,
-    title:{en:'Add a purchase in seconds', es:'Agrega una compra en segundos'},
+    title:{en:'Add a purchase in seconds', es:'Agrega una compra en segundos', de:'Einkauf in Sekunden erfassen', fr:'Ajoute un achat en quelques secondes'},
     text:{en:'Amount, merchant, save — done. Link a transaction to a bill, savings goal, or amortized expense and BudgeTrak does the bookkeeping for you.',
-          es:'Monto, comercio, guardar — listo. Vincula una transacción a una factura, meta de ahorro o gasto amortizado y BudgeTrak lleva la contabilidad por ti.'},
+          es:'Monto, comercio, guardar — listo. Vincula una transacción a una factura, meta de ahorro o gasto amortizado y BudgeTrak lleva la contabilidad por ti.',
+          de:'Betrag, Händler, speichern — fertig. Verknüpfe eine Transaktion mit einer Rechnung, einem Sparziel oder einer amortisierten Ausgabe, und BudgeTrak übernimmt die Buchhaltung.',
+          fr:"Montant, commerçant, enregistrer — c'est fait. Lie une transaction à une facture, un objectif d'épargne ou une dépense amortie, et BudgeTrak tient la comptabilité pour toi."},
     tip:{en:'Subscribers can skip typing: scan the receipt and AI fills everything in.',
-         es:'Los suscriptores pueden saltarse el teclado: escanea el recibo y la IA completa todo.'} },
+         es:'Los suscriptores pueden saltarse el teclado: escanea el recibo y la IA completa todo.',
+         de:'Abonnenten sparen sich das Tippen: Beleg scannen, die KI füllt alles aus.',
+         fr:"Les abonnés peuvent éviter la saisie : scanne le reçu et l'IA remplit tout."} },
   { img:'/assets/tour-transactions.webp', x:50, y:13,
-    title:{en:'Transactions, organized', es:'Transacciones, organizadas'},
+    title:{en:'Transactions, organized', es:'Transacciones, organizadas', de:'Transaktionen, geordnet', fr:'Transactions, organisées'},
     text:{en:'Every expense in one place — filter by date or category, or search. Import bank statements (CSV or Excel) and duplicates are caught automatically.',
-          es:'Cada gasto en un solo lugar — filtra por fecha o categoría, o busca. Importa extractos bancarios (CSV o Excel) y los duplicados se detectan automáticamente.'},
+          es:'Cada gasto en un solo lugar — filtra por fecha o categoría, o busca. Importa extractos bancarios (CSV o Excel) y los duplicados se detectan automáticamente.',
+          de:'Jede Ausgabe an einem Ort — filtere nach Datum oder Kategorie, oder such einfach. Importiere Kontoauszüge (CSV oder Excel), Duplikate werden automatisch erkannt.',
+          fr:'Chaque dépense au même endroit — filtre par date ou catégorie, ou fais une recherche. Importe des relevés bancaires (CSV ou Excel), les doublons sont détectés automatiquement.'},
     tip:{en:'AI categorization sorts unfamiliar merchants for you on import.',
-         es:'La categorización con IA clasifica los comercios desconocidos al importar.'} },
+         es:'La categorización con IA clasifica los comercios desconocidos al importar.',
+         de:'Die KI-Kategorisierung sortiert unbekannte Händler beim Import für dich.',
+         fr:"La catégorisation IA classe les commerçants inconnus à l'import."} },
   { img:'/assets/tour-recurring.webp', x:50, y:16,
-    title:{en:'Bills that pay attention', es:'Facturas que se cuidan solas'},
+    title:{en:'Bills that pay attention', es:'Facturas que se cuidan solas', de:'Rechnungen, die mitdenken', fr:'Des factures qui veillent'},
     text:{en:'Register your Recurring Expenses once and the budget engine sets money aside before each due date — so bills never surprise you.',
-          es:'Registra tus Gastos Recurrentes una vez y el motor de presupuesto aparta el dinero antes de cada vencimiento — las facturas nunca te sorprenden.'},
+          es:'Registra tus Gastos Recurrentes una vez y el motor de presupuesto aparta el dinero antes de cada vencimiento — las facturas nunca te sorprenden.',
+          de:'Erfasse deine Wiederkehrenden Ausgaben einmal, und die Budget-Engine legt das Geld vor jedem Fälligkeitstermin beiseite — Rechnungen überraschen dich nie wieder.',
+          fr:"Enregistre tes Dépenses récurrentes une fois, et le moteur de budget met l'argent de côté avant chaque échéance — les factures ne te surprennent plus."},
     tip:{en:'Paid users get due-date notifications, with per-bill control.',
-         es:'Los usuarios del nivel Pago reciben notificaciones de vencimiento, con control por factura.'} },
+         es:'Los usuarios del nivel Pago reciben notificaciones de vencimiento, con control por factura.',
+         de:'Bezahlnutzer erhalten Fälligkeits-Benachrichtigungen, mit Kontrolle pro Rechnung.',
+         fr:"Les utilisateurs payants reçoivent des notifications d'échéance, avec contrôle par facture."} },
   { img:'/assets/tour-goals.webp', x:45, y:48,
-    title:{en:'Savings Goals that fund themselves', es:'Metas de Ahorro que se financian solas'},
+    title:{en:'Savings Goals that fund themselves', es:'Metas de Ahorro que se financian solas', de:'Sparziele, die sich selbst füllen', fr:"Des objectifs d'épargne qui se financent seuls"},
     text:{en:'Set a target and BudgeTrak carves a little out of each budget period. Watch the progress bars fill while your daily number stays honest.',
-          es:'Define una meta y BudgeTrak aparta un poco en cada período. Mira las barras de progreso llenarse mientras tu número diario se mantiene honesto.'},
+          es:'Define una meta y BudgeTrak aparta un poco en cada período. Mira las barras de progreso llenarse mientras tu número diario se mantiene honesto.',
+          de:'Setz dir ein Ziel, und BudgeTrak zweigt in jeder Budgetperiode ein wenig ab. Sieh zu, wie die Fortschrittsbalken wachsen, während deine Tages-Zahl ehrlich bleibt.',
+          fr:'Fixe un objectif et BudgeTrak prélève un peu à chaque période. Regarde les barres de progression se remplir pendant que ton montant quotidien reste honnête.'},
     tip:{en:'Surplus at the end of a period? Supercharge sends it straight to your goals.',
-         es:'¿Sobró dinero al final del período? El Impulso lo envía directo a tus metas.'} },
+         es:'¿Sobró dinero al final del período? El Impulso lo envía directo a tus metas.',
+         de:'Geld übrig am Periodenende? Der Boost schickt es direkt in deine Ziele.',
+         fr:"Un surplus en fin de période ? Le Boost l'envoie droit vers tes objectifs."} },
   { img:'/assets/tour-sync.webp', x:50, y:68,
-    title:{en:'BudgeTrak SYNC', es:'BudgeTrak SYNC'},
+    title:{en:'BudgeTrak SYNC', es:'BudgeTrak SYNC', de:'BudgeTrak SYNC', fr:'BudgeTrak SYNC'},
     text:{en:'Budget together: up to five devices share one budget in real time, end-to-end encrypted. The device roster shows who is online and synced.',
-          es:'Presupuesten juntos: hasta cinco dispositivos comparten un presupuesto en tiempo real, cifrado de extremo a extremo. La lista muestra quién está en línea y sincronizado.'},
+          es:'Presupuesten juntos: hasta cinco dispositivos comparten un presupuesto en tiempo real, cifrado de extremo a extremo. La lista muestra quién está en línea y sincronizado.',
+          de:'Gemeinsam budgetieren: Bis zu fünf Geräte teilen ein Budget in Echtzeit, Ende-zu-Ende-verschlüsselt. Die Geräteliste zeigt, wer online und synchronisiert ist.',
+          fr:"Budgétisez ensemble : jusqu'à cinq appareils partagent un budget en temps réel, chiffré de bout en bout. La liste des appareils montre qui est en ligne et synchronisé."},
     tip:{en:'Every transaction shows which family member recorded it.',
-         es:'Cada transacción muestra qué miembro de la familia la registró.'} },
+         es:'Cada transacción muestra qué miembro de la familia la registró.',
+         de:'Jede Transaktion zeigt, welches Familienmitglied sie erfasst hat.',
+         fr:"Chaque transaction montre quel membre de la famille l'a enregistrée."} },
   { img:'/assets/tour-calendar.webp', x:50, y:45,
-    title:{en:'Your month at a glance', es:'Tu mes de un vistazo'},
+    title:{en:'Your month at a glance', es:'Tu mes de un vistazo', de:'Dein Monat auf einen Blick', fr:"Ton mois d'un coup d'œil"},
     text:{en:'The Budget Calendar lays your month out — green income days, red bill days, blue reset days. Tap any day for the breakdown.',
-          es:'El Calendario muestra tu mes — días verdes de ingresos, rojos de facturas, azules de reinicio. Toca cualquier día para ver el detalle.'},
+          es:'El Calendario muestra tu mes — días verdes de ingresos, rojos de facturas, azules de reinicio. Toca cualquier día para ver el detalle.',
+          de:'Der Kalender breitet deinen Monat aus — grüne Einkommenstage, rote Rechnungstage, blaue Reset-Tage. Tippe auf einen Tag für die Details.',
+          fr:'Le Calendrier budgétaire étale ton mois — jours de revenus en vert, jours de factures en rouge, jours de réinitialisation en bleu. Touche un jour pour le détail.'},
     tip:{en:'Great for spotting tight weeks before they arrive.',
-         es:'Ideal para detectar semanas ajustadas antes de que lleguen.'} },
+         es:'Ideal para detectar semanas ajustadas antes de que lleguen.',
+         de:'Ideal, um knappe Wochen zu erkennen, bevor sie da sind.',
+         fr:"Parfait pour repérer les semaines serrées avant qu'elles arrivent."} },
   { img:'/assets/tour-simulation.webp', x:50, y:48,
-    title:{en:'See 18 months ahead', es:'Mira 18 meses hacia adelante'},
+    title:{en:'See 18 months ahead', es:'Mira 18 meses hacia adelante', de:'Blicke 18 Monate voraus', fr:'Vois 18 mois en avance'},
     text:{en:'The Cash Flow Simulation projects your balance month by month, so you can see exactly when money gets tight — before it does.',
-          es:'La Simulación de Flujo proyecta tu saldo mes a mes, para que veas exactamente cuándo el dinero se pondrá ajustado — antes de que pase.'},
+          es:'La Simulación de Flujo proyecta tu saldo mes a mes, para que veas exactamente cuándo el dinero se pondrá ajustado — antes de que pase.',
+          de:'Die Cashflow-Simulation projiziert dein Guthaben Monat für Monat, damit du genau siehst, wann das Geld knapp wird — bevor es so weit ist.',
+          fr:"La Simulation de flux de trésorerie projette ton solde mois par mois, pour voir exactement quand l'argent va se resserrer — avant que ça arrive."},
     tip:{en:'Test a planned purchase and watch your trajectory change instantly.',
-         es:'Prueba una compra planificada y mira tu trayectoria cambiar al instante.'} }
+         es:'Prueba una compra planificada y mira tu trayectoria cambiar al instante.',
+         de:'Teste eine geplante Anschaffung und sieh deine Kurve sich sofort ändern.',
+         fr:'Teste un achat prévu et regarde ta trajectoire changer instantanément.'} }
 ];
 
 /* ═══════════════ FAQ data ═══════════════ */
 var FAQ = [
-  { q:{en:'Is BudgeTrak really free?', es:'¿BudgeTrak es realmente gratis?'},
+  { q:{en:'Is BudgeTrak really free?', es:'¿BudgeTrak es realmente gratis?', de:'Ist BudgeTrak wirklich kostenlos?', fr:'BudgeTrak est-elle vraiment gratuite ?'},
     a:{en:'Yes. The core budgeting engine — income, bills, savings goals, the calendar, and tracking — is free forever, with no account and no trial clock. The free tier shows ads; a one-time $9.99 upgrade removes them and unlocks imports/exports, receipt photos, notifications, and the simulation chart.',
-       es:'Sí. El motor de presupuesto — ingresos, facturas, metas de ahorro, calendario y seguimiento — es gratis para siempre, sin cuenta y sin prueba con reloj. El nivel gratuito muestra anuncios; la mejora única de $9.99 los quita y desbloquea importaciones/exportaciones, fotos de recibos, notificaciones y la simulación.'} },
-  { q:{en:'Do I have to connect my bank account?', es:'¿Tengo que conectar mi cuenta bancaria?'},
+       es:'Sí. El motor de presupuesto — ingresos, facturas, metas de ahorro, calendario y seguimiento — es gratis para siempre, sin cuenta y sin prueba con reloj. El nivel gratuito muestra anuncios; la mejora única de $9.99 los quita y desbloquea importaciones/exportaciones, fotos de recibos, notificaciones y la simulación.',
+       de:'Ja. Die zentrale Budget-Engine — Einkommen, Rechnungen, Sparziele, Kalender und Tracking — ist für immer kostenlos, ohne Konto und ohne Testuhr. Die Gratis-Stufe zeigt Werbung; das einmalige Upgrade für 9,99 USD entfernt sie und schaltet Import/Export, Beleg-Fotos, Benachrichtigungen und die Simulation frei.',
+       fr:"Oui. Le moteur de budget — revenus, factures, objectifs d'épargne, calendrier et suivi — est gratuit pour toujours, sans compte ni période d'essai. Le niveau gratuit affiche des publicités ; la mise à niveau unique à 9,99 USD les supprime et débloque l'import/export, les photos de reçus, les notifications et la simulation."} },
+  { q:{en:'Do I have to connect my bank account?', es:'¿Tengo que conectar mi cuenta bancaria?', de:'Muss ich mein Bankkonto verbinden?', fr:'Dois-je connecter mon compte bancaire ?'},
     a:{en:'No — BudgeTrak never asks for bank credentials. Type transactions in (it takes seconds), or import CSV/Excel statements you download from your bank. Your logins stay with your bank, where they belong.',
-       es:'No — BudgeTrak nunca pide credenciales bancarias. Escribe las transacciones (toma segundos) o importa extractos CSV/Excel descargados de tu banco. Tus contraseñas se quedan con tu banco, donde deben estar.'} },
-  { q:{en:'How does the safe-to-spend number work?', es:'¿Cómo funciona el número seguro para gastar?'},
+       es:'No — BudgeTrak nunca pide credenciales bancarias. Escribe las transacciones (toma segundos) o importa extractos CSV/Excel descargados de tu banco. Tus contraseñas se quedan con tu banco, donde deben estar.',
+       de:'Nein — BudgeTrak fragt nie nach Bank-Zugangsdaten. Tippe Transaktionen ein (dauert Sekunden) oder importiere CSV-/Excel-Auszüge, die du bei deiner Bank herunterlädst. Deine Logins bleiben bei deiner Bank, wo sie hingehören.',
+       fr:"Non — BudgeTrak ne demande jamais d'identifiants bancaires. Saisis les transactions (quelques secondes) ou importe des relevés CSV/Excel téléchargés depuis ta banque. Tes identifiants restent chez ta banque, à leur place."} },
+  { q:{en:'How does the safe-to-spend number work?', es:'¿Cómo funciona el número seguro para gastar?', de:'Wie funktioniert die sichere Ausgaben-Zahl?', fr:'Comment fonctionne le montant sûr à dépenser ?'},
     a:{en:'You tell BudgeTrak your income schedule and recurring bills. It sets aside what upcoming bills and goals need, then divides what is left across your budget period — daily, weekly, or monthly. The result is one number: what you can spend right now without endangering a bill.',
-       es:'Le dices a BudgeTrak tu calendario de ingresos y tus facturas recurrentes. Aparta lo que necesitan las facturas y metas próximas, y divide lo que queda en tu período — diario, semanal o mensual. El resultado es un número: lo que puedes gastar ahora sin poner en riesgo una factura.'} },
-  { q:{en:'What is BudgeTrak SYNC and is it private?', es:'¿Qué es BudgeTrak SYNC y es privado?'},
+       es:'Le dices a BudgeTrak tu calendario de ingresos y tus facturas recurrentes. Aparta lo que necesitan las facturas y metas próximas, y divide lo que queda en tu período — diario, semanal o mensual. El resultado es un número: lo que puedes gastar ahora sin poner en riesgo una factura.',
+       de:'Du nennst BudgeTrak deinen Einkommensplan und deine wiederkehrenden Rechnungen. Die App legt beiseite, was anstehende Rechnungen und Ziele brauchen, und verteilt den Rest auf deine Budgetperiode — täglich, wöchentlich oder monatlich. Das Ergebnis ist eine Zahl: was du jetzt ausgeben kannst, ohne eine Rechnung zu gefährden.',
+       fr:"Tu indiques à BudgeTrak ton calendrier de revenus et tes factures récurrentes. Elle met de côté ce dont les factures et objectifs à venir ont besoin, puis répartit le reste sur ta période — jour, semaine ou mois. Le résultat : un chiffre, ce que tu peux dépenser maintenant sans mettre une facture en danger."} },
+  { q:{en:'What is BudgeTrak SYNC and is it private?', es:'¿Qué es BudgeTrak SYNC y es privado?', de:'Was ist BudgeTrak SYNC und ist es privat?', fr:"Qu'est-ce que BudgeTrak SYNC, et est-ce privé ?"},
     a:{en:'SYNC shares one budget across up to five devices in real time. Every field is encrypted on your phone before upload (end-to-end), so our servers only relay ciphertext — we cannot read your amounts, merchants, or notes. One Subscriber creates and admins the group; joining is free for everyone else.',
-       es:'SYNC comparte un presupuesto entre hasta cinco dispositivos en tiempo real. Cada campo se cifra en tu teléfono antes de subirse (extremo a extremo); nuestros servidores solo retransmiten texto cifrado — no podemos leer tus montos, comercios ni notas. Un Suscriptor crea y administra el grupo; unirse es gratis para los demás.'} },
-  { q:{en:'What are the AI features?', es:'¿Cuáles son las funciones de IA?'},
+       es:'SYNC comparte un presupuesto entre hasta cinco dispositivos en tiempo real. Cada campo se cifra en tu teléfono antes de subirse (extremo a extremo); nuestros servidores solo retransmiten texto cifrado — no podemos leer tus montos, comercios ni notas. Un Suscriptor crea y administra el grupo; unirse es gratis para los demás.',
+       de:'SYNC teilt ein Budget auf bis zu fünf Geräten in Echtzeit. Jedes Feld wird auf deinem Handy verschlüsselt, bevor es hochgeladen wird (Ende-zu-Ende) — unsere Server leiten nur Geheimtext weiter; wir können deine Beträge, Händler und Notizen nicht lesen. Ein Abonnent erstellt und verwaltet die Gruppe; der Beitritt ist für alle anderen kostenlos.',
+       fr:"SYNC partage un budget entre jusqu'à cinq appareils en temps réel. Chaque champ est chiffré sur ton téléphone avant l'envoi (bout en bout) ; nos serveurs ne relaient que du texte chiffré — nous ne pouvons lire ni tes montants, ni tes commerçants, ni tes notes. Un Abonné crée et gère le groupe ; rejoindre est gratuit pour les autres."} },
+  { q:{en:'What are the AI features?', es:'¿Cuáles son las funciones de IA?', de:'Welche KI-Funktionen gibt es?', fr:'Quelles sont les fonctions IA ?'},
     a:{en:'Three, all optional: receipt scanning (Subscriber) reads a photo and fills in the transaction; CSV categorization (Paid/Subscriber) sorts imported bank lines; and an in-app help chat answers questions. AI runs through our servers — no AI keys or financial data are exposed on your device.',
-       es:'Tres, todas opcionales: el escaneo de recibos (Suscriptor) lee una foto y completa la transacción; la categorización de CSV (Pago/Suscriptor) clasifica las líneas importadas del banco; y un chat de ayuda responde preguntas dentro de la app. La IA pasa por nuestros servidores — tu dispositivo no expone claves de IA ni datos financieros.'} },
-  { q:{en:'Which platforms are supported?', es:'¿En qué plataformas está disponible?'},
+       es:'Tres, todas opcionales: el escaneo de recibos (Suscriptor) lee una foto y completa la transacción; la categorización de CSV (Pago/Suscriptor) clasifica las líneas importadas del banco; y un chat de ayuda responde preguntas dentro de la app. La IA pasa por nuestros servidores — tu dispositivo no expone claves de IA ni datos financieros.',
+       de:'Drei, alle optional: Der Beleg-Scan (Abonnent) liest ein Foto und füllt die Transaktion aus; die CSV-Kategorisierung (Bezahlt/Abonnent) sortiert importierte Bankzeilen; und ein Hilfe-Chat beantwortet Fragen in der App. Die KI läuft über unsere Server — auf deinem Gerät liegen keine KI-Schlüssel, und Finanzdaten werden nicht preisgegeben.',
+       fr:"Trois, toutes optionnelles : le scan de reçus (Abonné) lit une photo et remplit la transaction ; la catégorisation CSV (Payant/Abonné) classe les lignes bancaires importées ; et un chat d'aide répond aux questions dans l'appli. L'IA passe par nos serveurs — ton appareil n'expose ni clés IA ni données financières."} },
+  { q:{en:'Which platforms are supported?', es:'¿En qué plataformas está disponible?', de:'Welche Plattformen werden unterstützt?', fr:'Quelles plateformes sont prises en charge ?'},
     a:{en:'Android, on Google Play. An iOS version is not available yet.',
-       es:'Android, en Google Play. Todavía no hay versión para iOS.'} },
-  { q:{en:'What is the difference between Paid and Subscriber?', es:'¿Cuál es la diferencia entre Pago y Suscriptor?'},
+       es:'Android, en Google Play. Todavía no hay versión para iOS.',
+       de:'Android, über Google Play. Eine iOS-Version gibt es noch nicht.',
+       fr:"Android, sur Google Play. Une version iOS n'est pas encore disponible."} },
+  { q:{en:'What is the difference between Paid and Subscriber?', es:'¿Cuál es la diferencia entre Pago y Suscriptor?', de:'Was ist der Unterschied zwischen Bezahlt und Abonnent?', fr:'Quelle est la différence entre Payant et Abonné ?'},
     a:{en:'Paid ($9.99 one-time) removes ads and unlocks imports/exports, receipt photos, bill notifications, the simulation chart, and the unlimited widget — forever. Subscriber ($4.99/month) adds everything Paid has, plus creating and administering SYNC groups and AI receipt scanning.',
-       es:'Pago ($9.99 una vez) quita los anuncios y desbloquea importar/exportar, fotos de recibos, notificaciones, la simulación y el widget ilimitado — para siempre. Suscriptor ($4.99/mes) suma todo lo del nivel Pago, más crear y administrar grupos SYNC y el escaneo de recibos con IA.'} },
-  { q:{en:'Does BudgeTrak work offline?', es:'¿BudgeTrak funciona sin conexión?'},
+       es:'Pago ($9.99 una vez) quita los anuncios y desbloquea importar/exportar, fotos de recibos, notificaciones, la simulación y el widget ilimitado — para siempre. Suscriptor ($4.99/mes) suma todo lo del nivel Pago, más crear y administrar grupos SYNC y el escaneo de recibos con IA.',
+       de:'Bezahlt (9,99 USD einmalig) entfernt Werbung und schaltet Import/Export, Beleg-Fotos, Rechnungs-Benachrichtigungen, die Simulation und das unbegrenzte Widget frei — für immer. Abonnent (4,99 USD/Monat) bietet alles aus Bezahlt, plus das Erstellen und Verwalten von SYNC-Gruppen und den KI-Beleg-Scan.',
+       fr:"Payant (9,99 USD une fois) supprime les pubs et débloque l'import/export, les photos de reçus, les notifications, la simulation et le widget illimité — pour toujours. Abonné (4,99 USD/mois) ajoute tout le niveau Payant, plus la création et la gestion de groupes SYNC et le scan de reçus par IA."} },
+  { q:{en:'Does BudgeTrak work offline?', es:'¿BudgeTrak funciona sin conexión?', de:'Funktioniert BudgeTrak offline?', fr:'BudgeTrak fonctionne-t-elle hors ligne ?'},
     a:{en:'Yes — the entire app runs locally on your device. You only need a connection for optional extras: SYNC, AI features, and downloading the app itself.',
-       es:'Sí — toda la app funciona localmente en tu dispositivo. Solo necesitas conexión para los extras opcionales: SYNC, funciones de IA y descargar la app.'} },
-  { q:{en:'What data do you collect?', es:'¿Qué datos recopilan?'},
+       es:'Sí — toda la app funciona localmente en tu dispositivo. Solo necesitas conexión para los extras opcionales: SYNC, funciones de IA y descargar la app.',
+       de:'Ja — die gesamte App läuft lokal auf deinem Gerät. Eine Verbindung brauchst du nur für die optionalen Extras: SYNC, KI-Funktionen und den Download der App selbst.',
+       fr:"Oui — toute l'appli tourne localement sur ton appareil. Une connexion n'est nécessaire que pour les extras optionnels : SYNC, fonctions IA et téléchargement de l'appli."} },
+  { q:{en:'What data do you collect?', es:'¿Qué datos recopilan?', de:'Welche Daten sammelt ihr?', fr:'Quelles données collectez-vous ?'},
     a:{en:'As little as possible. No account is required for solo use, the app requests no permissions beyond internet access, and crash/usage reporting is a single opt-out toggle that never includes your financial data. Read the full privacy policy for details.',
-       es:'Lo mínimo posible. No se requiere cuenta para uso individual, la app no pide permisos más allá del acceso a internet, y los reportes de fallos/uso son un solo interruptor opcional que nunca incluye tus datos financieros. Lee la política de privacidad completa para más detalles.'} }
+       es:'Lo mínimo posible. No se requiere cuenta para uso individual, la app no pide permisos más allá del acceso a internet, y los reportes de fallos/uso son un solo interruptor opcional que nunca incluye tus datos financieros. Lee la política de privacidad completa para más detalles.',
+       de:'So wenig wie möglich. Für die Solo-Nutzung ist kein Konto nötig, die App verlangt keine Berechtigungen außer Internetzugang, und Absturz-/Nutzungsberichte sind ein einzelner abwählbarer Schalter, der nie deine Finanzdaten enthält. Details stehen in der vollständigen Datenschutzerklärung.',
+       fr:"Le minimum. Aucun compte n'est requis pour l'usage solo, l'appli ne demande aucune permission au-delà de l'accès Internet, et les rapports de plantage/usage tiennent en un seul interrupteur optionnel qui n'inclut jamais tes données financières. Lis la politique de confidentialité complète pour les détails."} }
 ];
 
 /* ═══════════════ init i18n snapshot ═══════════════ */
@@ -742,8 +929,8 @@ document.getElementById('burger').addEventListener('click', function(){
 document.querySelectorAll('#navLinks a').forEach(function(a){
   a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
 });
-document.getElementById('langBtn').addEventListener('click', function(){
-  lang = lang === 'es' ? 'en' : 'es';
+document.getElementById('langSel').addEventListener('change', function(){
+  lang = this.value;
   applyLang();
 });
 
@@ -808,10 +995,10 @@ function speak(text){
   window.speechSynthesis.cancel();
   var u = new SpeechSynthesisUtterance(text);
   var id = ++utterSeq;
-  u.lang = lang === 'es' ? 'es-US' : 'en-US';
+  u.lang = VOICE_LANG[lang] || 'en-US';
   u.rate = 1.0;
   var voices = window.speechSynthesis.getVoices();
-  var match = voices.find(function(v){ return v.lang && v.lang.indexOf(lang === 'es' ? 'es' : 'en') === 0; });
+  var match = voices.find(function(v){ return v.lang && v.lang.indexOf(lang) === 0; });
   if (match) u.voice = match;
   // Advance shortly after the narrator finishes instead of cutting her
   // off on a fixed timer. Utterances cancelled by a newer speak() are
@@ -981,12 +1168,14 @@ document.getElementById('chatForm').addEventListener('submit', function(ev){
 
 /* ═══════════════ boot ═══════════════ */
 (function(){
+  var LANGS = ['en', 'es', 'de', 'fr'];
   var q = new URLSearchParams(location.search).get('lang');
   var stored = null;
   try { stored = localStorage.getItem('btk_lang'); } catch(e){}
-  if (q === 'es' || q === 'en') lang = q;
-  else if (stored === 'es' || stored === 'en') lang = stored;
-  else if ((navigator.language || '').toLowerCase().indexOf('es') === 0) lang = 'es';
+  var nav2 = (navigator.language || '').toLowerCase().slice(0, 2);
+  if (LANGS.indexOf(q) !== -1) lang = q;
+  else if (LANGS.indexOf(stored) !== -1) lang = stored;
+  else if (LANGS.indexOf(nav2) !== -1) lang = nav2;
   applyLang();
   goTour(0, false);
 })();
