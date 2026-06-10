@@ -728,10 +728,7 @@ var FAQ = [
        es:'Sí — toda la app funciona localmente en tu dispositivo. Solo necesitas conexión para los extras opcionales: SYNC, funciones de IA y descargar la app.'} },
   { q:{en:'What data do you collect?', es:'¿Qué datos recopilan?'},
     a:{en:'As little as possible. No account is required for solo use, the app requests no permissions beyond internet access, and crash/usage reporting is a single opt-out toggle that never includes your financial data. Read the full privacy policy for details.',
-       es:'Lo mínimo posible. No se requiere cuenta para uso individual, la app no pide permisos más allá del acceso a internet, y los reportes de fallos/uso son un solo interruptor opcional que nunca incluye tus datos financieros. Lee la política de privacidad completa para más detalles.'} },
-  { q:{en:'Can I get a refund?', es:'¿Puedo pedir un reembolso?'},
-    a:{en:'Within 48 hours of purchase, Google Play offers self-service refunds from your order history. After that, email techadvantagesupport@gmail.com with your order ID and we will help.',
-       es:'Dentro de las 48 horas posteriores a la compra, Google Play ofrece reembolsos automáticos desde tu historial de pedidos. Después, escribe a techadvantagesupport@gmail.com con tu número de pedido y te ayudaremos.'} }
+       es:'Lo mínimo posible. No se requiere cuenta para uso individual, la app no pide permisos más allá del acceso a internet, y los reportes de fallos/uso son un solo interruptor opcional que nunca incluye tus datos financieros. Lee la política de privacidad completa para más detalles.'} }
 ];
 
 /* ═══════════════ init i18n snapshot ═══════════════ */
@@ -793,15 +790,37 @@ function renderTourStrings(){
   document.getElementById('tourVoice').textContent = '🔊 ' + (voiceOn ? t('tour.voiceOn') : t('tour.voiceOff'));
   document.getElementById('tourVoice').className = 'tbtn' + (voiceOn ? ' on' : '');
 }
+var utterSeq = 0;
+function narrationText(s){
+  return (s.title[lang] || s.title.en) + '. ' + (s.text[lang] || s.text.en) + (s.tip ? ' ' + (s.tip[lang] || s.tip.en) : '');
+}
+// Per-step display time. Voice ON: generous length-based ceiling — the
+// real advance comes from the utterance's onend below; this only kicks
+// in if speech never starts or finishes (no voices installed, etc.).
+// Voice OFF: scale with caption length for a comfortable reading pace.
+function stepDurationMs(s){
+  var len = narrationText(s).length;
+  if (voiceOn && ('speechSynthesis' in window)) return Math.max(TOUR_STEP_MS, Math.round(len * 75) + 2000);
+  return Math.max(TOUR_STEP_MS, Math.round(len * 45));
+}
 function speak(text){
   if (!voiceOn || !('speechSynthesis' in window)) return;
   window.speechSynthesis.cancel();
   var u = new SpeechSynthesisUtterance(text);
+  var id = ++utterSeq;
   u.lang = lang === 'es' ? 'es-US' : 'en-US';
   u.rate = 1.0;
   var voices = window.speechSynthesis.getVoices();
   var match = voices.find(function(v){ return v.lang && v.lang.indexOf(lang === 'es' ? 'es' : 'en') === 0; });
   if (match) u.voice = match;
+  // Advance shortly after the narrator finishes instead of cutting her
+  // off on a fixed timer. Utterances cancelled by a newer speak() are
+  // ignored via the utterSeq check.
+  u.onend = function(){
+    if (id !== utterSeq || !tourPlaying || !voiceOn) return;
+    if (tourTimer) clearTimeout(tourTimer);
+    tourTimer = setTimeout(function(){ goTour(tourIdx + 1, false); }, 900);
+  };
   window.speechSynthesis.speak(u);
 }
 function goTour(i, userInitiated){
@@ -816,23 +835,25 @@ function goTour(i, userInitiated){
   ripple.style.left = s.x + '%'; ripple.style.top = s.y + '%';
   pointer.classList.remove('tap'); void pointer.offsetWidth; pointer.classList.add('tap');
   renderTourStrings();
-  speak((s.title[lang] || s.title.en) + '. ' + (s.text[lang] || s.text.en) + (s.tip ? ' ' + (s.tip[lang] || s.tip.en) : ''));
+  speak(narrationText(s));
   restartProgress();
-  if (userInitiated) resetTourTimer();
+  scheduleAdvance();
 }
 function restartProgress(){
   prog.classList.remove('run'); void prog.offsetWidth;
-  prog.style.setProperty('--dur', TOUR_STEP_MS + 'ms');
+  prog.style.setProperty('--dur', stepDurationMs(TOUR[tourIdx]) + 'ms');
   if (tourPlaying) prog.classList.add('run');
   else prog.style.width = '0';
 }
-function resetTourTimer(){
-  if (tourTimer) clearInterval(tourTimer);
-  if (tourPlaying) tourTimer = setInterval(function(){ goTour(tourIdx + 1, false); }, TOUR_STEP_MS);
+function scheduleAdvance(){
+  if (tourTimer) clearTimeout(tourTimer);
+  tourTimer = null;
+  if (!tourPlaying) return;
+  tourTimer = setTimeout(function(){ goTour(tourIdx + 1, false); }, stepDurationMs(TOUR[tourIdx]));
 }
 function setPlaying(p){
   tourPlaying = p;
-  renderTourStrings(); restartProgress(); resetTourTimer();
+  renderTourStrings(); restartProgress(); scheduleAdvance();
   if (!p && 'speechSynthesis' in window) window.speechSynthesis.cancel();
 }
 document.getElementById('tourPlay').addEventListener('click', function(){ setPlaying(!tourPlaying); });
@@ -842,7 +863,9 @@ document.getElementById('tourVoice').addEventListener('click', function(){
   voiceOn = !voiceOn;
   if (!voiceOn && 'speechSynthesis' in window) window.speechSynthesis.cancel();
   renderTourStrings();
-  if (voiceOn) { var s = TOUR[tourIdx]; speak((s.title[lang] || s.title.en) + '. ' + (s.text[lang] || s.text.en)); }
+  if (voiceOn) speak(narrationText(TOUR[tourIdx]));
+  // re-pace the current step for the new mode (speech-end vs reading time)
+  restartProgress(); scheduleAdvance();
 });
 // autoplay when the tour scrolls into view the first time; stop when it leaves
 if ('IntersectionObserver' in window) {
