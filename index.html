@@ -909,7 +909,8 @@ function applyPricing(){
   document.getElementById('priceFree').textContent = fmtPrice(country, 0);
   document.getElementById('pricePaid').textContent = fmtPrice(country, d.p);
   document.getElementById('priceSub').textContent = fmtPrice(country, d.s);
-  relabelCountries();
+  // dropdown stays stable across languages (English names, fixed order) —
+  // localizing + re-sorting it made the list appear to "change" per language.
   document.getElementById('countrySel').value = country;
   document.getElementById('flagImg').src = '/assets/flags/' + country.toLowerCase() + '.svg';
   // competitor line: keep the USD comparison only for USD visitors
