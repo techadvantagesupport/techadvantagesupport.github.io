@@ -66,6 +66,13 @@ section{padding:72px 0}
 .cta.gold:hover{background:var(--gold-d)}
 .burger{display:none;margin-left:auto;background:none;border:0;cursor:pointer;padding:8px}
 .burger span{display:block;width:22px;height:2.5px;background:var(--navy);margin:4px 0;border-radius:2px}
+/* country flag selector — flag with a transparent native <select> over it
+   so a tap opens the OS country picker. Desktop: far right after the nav.
+   Mobile: just left of the hamburger. */
+.flag-widget{position:relative;display:flex;align-items:center;justify-content:center;width:42px;height:38px;border-radius:9px;cursor:pointer;flex:none}
+.flag-widget:hover{background:var(--sage)}
+.flag-img{width:30px;height:22px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);display:block}
+.flag-widget select{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;cursor:pointer;font-size:16px}
 
 /* ───── hero ───── */
 .hero{position:relative;overflow:hidden;padding:84px 0 64px;background:
@@ -252,6 +259,9 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
 @media (max-width:760px){
   section{padding:54px 0}
   .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);flex-direction:column;padding:18px 22px;gap:16px;align-items:flex-start;box-shadow:var(--shadow)}
+  .brand{order:1}
+  .flag-widget{order:2;margin-left:auto}
+  .burger{order:3;margin-left:10px}
   .nav-links.open{display:flex}
   .burger{display:block}
   .hero-in{grid-template-columns:1fr;text-align:center}
@@ -273,7 +283,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
 <!-- ════════ NAV ════════ -->
 <header class="nav">
   <div class="wrap nav-in">
-    <a class="brand" href="#top"><img src="/ic_app_icon.png" alt="BudgeTrak icon">BudgeTrak</a>
+    <a class="brand" href="#top"><img src="/assets/header-icon.jpg" alt="BudgeTrak icon">BudgeTrak</a>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     <nav class="nav-links" id="navLinks">
       <a href="#features" data-i18n="nav.features">Features</a>
@@ -287,9 +297,12 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <option value="de">Deutsch</option>
         <option value="fr">Français</option>
       </select>
-      <select class="lang-btn" id="countrySel" aria-label="Country (for pricing)" title="Country — sets your local pricing"></select>
       <a class="cta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak" data-i18n="nav.get">Get the app</a>
     </nav>
+    <div class="flag-widget" id="flagWidget" title="Country — sets your local pricing">
+      <img class="flag-img" id="flagImg" alt="" src="/assets/flags/us.svg">
+      <select id="countrySel" aria-label="Country — sets your local pricing"></select>
+    </div>
   </div>
 </header>
 
@@ -802,17 +815,17 @@ var lang = 'en';
    formatting via Intl.NumberFormat so each currency gets its native
    symbol + separators. Country defaults from the browser's region, with
    an override dropdown. Refresh this table if Play pricing changes. */
-var PRICES = {US:{n:'United States',l:'en-US',c:'USD',p:9.99,s:4.99},GB:{n:'United Kingdom',l:'en-GB',c:'GBP',p:8.99,s:4.39},CA:{n:'Canada',l:'en-CA',c:'CAD',p:13.99,s:6.99},AU:{n:'Australia',l:'en-AU',c:'AUD',p:14.99,s:7.49},IE:{n:'Ireland',l:'en-IE',c:'EUR',p:9.99,s:4.99},NZ:{n:'New Zealand',l:'en-NZ',c:'NZD',p:18.99,s:9.49},DE:{n:'Germany',l:'de-DE',c:'EUR',p:9.99,s:4.99},AT:{n:'Austria',l:'de-AT',c:'EUR',p:9.99,s:4.99},CH:{n:'Switzerland',l:'de-CH',c:'CHF',p:7.8,s:3.9},FR:{n:'France',l:'fr-FR',c:'EUR',p:9.99,s:4.99},BE:{n:'Belgium',l:'fr-BE',c:'EUR',p:9.99,s:4.99},NL:{n:'Netherlands',l:'nl-NL',c:'EUR',p:9.99,s:4.99},ES:{n:'Spain',l:'es-ES',c:'EUR',p:9.99,s:4.99},IT:{n:'Italy',l:'it-IT',c:'EUR',p:9.99,s:4.99},PT:{n:'Portugal',l:'pt-PT',c:'EUR',p:9.99,s:4.99},MX:{n:'Mexico',l:'es-MX',c:'MXN',p:199,s:99},CO:{n:'Colombia',l:'es-CO',c:'COP',p:37500,s:18500},CL:{n:'Chile',l:'es-CL',c:'CLP',p:10600,s:5300},BR:{n:'Brazil',l:'pt-BR',c:'BRL',p:48.99,s:23.99},PE:{n:'Peru',l:'es-PE',c:'PEN',p:33.99,s:16.99},JP:{n:'Japan',l:'ja-JP',c:'JPY',p:1720,s:860},IN:{n:'India',l:'en-IN',c:'INR',p:1100,s:550},PL:{n:'Poland',l:'pl-PL',c:'PLN',p:43.99,s:21.99},SE:{n:'Sweden',l:'sv-SE',c:'SEK',p:115,s:59},NO:{n:'Norway',l:'nb-NO',c:'NOK',p:115,s:59},DK:{n:'Denmark',l:'da-DK',c:'DKK',p:79,s:40},ZA:{n:'South Africa',l:'en-ZA',c:'ZAR',p:189.99,s:93.99},AE:{n:'United Arab Emirates',l:'en-AE',c:'AED',p:38.99,s:18.99},SG:{n:'Singapore',l:'en-SG',c:'SGD',p:13.98,s:6.98},PH:{n:'Philippines',l:'en-PH',c:'PHP',p:679,s:339},ID:{n:'Indonesia',l:'id-ID',c:'IDR',p:169000,s:87000}};
+var PRICES = {US:{n:'United States',l:'en-US',c:'USD',p:9.99,s:4.99},GB:{n:'United Kingdom',l:'en-GB',c:'GBP',p:8.99,s:4.39},CA:{n:'Canada',l:'en-CA',c:'CAD',p:13.99,s:6.99},AU:{n:'Australia',l:'en-AU',c:'AUD',p:14.99,s:7.49},NZ:{n:'New Zealand',l:'en-NZ',c:'NZD',p:18.99,s:9.49},IE:{n:'Ireland',l:'en-IE',c:'EUR',p:9.99,s:4.99},SG:{n:'Singapore',l:'en-SG',c:'SGD',p:13.98,s:6.98},ZA:{n:'South Africa',l:'en-ZA',c:'ZAR',p:189.99,s:93.99},ES:{n:'Spain',l:'es-ES',c:'EUR',p:9.99,s:4.99},MX:{n:'Mexico',l:'es-MX',c:'MXN',p:199,s:99},AR:{n:'Argentina',l:'es-AR',c:'USD',p:9.99,s:4.99},BO:{n:'Bolivia',l:'es-BO',c:'BOB',p:68.99,s:33.99},CL:{n:'Chile',l:'es-CL',c:'CLP',p:10600,s:5300},CO:{n:'Colombia',l:'es-CO',c:'COP',p:37500,s:18500},CR:{n:'Costa Rica',l:'es-CR',c:'CRC',p:4600,s:2300},DO:{n:'Dominican Republic',l:'es-DO',c:'USD',p:9.99,s:4.99},EC:{n:'Ecuador',l:'es-EC',c:'USD',p:9.99,s:4.99},SV:{n:'El Salvador',l:'es-SV',c:'USD',p:9.99,s:4.99},GT:{n:'Guatemala',l:'es-GT',c:'USD',p:9.99,s:4.99},HN:{n:'Honduras',l:'es-HN',c:'USD',p:9.99,s:4.99},NI:{n:'Nicaragua',l:'es-NI',c:'USD',p:9.99,s:4.99},PA:{n:'Panama',l:'es-PA',c:'USD',p:9.99,s:4.99},PY:{n:'Paraguay',l:'es-PY',c:'PYG',p:60000,s:30000},PE:{n:'Peru',l:'es-PE',c:'PEN',p:33.99,s:16.99},UY:{n:'Uruguay',l:'es-UY',c:'USD',p:9.99,s:4.99},DE:{n:'Germany',l:'de-DE',c:'EUR',p:9.99,s:4.99},FR:{n:'France',l:'fr-FR',c:'EUR',p:9.99,s:4.99},AT:{n:'Austria',l:'de-AT',c:'EUR',p:9.99,s:4.99},CH:{n:'Switzerland',l:'de-CH',c:'CHF',p:7.8,s:3.9},BE:{n:'Belgium',l:'fr-BE',c:'EUR',p:9.99,s:4.99},LU:{n:'Luxembourg',l:'fr-LU',c:'EUR',p:9.99,s:4.99},IT:{n:'Italy',l:'it-IT',c:'EUR',p:9.99,s:4.99},PT:{n:'Portugal',l:'pt-PT',c:'EUR',p:9.99,s:4.99}};
 // language → default country, and the countries that "belong" to each
 // language (used to refine the default by browser region only when the
 // region speaks the chosen language — so a German UI on a US-region
 // device still defaults to Germany, not the US).
 var LANG_COUNTRY = { en:'US', es:'ES', de:'DE', fr:'FR' };
 var LANG_REGIONS = {
-  en: ['US','GB','CA','AU','IE','NZ','SG','ZA','IN','AE','PH'],
-  es: ['ES','MX','CO','CL','PE'],
+  en: ['US','GB','CA','AU','IE','NZ','SG','ZA'],
+  es: ['ES','MX','AR','BO','CL','CO','CR','DO','EC','SV','GT','HN','NI','PA','PY','PE','UY'],
   de: ['DE','AT','CH'],
-  fr: ['FR','BE','CH','CA']
+  fr: ['FR','BE','CH','CA','LU']
 };
 var countryPinned = false;  // true once the visitor explicitly picks a country
 function deriveCountry(forLang){
@@ -839,14 +852,32 @@ function countryName(code){
   try { return new Intl.DisplayNames([lang], {type:'region'}).of(code) || PRICES[code].n; }
   catch(e){ return PRICES[code].n; }
 }
+function flagEmoji(code){
+  return code.toUpperCase().replace(/./g, function(ch){
+    return String.fromCodePoint(0x1F1E6 + ch.charCodeAt(0) - 65);
+  });
+}
+function isUSD(){ return (PRICES[country] || PRICES.US).c === 'USD'; }
+// generic (currency-free) competitor line shown when prices aren't USD —
+// avoids quoting US-dollar competitor prices to a non-US visitor.
+var COMPARE_GENERIC = {
+  en: "BudgeTrak's one-time upgrade costs less than a single month of most popular budgeting apps.",
+  es: 'La mejora única de BudgeTrak cuesta menos que un solo mes de la mayoría de las apps de presupuesto populares.',
+  de: 'BudgeTraks einmaliges Upgrade kostet weniger als ein einziger Monat bei den meisten beliebten Budget-Apps.',
+  fr: "La mise à niveau unique de BudgeTrak coûte moins qu'un seul mois chez la plupart des applis de budget populaires."
+};
 function relabelCountries(){
   var sel = document.getElementById('countrySel');
   if (!sel) return;
-  Array.prototype.forEach.call(sel.options, function(o){ o.textContent = countryName(o.value); });
-  // re-sort by the localized label, preserving the current selection
+  // native <select> options are text-only (emoji flags don't render on
+  // Chrome/Windows+Linux) — country name only; the visible flag is an SVG.
+  Array.prototype.forEach.call(sel.options, function(o){
+    o.textContent = countryName(o.value);
+  });
+  // re-sort by the localized country name, preserving the current selection
   var cur = sel.value;
   var opts = Array.prototype.slice.call(sel.options)
-    .sort(function(a,b){ return a.textContent.localeCompare(b.textContent, lang); });
+    .sort(function(a,b){ return countryName(a.value).localeCompare(countryName(b.value), lang); });
   opts.forEach(function(o){ sel.appendChild(o); });
   sel.value = cur;
 }
@@ -880,14 +911,24 @@ function applyPricing(){
   document.getElementById('priceSub').textContent = fmtPrice(country, d.s);
   relabelCountries();
   document.getElementById('countrySel').value = country;
+  document.getElementById('flagImg').src = '/assets/flags/' + country.toLowerCase() + '.svg';
+  // competitor line: keep the USD comparison only for USD visitors
+  var cmp = document.querySelector('.compare');
+  if (cmp) cmp.innerHTML = isUSD()
+    ? (dictLookup('price.compare') !== undefined ? dictLookup('price.compare') : EN_SNAPSHOT['price.compare'])
+    : (COMPARE_GENERIC[lang] || COMPARE_GENERIC.en);
+  renderFaq();  // FAQ price mentions depend on USD vs not
   var msg = document.getElementById('priceRegion');
   msg.innerHTML = (PRICE_REGION_MSG[lang] || PRICE_REGION_MSG.en)(countryName(country));
   var change = document.getElementById('changeCountry');
   if (change) change.addEventListener('click', function(ev){
     ev.preventDefault();
     var sel = document.getElementById('countrySel');
-    sel.scrollIntoView({block:'center'}); sel.focus();
-    try { sel.showPicker && sel.showPicker(); } catch(e){}
+    sel.focus();
+    try { if (sel.showPicker) sel.showPicker(); } catch(e){}
+    // brief highlight so the flag widget catches the eye if the picker can't auto-open
+    var fw = document.getElementById('flagWidget');
+    if (fw) { fw.style.outline = '2px solid var(--gold)'; setTimeout(function(){ fw.style.outline=''; }, 1200); }
   });
 }
 
@@ -1035,7 +1076,11 @@ var FAQ = [
     a:{en:'Yes. The core budgeting engine — income, bills, savings goals, the calendar, and tracking — is free forever, with no account and no trial clock. The free tier shows ads; a one-time $9.99 upgrade removes them and unlocks imports/exports, receipt photos, notifications, and the simulation chart.',
        es:'Sí. El motor de presupuesto — ingresos, facturas, metas de ahorro, calendario y seguimiento — es gratis para siempre, sin cuenta y sin prueba con reloj. El nivel gratuito muestra anuncios; la mejora única de $9.99 los quita y desbloquea importaciones/exportaciones, fotos de recibos, notificaciones y la simulación.',
        de:'Ja. Die zentrale Budget-Engine — Einkommen, Rechnungen, Sparziele, Kalender und Tracking — ist für immer kostenlos, ohne Konto und ohne Testuhr. Die Gratis-Stufe zeigt Werbung; das einmalige Upgrade für 9,99 USD entfernt sie und schaltet Import/Export, Beleg-Fotos, Benachrichtigungen und die Simulation frei.',
-       fr:"Oui. Le moteur de budget — revenus, factures, objectifs d'épargne, calendrier et suivi — est gratuit pour toujours, sans compte ni période d'essai. Le niveau gratuit affiche des publicités ; la mise à niveau unique à 9,99 USD les supprime et débloque l'import/export, les photos de reçus, les notifications et la simulation."} },
+       fr:"Oui. Le moteur de budget — revenus, factures, objectifs d'épargne, calendrier et suivi — est gratuit pour toujours, sans compte ni période d'essai. Le niveau gratuit affiche des publicités ; la mise à niveau unique à 9,99 USD les supprime et débloque l'import/export, les photos de reçus, les notifications et la simulation."},
+    aGeneric:{en:'Yes. The core budgeting engine — income, bills, savings goals, the calendar, and tracking — is free forever, with no account and no trial clock. The free tier shows ads; a one-time upgrade removes them and unlocks imports/exports, receipt photos, notifications, and the simulation chart.',
+       es:'Sí. El motor de presupuesto — ingresos, facturas, metas de ahorro, calendario y seguimiento — es gratis para siempre, sin cuenta y sin prueba con reloj. El nivel gratuito muestra anuncios; la mejora única los quita y desbloquea importaciones/exportaciones, fotos de recibos, notificaciones y la simulación.',
+       de:'Ja. Die zentrale Budget-Engine — Einkommen, Rechnungen, Sparziele, Kalender und Tracking — ist für immer kostenlos, ohne Konto und ohne Testuhr. Die Gratis-Stufe zeigt Werbung; das einmalige Upgrade entfernt sie und schaltet Import/Export, Beleg-Fotos, Benachrichtigungen und die Simulation frei.',
+       fr:"Oui. Le moteur de budget — revenus, factures, objectifs d'épargne, calendrier et suivi — est gratuit pour toujours, sans compte ni période d'essai. Le niveau gratuit affiche des publicités ; la mise à niveau unique les supprime et débloque l'import/export, les photos de reçus, les notifications et la simulation."} },
   { q:{en:'Do I have to connect my bank account?', es:'¿Tengo que conectar mi cuenta bancaria?', de:'Muss ich mein Bankkonto verbinden?', fr:'Dois-je connecter mon compte bancaire ?'},
     a:{en:'No — BudgeTrak never asks for bank credentials. Type transactions in (it takes seconds), or import CSV/Excel statements you download from your bank. Your logins stay with your bank, where they belong.',
        es:'No — BudgeTrak nunca pide credenciales bancarias. Escribe las transacciones (toma segundos) o importa extractos CSV/Excel descargados de tu banco. Tus contraseñas se quedan con tu banco, donde deben estar.',
@@ -1065,7 +1110,11 @@ var FAQ = [
     a:{en:'Paid ($9.99 one-time) removes ads and unlocks imports/exports, receipt photos, bill notifications, the simulation chart, and the unlimited widget — forever. Subscriber ($4.99/month) adds everything Paid has, plus creating and administering SYNC groups and AI receipt scanning.',
        es:'Pago ($9.99 una vez) quita los anuncios y desbloquea importar/exportar, fotos de recibos, notificaciones, la simulación y el widget ilimitado — para siempre. Suscriptor ($4.99/mes) suma todo lo del nivel Pago, más crear y administrar grupos SYNC y el escaneo de recibos con IA.',
        de:'Bezahlt (9,99 USD einmalig) entfernt Werbung und schaltet Import/Export, Beleg-Fotos, Rechnungs-Benachrichtigungen, die Simulation und das unbegrenzte Widget frei — für immer. Abonnent (4,99 USD/Monat) bietet alles aus Bezahlt, plus das Erstellen und Verwalten von SYNC-Gruppen und den KI-Beleg-Scan.',
-       fr:"Payant (9,99 USD une fois) supprime les pubs et débloque l'import/export, les photos de reçus, les notifications, la simulation et le widget illimité — pour toujours. Abonné (4,99 USD/mois) ajoute tout le niveau Payant, plus la création et la gestion de groupes SYNC et le scan de reçus par IA."} },
+       fr:"Payant (9,99 USD une fois) supprime les pubs et débloque l'import/export, les photos de reçus, les notifications, la simulation et le widget illimité — pour toujours. Abonné (4,99 USD/mois) ajoute tout le niveau Payant, plus la création et la gestion de groupes SYNC et le scan de reçus par IA."},
+    aGeneric:{en:'Paid (a one-time purchase) removes ads and unlocks imports/exports, receipt photos, bill notifications, the simulation chart, and the unlimited widget — forever. Subscriber (a low monthly subscription) adds everything Paid has, plus creating and administering SYNC groups and AI receipt scanning.',
+       es:'Pago (una compra única) quita los anuncios y desbloquea importar/exportar, fotos de recibos, notificaciones, la simulación y el widget ilimitado — para siempre. Suscriptor (una suscripción mensual económica) suma todo lo del nivel Pago, más crear y administrar grupos SYNC y el escaneo de recibos con IA.',
+       de:'Bezahlt (ein Einmalkauf) entfernt Werbung und schaltet Import/Export, Beleg-Fotos, Rechnungs-Benachrichtigungen, die Simulation und das unbegrenzte Widget frei — für immer. Abonnent (ein günstiges Monatsabo) bietet alles aus Bezahlt, plus das Erstellen und Verwalten von SYNC-Gruppen und den KI-Beleg-Scan.',
+       fr:"Payant (un achat unique) supprime les pubs et débloque l'import/export, les photos de reçus, les notifications, la simulation et le widget illimité — pour toujours. Abonné (un abonnement mensuel abordable) ajoute tout le niveau Payant, plus la création et la gestion de groupes SYNC et le scan de reçus par IA."} },
   { q:{en:'Does BudgeTrak work offline?', es:'¿BudgeTrak funciona sin conexión?', de:'Funktioniert BudgeTrak offline?', fr:'BudgeTrak fonctionne-t-elle hors ligne ?'},
     a:{en:'Yes — the entire app runs locally on your device. You only need a connection for optional extras: SYNC, AI features, and downloading the app itself.',
        es:'Sí — toda la app funciona localmente en tu dispositivo. Solo necesitas conexión para los extras opcionales: SYNC, funciones de IA y descargar la app.',
@@ -1098,10 +1147,13 @@ document.getElementById('langSel').addEventListener('change', function(){
 function renderFaq(){
   var box = document.getElementById('faqList');
   box.innerHTML = '';
+  var usd = (typeof isUSD === 'function') ? isUSD() : true;
   FAQ.forEach(function(f){
     var d = document.createElement('details');
     var s = document.createElement('summary'); s.textContent = f.q[lang] || f.q.en;
-    var p = document.createElement('p'); p.className = 'ans'; p.textContent = f.a[lang] || f.a.en;
+    // non-USD visitors get the currency-free answer (no $ figures) when one exists
+    var ans = (!usd && f.aGeneric) ? f.aGeneric : f.a;
+    var p = document.createElement('p'); p.className = 'ans'; p.textContent = ans[lang] || ans.en;
     d.appendChild(s); d.appendChild(p); box.appendChild(d);
   });
 }
