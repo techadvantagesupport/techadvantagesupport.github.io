@@ -69,10 +69,20 @@ section{padding:72px 0}
 /* country flag selector — flag with a transparent native <select> over it
    so a tap opens the OS country picker. Desktop: far right after the nav.
    Mobile: just left of the hamburger. */
-.flag-widget{position:relative;display:flex;align-items:center;justify-content:center;width:42px;height:38px;border-radius:9px;cursor:pointer;flex:none}
-.flag-widget:hover{background:var(--sage)}
+.flag-widget{position:relative;flex:none}
+.flag-btn{display:flex;align-items:center;justify-content:center;width:42px;height:38px;border:0;background:none;border-radius:9px;cursor:pointer;padding:0}
+.flag-btn:hover{background:var(--sage)}
 .flag-img{width:30px;height:22px;object-fit:cover;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.12);display:block}
-.flag-widget select{position:absolute;inset:0;width:100%;height:100%;opacity:0;border:0;cursor:pointer;font-size:16px}
+.country-menu{position:absolute;top:46px;right:0;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);max-height:min(420px,70vh);overflow-y:auto;width:230px;padding:6px;z-index:80}
+.country-menu[hidden]{display:none}
+.country-row{display:flex;align-items:center;gap:10px;width:100%;border:0;background:none;cursor:pointer;text-align:left;padding:8px 10px;border-radius:8px;font:inherit}
+.country-row:hover{background:var(--sage)}
+.country-row[aria-selected="true"]{background:var(--sage)}
+.country-row[aria-selected="true"] .cr-name{color:var(--blue);font-weight:800}
+.country-row img{width:24px;height:18px;object-fit:cover;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12);flex:none}
+.cr-text{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.cr-name{font-size:.92rem;font-weight:700;color:var(--ink)}
+.cr-local{font-size:.76rem;color:var(--mut)}
 
 /* ───── hero ───── */
 .hero{position:relative;overflow:hidden;padding:84px 0 64px;background:
@@ -299,9 +309,11 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       </select>
       <a class="cta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak" data-i18n="nav.get">Get the app</a>
     </nav>
-    <div class="flag-widget" id="flagWidget" title="Country — sets your local pricing">
-      <img class="flag-img" id="flagImg" alt="" src="/assets/flags/us.svg">
-      <select id="countrySel" aria-label="Country — sets your local pricing"></select>
+    <div class="flag-widget" id="flagWidget">
+      <button class="flag-btn" id="flagBtn" aria-haspopup="listbox" aria-expanded="false" title="Country — sets your local pricing" aria-label="Country — sets your local pricing">
+        <img class="flag-img" id="flagImg" alt="" src="/assets/flags/us.svg">
+      </button>
+      <div class="country-menu" id="countryMenu" role="listbox" hidden></div>
     </div>
   </div>
 </header>
@@ -866,20 +878,62 @@ var COMPARE_GENERIC = {
   de: 'BudgeTraks einmaliges Upgrade kostet weniger als ein einziger Monat bei den meisten beliebten Budget-Apps.',
   fr: "La mise à niveau unique de BudgeTrak coûte moins qu'un seul mois chez la plupart des applis de budget populaires."
 };
-function relabelCountries(){
-  var sel = document.getElementById('countrySel');
-  if (!sel) return;
-  // native <select> options are text-only (emoji flags don't render on
-  // Chrome/Windows+Linux) — country name only; the visible flag is an SVG.
-  Array.prototype.forEach.call(sel.options, function(o){
-    o.textContent = countryName(o.value);
+/* Custom country dropdown: native <select> can't show flags or a second
+   line, so this is a flag button + a listbox. Rows are sorted ONCE by
+   English name (stable across languages); each row shows the flag, the
+   English name (primary), and the localized name (secondary). */
+function buildCountryMenu(){
+  var menu = document.getElementById('countryMenu');
+  if (!menu || menu.childElementCount) return;
+  Object.keys(PRICES).sort(function(a,b){ return PRICES[a].n.localeCompare(PRICES[b].n); })
+    .forEach(function(code){
+      var row = document.createElement('button');
+      row.type = 'button'; row.className = 'country-row'; row.setAttribute('role','option');
+      row.dataset.code = code;
+      row.innerHTML = '<img alt="" src="/assets/flags/' + code.toLowerCase() + '.svg">' +
+        '<span class="cr-text"><span class="cr-name">' + PRICES[code].n +
+        '</span><span class="cr-local"></span></span>';
+      row.addEventListener('click', function(){
+        country = code; countryPinned = true;
+        try { localStorage.setItem('btk_country', country); } catch(e){}
+        closeCountryMenu(); applyPricing();
+      });
+      menu.appendChild(row);
+    });
+  // toggle + dismiss wiring (once)
+  document.getElementById('flagBtn').addEventListener('click', function(e){
+    e.stopPropagation();
+    menu.hidden ? openCountryMenu() : closeCountryMenu();
   });
-  // re-sort by the localized country name, preserving the current selection
-  var cur = sel.value;
-  var opts = Array.prototype.slice.call(sel.options)
-    .sort(function(a,b){ return countryName(a.value).localeCompare(countryName(b.value), lang); });
-  opts.forEach(function(o){ sel.appendChild(o); });
-  sel.value = cur;
+  document.addEventListener('click', function(e){
+    if (!menu.hidden && !document.getElementById('flagWidget').contains(e.target)) closeCountryMenu();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') closeCountryMenu(); });
+}
+function openCountryMenu(){
+  var menu = document.getElementById('countryMenu');
+  menu.hidden = false;
+  document.getElementById('flagBtn').setAttribute('aria-expanded','true');
+  var sel = menu.querySelector('[aria-selected="true"]');
+  if (sel) sel.scrollIntoView({block:'nearest'});
+}
+function closeCountryMenu(){
+  document.getElementById('countryMenu').hidden = true;
+  document.getElementById('flagBtn').setAttribute('aria-expanded','false');
+}
+// localize the secondary name + mark the selected row (called on every
+// language/country change; primary names + order never move).
+function updateCountryMenu(){
+  var menu = document.getElementById('countryMenu');
+  if (!menu) return;
+  Array.prototype.forEach.call(menu.children, function(row){
+    var code = row.dataset.code;
+    var loc = row.querySelector('.cr-local');
+    var localName = countryName(code);
+    // hide the secondary line when it matches the English primary
+    loc.textContent = (localName === PRICES[code].n) ? '' : localName;
+    row.setAttribute('aria-selected', code === country ? 'true' : 'false');
+  });
 }
 function detectCountry(){
   var stored = null; try { stored = localStorage.getItem('btk_country'); } catch(e){}
@@ -888,31 +942,13 @@ function detectCountry(){
   if (q && PRICES[q.toUpperCase()]) { countryPinned = true; return q.toUpperCase(); }
   return deriveCountry(lang);  // language-led default, region-refined within that language
 }
-function buildCountrySelect(){
-  var sel = document.getElementById('countrySel');
-  if (!sel || sel.options.length) return;
-  Object.keys(PRICES).sort(function(a,b){ return PRICES[a].n.localeCompare(PRICES[b].n); })
-    .forEach(function(code){
-      var o = document.createElement('option');
-      o.value = code; o.textContent = PRICES[code].n;
-      sel.appendChild(o);
-    });
-  sel.addEventListener('change', function(){
-    country = sel.value;
-    countryPinned = true;  // explicit choice — stop auto-deriving from language
-    try { localStorage.setItem('btk_country', country); } catch(e){}
-    applyPricing();
-  });
-}
 function applyPricing(){
   var d = PRICES[country] || PRICES.US;
   document.getElementById('priceFree').textContent = fmtPrice(country, 0);
   document.getElementById('pricePaid').textContent = fmtPrice(country, d.p);
   document.getElementById('priceSub').textContent = fmtPrice(country, d.s);
-  // dropdown stays stable across languages (English names, fixed order) —
-  // localizing + re-sorting it made the list appear to "change" per language.
-  document.getElementById('countrySel').value = country;
   document.getElementById('flagImg').src = '/assets/flags/' + country.toLowerCase() + '.svg';
+  updateCountryMenu();  // localized secondary names + selected row (stable order)
   // competitor line: keep the USD comparison only for USD visitors
   var cmp = document.querySelector('.compare');
   if (cmp) cmp.innerHTML = isUSD()
@@ -924,12 +960,7 @@ function applyPricing(){
   var change = document.getElementById('changeCountry');
   if (change) change.addEventListener('click', function(ev){
     ev.preventDefault();
-    var sel = document.getElementById('countrySel');
-    sel.focus();
-    try { if (sel.showPicker) sel.showPicker(); } catch(e){}
-    // brief highlight so the flag widget catches the eye if the picker can't auto-open
-    var fw = document.getElementById('flagWidget');
-    if (fw) { fw.style.outline = '2px solid var(--gold)'; setTimeout(function(){ fw.style.outline=''; }, 1200); }
+    openCountryMenu();
   });
 }
 
@@ -1402,7 +1433,7 @@ document.getElementById('chatForm').addEventListener('submit', function(ev){
   else if (LANGS.indexOf(stored) !== -1) lang = stored;
   else if (LANGS.indexOf(nav2) !== -1) lang = nav2;
   country = detectCountry();
-  buildCountrySelect();
+  buildCountryMenu();
   applyLang();
   goTour(0, false);
 })();
