@@ -188,6 +188,7 @@ section{padding:72px 0}
 .plan h3{font-size:1.15rem}
 .price{font-size:2.1rem;font-weight:900;margin:10px 0 2px;color:var(--navy)}
 .price small{font-size:.95rem;font-weight:700;color:var(--mut)}
+.price .ast{font-size:1rem;font-weight:700;color:var(--gold-d);vertical-align:super;line-height:0}
 .plan ul{margin:18px 0 24px;display:flex;flex-direction:column;gap:9px}
 .plan li{list-style:none;display:flex;gap:9px;font-size:.92rem;align-items:flex-start}
 .plan li svg{flex:none;margin-top:4px}
@@ -482,7 +483,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       <div class="plan pop">
         <span class="tag" data-i18n="price.popTag">Best value</span>
         <h3 data-i18n="price.p">Paid</h3>
-        <div class="price"><span id="pricePaid">$9.99</span> <small data-i18n="price.pNote">one time — yours forever</small></div>
+        <div class="price"><span id="pricePaid">$9.99</span><sup class="ast">*</sup> <small data-i18n="price.pNote">one time — yours forever</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p1">Everything in Free, ad-free</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p2">CSV / Excel import &amp; export, PDF reports</span></li>
@@ -495,7 +496,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       </div>
       <div class="plan">
         <h3 data-i18n="price.s">Subscriber</h3>
-        <div class="price"><span id="priceSub">$4.99</span> <small data-i18n="price.sNote">/ month</small></div>
+        <div class="price"><span id="priceSub">$4.99</span><sup class="ast">*</sup> <small data-i18n="price.sNote">/ month</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.s1">Everything in Paid</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.s2">Create &amp; admin SYNC groups (5 devices)</span></li>
@@ -849,10 +850,10 @@ function deriveCountry(forLang){
 }
 // small "prices for X" line, per UI language.
 var PRICE_REGION_MSG = {
-  en: function(c){ return 'Prices shown for ' + c + '. <a href="#" id="changeCountry">Change country</a> · exact prices on Google Play.'; },
-  es: function(c){ return 'Precios para ' + c + '. <a href="#" id="changeCountry">Cambiar país</a> · precios exactos en Google Play.'; },
-  de: function(c){ return 'Preise für ' + c + '. <a href="#" id="changeCountry">Land ändern</a> · genaue Preise bei Google Play.'; },
-  fr: function(c){ return 'Prix pour ' + c + '. <a href="#" id="changeCountry">Changer de pays</a> · prix exacts sur Google Play.'; }
+  en: function(c){ return '* Prices shown for ' + c + '. <a href="#" id="changeCountry">Change country</a> · exact prices on Google Play.'; },
+  es: function(c){ return '* Precios para ' + c + '. <a href="#" id="changeCountry">Cambiar país</a> · precios exactos en Google Play.'; },
+  de: function(c){ return '* Preise für ' + c + '. <a href="#" id="changeCountry">Land ändern</a> · genaue Preise bei Google Play.'; },
+  fr: function(c){ return '* Prix pour ' + c + '. <a href="#" id="changeCountry">Changer de pays</a> · prix exacts sur Google Play.'; }
 };
 var country = 'US';
 function fmtPrice(code, amount){
@@ -960,7 +961,9 @@ function applyPricing(){
   var change = document.getElementById('changeCountry');
   if (change) change.addEventListener('click', function(ev){
     ev.preventDefault();
+    ev.stopPropagation();  // don't let the document click-to-close fire on the same click
     openCountryMenu();
+    document.getElementById('flagBtn').focus();
   });
 }
 
@@ -1172,6 +1175,7 @@ document.querySelectorAll('#navLinks a').forEach(function(a){
 });
 document.getElementById('langSel').addEventListener('change', function(){
   lang = this.value;
+  document.getElementById('navLinks').classList.remove('open');  // close the mobile menu
   applyLang();
 });
 
