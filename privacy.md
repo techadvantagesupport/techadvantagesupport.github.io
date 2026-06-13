@@ -16,7 +16,7 @@ BudgeTrak is a personal budgeting app. Your financial data lives on your device.
 
 ## Who We Are
 
-BudgeTrak is published by **Tech Advantage LLC** ("we", "us", "our"). You can contact us at **techadvantagesupport@gmail.com** for any privacy-related questions or requests.
+BudgeTrak is published by **Tech Advantage LLC** ("we", "us", "our"). You can contact us at **support@techadvantageapps.com** for any privacy-related questions or requests.
 
 ## Information We Collect
 
@@ -188,7 +188,7 @@ You have full control over your data in BudgeTrak.
 - **Revoke Help Chat consent**: Open **Settings → Privacy → Allow Chatbot to transmit and store your messages…** in BudgeTrak and uncheck the box. No further messages from your device will be uploaded. Any anonymously stored transcripts already on our servers continue to be deleted automatically after the 7-day retention period described above; because they are stored without your identity, we cannot delete a specific user's past transcripts on request.
 - **Limit ad tracking**: Reset or limit your Android advertising identifier in your device settings under Privacy → Ads.
 
-If you want us to confirm what data we hold about you (note: in nearly all cases, the answer is "nothing personally identifying") or have any other privacy request, contact us at **techadvantagesupport@gmail.com**.
+If you want us to confirm what data we hold about you (note: in nearly all cases, the answer is "nothing personally identifying") or have any other privacy request, contact us at **support@techadvantageapps.com**.
 
 ## Data Deletion
 
@@ -223,7 +223,7 @@ What deletion does **not** affect: anonymous crash records (retained by the cras
 
 ## Children's Privacy
 
-BudgeTrak is a personal finance tool intended for users aged 13 and over. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us at **techadvantagesupport@gmail.com** and we will take steps to delete it.
+BudgeTrak is a personal finance tool intended for users aged 13 and over. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us at **support@techadvantageapps.com** and we will take steps to delete it.
 
 ## International Users
 
@@ -238,6 +238,6 @@ We may update this privacy policy from time to time, particularly when we add or
 If you have questions about this privacy policy or BudgeTrak's data practices, please contact:
 
 **Tech Advantage LLC**
-Email: **techadvantagesupport@gmail.com**
+Email: **support@techadvantageapps.com**
 
 We will respond to legitimate privacy inquiries within a reasonable time, typically within 30 days.

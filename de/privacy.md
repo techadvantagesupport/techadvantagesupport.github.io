@@ -19,7 +19,7 @@ BudgeTrak ist eine App für die persönliche Budgetplanung. Ihre Finanzdaten ver
 
 ## Wer wir sind
 
-BudgeTrak wird von **Tech Advantage LLC** ("wir", "uns", "unser") herausgegeben. Sie können uns unter **techadvantagesupport@gmail.com** für alle datenschutzbezogenen Fragen oder Anliegen kontaktieren.
+BudgeTrak wird von **Tech Advantage LLC** ("wir", "uns", "unser") herausgegeben. Sie können uns unter **support@techadvantageapps.com** für alle datenschutzbezogenen Fragen oder Anliegen kontaktieren.
 
 ## Welche Informationen wir erheben
 
@@ -191,7 +191,7 @@ Sie haben die volle Kontrolle über Ihre Daten in BudgeTrak.
 - **Hilfe-Chat-Einwilligung widerrufen**: Öffnen Sie **Einstellungen → Datenschutz → Chatbot erlauben, Ihre Nachrichten zu übertragen und zu speichern…** in BudgeTrak und deaktivieren Sie das Kästchen. Von Ihrem Gerät werden keine weiteren Nachrichten hochgeladen. Alle bereits anonym auf unseren Servern gespeicherten Transkripte werden weiterhin nach der oben beschriebenen 7-tägigen Aufbewahrungsfrist automatisch gelöscht; da sie ohne Ihre Identität gespeichert werden, können wir die früheren Transkripte eines bestimmten Nutzers nicht auf Anfrage löschen.
 - **Werbeverfolgung einschränken**: Setzen Sie Ihre Android-Werbekennung in den Einstellungen Ihres Geräts unter Datenschutz → Werbung zurück oder schränken Sie sie ein.
 
-Wenn Sie möchten, dass wir Ihnen bestätigen, welche Daten wir über Sie speichern (Hinweis: In nahezu allen Fällen lautet die Antwort "nichts persönlich Identifizierendes"), oder ein anderes Datenschutzanliegen haben, kontaktieren Sie uns unter **techadvantagesupport@gmail.com**.
+Wenn Sie möchten, dass wir Ihnen bestätigen, welche Daten wir über Sie speichern (Hinweis: In nahezu allen Fällen lautet die Antwort "nichts persönlich Identifizierendes"), oder ein anderes Datenschutzanliegen haben, kontaktieren Sie uns unter **support@techadvantageapps.com**.
 
 ## Datenlöschung
 
@@ -226,7 +226,7 @@ Was die Löschung **nicht** betrifft: anonyme Absturzdatensätze (vom Absturzber
 
 ## Datenschutz von Kindern
 
-BudgeTrak ist ein Werkzeug für die persönliche Finanzverwaltung, das für Nutzer ab 13 Jahren bestimmt ist. Wir erheben nicht wissentlich personenbezogene Daten von Kindern unter 13 Jahren. Wenn Sie glauben, dass ein Kind unter 13 Jahren uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte unter **techadvantagesupport@gmail.com**, und wir werden Schritte unternehmen, um diese zu löschen.
+BudgeTrak ist ein Werkzeug für die persönliche Finanzverwaltung, das für Nutzer ab 13 Jahren bestimmt ist. Wir erheben nicht wissentlich personenbezogene Daten von Kindern unter 13 Jahren. Wenn Sie glauben, dass ein Kind unter 13 Jahren uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte unter **support@techadvantageapps.com**, und wir werden Schritte unternehmen, um diese zu löschen.
 
 ## Internationale Nutzer
 
@@ -241,6 +241,6 @@ Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren, insbeson
 Wenn Sie Fragen zu dieser Datenschutzerklärung oder zu den Datenpraktiken von BudgeTrak haben, kontaktieren Sie bitte:
 
 **Tech Advantage LLC**
-E-Mail: **techadvantagesupport@gmail.com**
+E-Mail: **support@techadvantageapps.com**
 
 Wir werden auf berechtigte Datenschutzanfragen innerhalb einer angemessenen Frist antworten, in der Regel innerhalb von 30 Tagen.

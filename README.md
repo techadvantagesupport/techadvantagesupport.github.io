@@ -107,12 +107,12 @@ BudgeTrak's core budgeting features are **free forever** with no account require
 ## Links
 
 - [Privacy Policy](https://techadvantagesupport.github.io/privacy)
-- [Contact Us](mailto:techadvantagesupport@gmail.com) — questions, support, or feedback
+- [Contact Us](mailto:support@techadvantageapps.com) — questions, support, or feedback
 
 ## About
 
 BudgeTrak is developed and published by **Tech Advantage LLC**.
 
-Have a question, need help, or want to share feedback? We'd love to hear from you: [techadvantagesupport@gmail.com](mailto:techadvantagesupport@gmail.com)
+Have a question, need help, or want to share feedback? We'd love to hear from you: [support@techadvantageapps.com](mailto:support@techadvantageapps.com)
 
 Your money. Your data. Your control.

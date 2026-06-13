@@ -107,12 +107,12 @@ Las funciones básicas de presupuesto de BudgeTrak son **gratis para siempre** y
 ## Enlaces
 
 - [Política de Privacidad](/es/privacy)
-- [Contáctenos](mailto:techadvantagesupport@gmail.com) — preguntas, soporte o comentarios
+- [Contáctenos](mailto:support@techadvantageapps.com) — preguntas, soporte o comentarios
 
 ## Acerca de
 
 BudgeTrak es desarrollada y publicada por **Tech Advantage LLC**.
 
-¿Tiene una pregunta, necesita ayuda o quiere compartir comentarios? Nos encantaría saber de usted: [techadvantagesupport@gmail.com](mailto:techadvantagesupport@gmail.com)
+¿Tiene una pregunta, necesita ayuda o quiere compartir comentarios? Nos encantaría saber de usted: [support@techadvantageapps.com](mailto:support@techadvantageapps.com)
 
 Su dinero. Sus datos. Su control.
