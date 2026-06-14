@@ -195,6 +195,8 @@ Si quiere que le confirmemos qué datos tenemos sobre usted (nota: en casi todos
 
 ## Eliminación de Datos
 
+**BudgeTrak no tiene una cuenta de usuario en el sentido habitual: sin registro, sin nombre de usuario ni contraseña, y nunca recopilamos su nombre, correo electrónico ni número de teléfono.** El único identificador del backend es un token anónimo, generado aleatoriamente, que se crea la primera vez que usa SYNC, el Chat de Ayuda, las funciones de IA o realiza una compra, y nunca se vincula con su identidad real. Combinado con el cifrado de extremo a extremo y los identificadores de grupo SYNC generados aleatoriamente, esto significa que la eliminación se gestiona **dentro de la aplicación y de forma automática** (se detalla a continuación), en lugar de mediante una solicitud por correo electrónico: no tenemos un nombre ni un correo electrónico para localizar sus registros.
+
 Puede solicitar la eliminación de sus datos de BudgeTrak a través de cualquiera de las siguientes opciones:
 
 ### 1. Eliminación desde la aplicación (administrador de un grupo SYNC)

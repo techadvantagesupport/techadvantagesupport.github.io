@@ -195,6 +195,8 @@ Si vous souhaitez que nous vous confirmions quelles données nous détenons à v
 
 ## Suppression des données
 
+**BudgeTrak n'a pas de compte utilisateur au sens habituel — pas d'inscription, pas de nom d'utilisateur ni de mot de passe, et nous ne collectons jamais votre nom, votre adresse e-mail ou votre numéro de téléphone.** Le seul identifiant backend est un jeton anonyme, généré aléatoirement, créé lors de la première utilisation de SYNC, du Chat d'aide, des fonctions d'IA ou d'un achat, et il n'est jamais lié à votre identité réelle. Combiné au chiffrement de bout en bout et aux identifiants de groupe SYNC générés aléatoirement, cela signifie que la suppression s'effectue **dans l'application et automatiquement** (détaillée ci-dessous) plutôt que par une demande par e-mail — nous n'avons ni nom ni adresse e-mail pour retrouver vos enregistrements.
+
 Vous pouvez demander la suppression de vos données BudgeTrak par l'une des options suivantes :
 
 ### 1. Suppression depuis l'application (administrateur d'un groupe SYNC)

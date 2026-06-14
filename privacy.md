@@ -192,6 +192,8 @@ If you want us to confirm what data we hold about you (note: in nearly all cases
 
 ## Data Deletion
 
+**BudgeTrak has no user account in the usual sense — no sign-up, no username or password, and we never collect your name, email, or phone number.** The only backend identifier is an anonymous, randomly-generated token created on first use of SYNC, Help Chat, AI features, or a purchase, and it is never tied to your real-world identity. Combined with end-to-end encryption and randomly-generated SYNC group IDs, this means deletion is handled **in the app and automatically** (detailed below) rather than by emailing a request — we have no name or email to look your records up by.
+
 You can request deletion of your BudgeTrak data through any of the following options:
 
 ### 1. In-app deletion (admin of a SYNC group)

@@ -195,6 +195,8 @@ Wenn Sie möchten, dass wir Ihnen bestätigen, welche Daten wir über Sie speich
 
 ## Datenlöschung
 
+**BudgeTrak hat kein Benutzerkonto im üblichen Sinne — keine Registrierung, keinen Benutzernamen oder Passwort, und wir erfassen niemals Ihren Namen, Ihre E-Mail-Adresse oder Telefonnummer.** Die einzige Backend-Kennung ist ein anonymes, zufällig generiertes Token, das bei der ersten Nutzung von SYNC, dem Hilfe-Chat, den KI-Funktionen oder einem Kauf erstellt wird und niemals mit Ihrer realen Identität verknüpft ist. Zusammen mit der Ende-zu-Ende-Verschlüsselung und den zufällig generierten SYNC-Gruppenkennungen bedeutet dies, dass die Löschung **in der App und automatisch** erfolgt (unten ausführlich beschrieben) und nicht per E-Mail-Anfrage — wir haben weder einen Namen noch eine E-Mail-Adresse, um Ihre Datensätze nachzuschlagen.
+
 Sie können die Löschung Ihrer BudgeTrak-Daten über eine der folgenden Optionen beantragen:
 
 ### 1. Löschung in der App (Administrator einer SYNC-Gruppe)
