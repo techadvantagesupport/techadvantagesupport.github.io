@@ -1254,7 +1254,11 @@ function speak(text){
   // (the step timer still advances the tour) and explain why.
   if (!match && voiceCache.length > 0 && lang !== 'en') { setVoiceHint(true); return; }
   setVoiceHint(false);
-  var u = new SpeechSynthesisUtterance(text);
+  // Respell the brand name for TTS only: engines drop the short "e" and say
+  // "Budge-Trak". Web Speech ignores SSML/phoneme tags, so rewriting the
+  // spoken string is the only reliable lever. On-screen captions are untouched.
+  var spoken = text.replace(/BudgeTrak/gi, 'Budgeh Track');
+  var u = new SpeechSynthesisUtterance(spoken);
   var id = ++utterSeq;
   u.lang = target;
   u.rate = 1.0;
