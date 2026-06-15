@@ -29,7 +29,7 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 
 **Transaction Management**
 - Quick-add from the home screen widget — log an expense in under 3 seconds
-- Bank statement import (CSV, Excel) with automatic duplicate detection
+- Bank statement import (CSV) with automatic duplicate detection
 - Smart merchant matching and auto-categorization that learns from your habits
 - **AI CSV Categorization** — optional Gemini-powered categorization for imports that don't match any learned merchants (Paid / Subscriber)
 - Multi-category split transactions with a visual pie-chart editor
@@ -78,7 +78,7 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 | Budget engine + tracking | Yes | Yes | Yes |
 | Home screen widget | 1 entry/day | Unlimited | Unlimited |
 | Ad-free | — | Yes | Yes |
-| CSV / Excel import | — | Yes | Yes |
+| CSV import | — | Yes | Yes |
 | Save to CSV / Excel / PDF | — | Yes | Yes |
 | Receipt photos + PDFs (up to 5 per transaction) | — | Yes | Yes |
 | AI CSV Categorization | — | Yes | Yes |
@@ -94,7 +94,7 @@ Most budgeting apps make you categorize every purchase into envelopes, reconcile
 - Goodbudget: $10/month ($80/year)
 - EveryDollar (Ramsey+): $17.99/month
 
-BudgeTrak's core budgeting features are **free forever** with no account required. The one-time $9.99 paid upgrade unlocks unlimited home-screen-widget transactions, CSV/Excel/PDF import and export, receipt photos and PDFs, AI CSV Categorization, bill due-date notifications, the Cash Flow Simulation chart, and ad removal — less than a single month of most competitors. The $4.99/month subscription adds AI Receipt Scanning and SYNC groups at a fraction of what others charge.
+BudgeTrak's core budgeting features are **free forever** with no account required. The one-time $9.99 paid upgrade unlocks unlimited home-screen-widget transactions, CSV import and CSV/Excel/PDF export, receipt photos and PDFs, AI CSV Categorization, bill due-date notifications, the Cash Flow Simulation chart, and ad removal — less than a single month of most competitors. The $4.99/month subscription adds AI Receipt Scanning and SYNC groups at a fraction of what others charge.
 
 ## Download
 

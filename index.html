@@ -45,7 +45,7 @@
   "@type": "FAQPage",
   "mainEntity": [
     {"@type":"Question","name":"Is BudgeTrak really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The core budgeting engine — income, bills, savings goals, the calendar, and tracking — is free forever, with no account and no trial clock. The free tier shows ads; a one-time $9.99 upgrade removes them and unlocks imports/exports, receipt photos, notifications, and the simulation chart."}},
-    {"@type":"Question","name":"Do I have to connect my bank account?","acceptedAnswer":{"@type":"Answer","text":"No — BudgeTrak never asks for bank credentials. Type transactions in (it takes seconds), or import CSV/Excel statements you download from your bank. Your logins stay with your bank, where they belong."}},
+    {"@type":"Question","name":"Do I have to connect my bank account?","acceptedAnswer":{"@type":"Answer","text":"No — BudgeTrak never asks for bank credentials. Type transactions in (it takes seconds), or import CSV statements you download from your bank. Your logins stay with your bank, where they belong."}},
     {"@type":"Question","name":"How does the safe-to-spend number work?","acceptedAnswer":{"@type":"Answer","text":"You tell BudgeTrak your income schedule and recurring bills. It sets aside what upcoming bills and goals need, then divides what is left across your budget period — daily, weekly, or monthly. The result is one number: what you can spend right now without endangering a bill."}},
     {"@type":"Question","name":"What is BudgeTrak SYNC and is it private?","acceptedAnswer":{"@type":"Answer","text":"SYNC shares one budget across up to five devices in real time. Every field is encrypted on your phone before upload (end-to-end), so our servers only relay ciphertext — we cannot read your amounts, merchants, or notes. One Subscriber creates and admins the group; joining is free for everyone else."}},
     {"@type":"Question","name":"What are the AI features?","acceptedAnswer":{"@type":"Answer","text":"Three, all optional: receipt scanning (Subscriber) reads a photo and fills in the transaction; CSV categorization (Paid/Subscriber) sorts imported bank lines; and an in-app help chat answers questions. AI runs through our servers — no AI keys or financial data are exposed on your device."}},
@@ -361,7 +361,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <a class="cta gold" href="#tour" data-i18n="hero.tourBtn">Watch the tour</a>
       </div>
       <div class="hero-points">
-        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><i data-i18n="hero.p1">Free to start</i></span>
+        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><i data-i18n="hero.p1">Free core features</i></span>
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><i data-i18n="hero.p2">No bank login</i></span>
         <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><i data-i18n="hero.p3">No account required</i></span>
       </div>
@@ -420,7 +420,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
       <div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466A8E" stroke-width="2"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h4M6 14h2"/></svg></div>
         <h3 data-i18n="feat.c2t">Home-screen widget</h3><p data-i18n="feat.c2d">Your available cash on a Solari flip-board widget — and you can log an expense without opening the app.</p></div>
       <div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466A8E" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
-        <h3 data-i18n-html="feat.c3t">Bank statement import <span class="badge paid">PAID</span></h3><p data-i18n="feat.c3d">CSV and Excel imports with duplicate detection, smart merchant matching, and optional AI categorization.</p></div>
+        <h3 data-i18n-html="feat.c3t">Bank statement import <span class="badge paid">PAID</span></h3><p data-i18n="feat.c3d">CSV imports with duplicate detection, smart merchant matching, and optional AI categorization.</p></div>
       <div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466A8E" stroke-width="2"><path d="M4 7h3l2-3h6l2 3h3v13H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
         <h3 data-i18n-html="feat.c4t">AI receipt scanning <span class="badge sub">SUBSCRIBER</span></h3><p data-i18n="feat.c4d">Snap a receipt and the AI fills in merchant, date, amount — even category splits, line by line.</p></div>
       <div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#466A8E" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/></svg></div>
@@ -502,7 +502,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <small style="color:var(--mut)" data-i18n="price.fNote">forever, no account</small>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.f1">Full budget engine &amp; tracking</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.f2">Home-screen widget (1 entry/day)</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.f2">Home-screen widget trial (1 entry/day)</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.f3">Recurring bills, savings goals, calendar</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.f4">Join a SYNC group</span></li>
           <li class="dim" data-i18n="price.f5">— Ad-supported</li>
@@ -515,7 +515,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
         <div class="price"><span id="pricePaid">$9.99</span><sup class="ast">*</sup> <small data-i18n="price.pNote">one time — yours forever</small></div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p1">Everything in Free, ad-free</span></li>
-          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p2">CSV / Excel import &amp; export, PDF reports</span></li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p2">CSV import, CSV / Excel export, PDF reports</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p3">Receipt photos &amp; PDFs (5 per transaction)</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p4">AI CSV categorization</span></li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3A8F5D" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="price.p5">Bill due-date notifications</span></li>
@@ -563,7 +563,7 @@ footer{background:#26384A;color:#B9C6D2;padding:44px 0;font-size:.9rem}
 <section class="dl" id="download">
   <div class="wrap">
     <h2 data-i18n="dl.h2">Your money. Your data. Your control.</h2>
-    <p data-i18n="dl.sub">Free to start. Set up in minutes. Available for Android — iOS coming soon.</p>
+    <p data-i18n="dl.sub">Free core features. Set up in minutes. Available for Android — iOS coming soon.</p>
     <a class="play-badge" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">
       <img id="playBadgeDl" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" alt="Get it on Google Play" style="height:76px;margin:0 auto">
     </a>
@@ -620,7 +620,7 @@ var ES = {
   'hero.kicker':'App de presupuesto diario',
   'hero.h1':'Sabe cuánto puedes gastar.<br><span class="accent">Cada día.</span>',
   'hero.lead':'BudgeTrak convierte tus ingresos y facturas reales en un número seguro para gastar, actualizado en tiempo real. Sin hojas de cálculo, sin credenciales bancarias, sin adivinar.',
-  'hero.tourBtn':'Ver el recorrido','hero.p1':'Gratis para empezar','hero.p2':'Sin acceso a tu banco','hero.p3':'Sin necesidad de cuenta',
+  'hero.tourBtn':'Ver el recorrido','hero.p1':'Funciones básicas gratis','hero.p2':'Sin acceso a tu banco','hero.p3':'Sin necesidad de cuenta',
   'trust.t1':'Cifrado de extremo a extremo','trust.d1':'Los datos de SYNC se cifran antes de salir de tu teléfono — ni nuestros servidores pueden leerlos.',
   'trust.t2':'Sin credenciales bancarias','trust.d2':'Tus contraseñas se quedan con tu banco. Importa extractos — o simplemente escríbelo.',
   'trust.t3':'Funciona sin conexión','trust.d3':'La app completa funciona en tu dispositivo. La sincronización es opcional, no obligatoria.',
@@ -634,7 +634,7 @@ var ES = {
   'feat.sub':'Hecha para hogares reales: rápida para el día a día, potente cuando la necesitas.',
   'feat.c1t':'Motor de presupuesto inteligente','feat.c1d':'Maneja pagos irregulares, ingresos variables y facturas agrupadas. Períodos diarios, semanales o mensuales — tú eliges.',
   'feat.c2t':'Widget de pantalla de inicio','feat.c2d':'Tu efectivo disponible en un widget tipo tablero Solari — y puedes registrar un gasto sin abrir la app.',
-  'feat.c3t':'Importación de extractos <span class="badge paid">PAGO</span>','feat.c3d':'Importa CSV y Excel con detección de duplicados, coincidencia de comercios y categorización con IA opcional.',
+  'feat.c3t':'Importación de extractos <span class="badge paid">PAGO</span>','feat.c3d':'Importa CSV con detección de duplicados, coincidencia de comercios y categorización con IA opcional.',
   'feat.c4t':'Escaneo de recibos con IA <span class="badge sub">SUSCRIPTOR</span>','feat.c4d':'Toma una foto del recibo y la IA completa comercio, fecha, monto — incluso divisiones por categoría, línea por línea.',
   'feat.c5t':'Recordatorios de facturas <span class="badge paid">PAGO</span>','feat.c5d':'Notificaciones de vencimiento con anticipación personalizable y control por factura — la alerta le llega a quien paga, no a toda la familia.',
   'feat.c6t':'Metas de Ahorro y amortización','feat.c6d':'Ahorra para compras planificadas, o reparte un gasto sorpresa en varios meses — tu número diario se mantiene honesto.',
@@ -651,10 +651,10 @@ var ES = {
   'price.kick':'Precios','price.h2':'Precios honestos. Lo básico sin muro de pago.',
   'price.sub':'El motor de presupuesto es gratis para siempre — sin prueba con reloj, sin cuenta. Mejora una sola vez para funciones avanzadas, o suscríbete para SYNC y escaneo con IA.',
   'price.f':'Gratis','price.fNote':'para siempre, sin cuenta',
-  'price.f1':'Motor de presupuesto y seguimiento completos','price.f2':'Widget de pantalla de inicio (1 registro/día)','price.f3':'Gastos Recurrentes, Metas de Ahorro, Calendario','price.f4':'Únete a un grupo SYNC','price.f5':'— Con anuncios',
+  'price.f1':'Motor de presupuesto y seguimiento completos','price.f2':'Prueba del widget de pantalla de inicio (1 registro/día)','price.f3':'Gastos Recurrentes, Metas de Ahorro, Calendario','price.f4':'Únete a un grupo SYNC','price.f5':'— Con anuncios',
   'price.fBtn':'Empieza gratis','price.popTag':'Mejor valor','price.p':'Pago',
   'price.pNote':'una sola vez — tuyo para siempre',
-  'price.p1':'Todo lo de Gratis, sin anuncios','price.p2':'Importar/exportar CSV y Excel, reportes PDF','price.p3':'Fotos de recibos y PDFs (5 por transacción)','price.p4':'Categorización CSV con IA','price.p5':'Notificaciones de vencimiento','price.p6':'Simulación de Flujo y widget ilimitado',
+  'price.p1':'Todo lo de Gratis, sin anuncios','price.p2':'Importar CSV, exportar CSV y Excel, reportes PDF','price.p3':'Fotos de recibos y PDFs (5 por transacción)','price.p4':'Categorización CSV con IA','price.p5':'Notificaciones de vencimiento','price.p6':'Simulación de Flujo y widget ilimitado',
   'price.pBtn':'Mejora una vez','price.s':'Suscriptor','price.sNote':'/ mes',
   'price.s1':'Todo lo del nivel Pago','price.s2':'Crear y administrar grupos SYNC (5 dispositivos)','price.s3':'Escaneo de recibos con IA','price.s4':'Límites más altos del chat de ayuda con IA',
   'price.sBtn':'Hazte Suscriptor',
@@ -663,7 +663,7 @@ var ES = {
   'ask.h2':'¿Aún lo estás pensando? Solo pregunta.',
   'ask.sub':'Nuestro asistente de IA responde preguntas sobre funciones, precios y privacidad — entrenado con la misma base de conocimiento de la ayuda dentro de la app.',
   'ask.btn':'Chatear con el asistente',
-  'dl.h2':'Tu dinero. Tus datos. Tu control.','dl.sub':'Gratis para empezar. Listo en minutos. Disponible para Android — iOS próximamente.',
+  'dl.h2':'Tu dinero. Tus datos. Tu control.','dl.sub':'Funciones básicas gratis. Listo en minutos. Disponible para Android — iOS próximamente.',
   'dl.note':'BudgeTrak es desarrollada y publicada por Tech Advantage LLC.',
   'foot.privacy':'Política de Privacidad','foot.contact':'Contactar Soporte',
   'foot.tm':'Google Play y el logotipo de Google Play son marcas de Google LLC. Android es una marca de Google LLC.',
@@ -682,7 +682,7 @@ var DE = {
   'hero.kicker':'Tägliche Budget-App',
   'hero.h1':'Wisse, was du ausgeben kannst.<br><span class="accent">Jeden Tag.</span>',
   'hero.lead':'BudgeTrak verwandelt deine echten Einnahmen und Rechnungen in eine sichere Ausgaben-Zahl, aktualisiert in Echtzeit. Keine Tabellen, kein Bank-Login, kein Rätselraten.',
-  'hero.tourBtn':'Tour ansehen','hero.p1':'Kostenlos starten','hero.p2':'Kein Bank-Login','hero.p3':'Kein Konto nötig',
+  'hero.tourBtn':'Tour ansehen','hero.p1':'Kostenlose Kernfunktionen','hero.p2':'Kein Bank-Login','hero.p3':'Kein Konto nötig',
   'trust.t1':'Ende-zu-Ende-verschlüsselt','trust.d1':'SYNC-Daten werden verschlüsselt, bevor sie dein Handy verlassen — selbst unsere Server können sie nicht lesen.',
   'trust.t2':'Keine Bank-Zugangsdaten','trust.d2':'Deine Logins bleiben bei deiner Bank. Importiere stattdessen Kontoauszüge — oder tippe es einfach ein.',
   'trust.t3':'Funktioniert offline','trust.d3':'Die komplette App läuft auf deinem Gerät. Synchronisierung ist optional, nicht Pflicht.',
@@ -696,7 +696,7 @@ var DE = {
   'feat.sub':'Gemacht für echte Haushalte: schnell im Alltag, stark wenn du es brauchst.',
   'feat.c1t':'Intelligente Budget-Engine','feat.c1d':'Meistert unregelmäßige Zahltage, schwankendes Einkommen und geballte Rechnungen. Tages-, Wochen- oder Monatsperioden — du entscheidest.',
   'feat.c2t':'Startbildschirm-Widget','feat.c2d':'Dein verfügbares Bargeld auf einem Solari-Anzeigetafel-Widget — und du kannst Ausgaben erfassen, ohne die App zu öffnen.',
-  'feat.c3t':'Kontoauszug-Import <span class="badge paid">BEZAHLT</span>','feat.c3d':'CSV- und Excel-Import mit Duplikat-Erkennung, intelligenter Händler-Zuordnung und optionaler KI-Kategorisierung.',
+  'feat.c3t':'Kontoauszug-Import <span class="badge paid">BEZAHLT</span>','feat.c3d':'CSV-Import mit Duplikat-Erkennung, intelligenter Händler-Zuordnung und optionaler KI-Kategorisierung.',
   'feat.c4t':'KI-Beleg-Scan <span class="badge sub">ABONNENT</span>','feat.c4d':'Fotografiere einen Beleg und die KI füllt Händler, Datum und Betrag aus — sogar Kategorie-Aufteilungen, Zeile für Zeile.',
   'feat.c5t':'Rechnungs-Erinnerungen <span class="badge paid">BEZAHLT</span>','feat.c5d':'Fälligkeits-Benachrichtigungen mit anpassbarem Vorlauf und Kontrolle pro Rechnung — der Zahler bekommt die Meldung, nicht die ganze Familie.',
   'feat.c6t':'Sparziele & Amortisation','feat.c6d':'Spare auf geplante Anschaffungen, oder verteile eine überraschende Ausgabe über Monate — deine Tages-Zahl bleibt ehrlich.',
@@ -713,10 +713,10 @@ var DE = {
   'price.kick':'Preise','price.h2':'Ehrliche Preise. Keine Paywall fürs Wesentliche.',
   'price.sub':'Die Budget-Engine ist für immer kostenlos — keine Testuhr, kein Konto. Einmal upgraden für Power-Funktionen, oder abonnieren für SYNC und KI-Scan.',
   'price.f':'Kostenlos','price.fNote':'für immer, ohne Konto',
-  'price.f1':'Komplette Budget-Engine & Tracking','price.f2':'Startbildschirm-Widget (1 Eintrag/Tag)','price.f3':'Wiederkehrende Ausgaben, Sparziele, Kalender','price.f4':'Einer SYNC-Gruppe beitreten','price.f5':'— Mit Werbung',
+  'price.f1':'Komplette Budget-Engine & Tracking','price.f2':'Startbildschirm-Widget-Testversion (1 Eintrag/Tag)','price.f3':'Wiederkehrende Ausgaben, Sparziele, Kalender','price.f4':'Einer SYNC-Gruppe beitreten','price.f5':'— Mit Werbung',
   'price.fBtn':'Kostenlos starten','price.popTag':'Bestes Angebot','price.p':'Bezahlt',
   'price.pNote':'einmalig — für immer deins',
-  'price.p1':'Alles aus Kostenlos, werbefrei','price.p2':'CSV-/Excel-Import & -Export, PDF-Berichte','price.p3':'Beleg-Fotos & PDFs (5 pro Transaktion)','price.p4':'KI-CSV-Kategorisierung','price.p5':'Fälligkeits-Benachrichtigungen','price.p6':'Cashflow-Simulation & unbegrenztes Widget',
+  'price.p1':'Alles aus Kostenlos, werbefrei','price.p2':'CSV-Import, CSV-/Excel-Export, PDF-Berichte','price.p3':'Beleg-Fotos & PDFs (5 pro Transaktion)','price.p4':'KI-CSV-Kategorisierung','price.p5':'Fälligkeits-Benachrichtigungen','price.p6':'Cashflow-Simulation & unbegrenztes Widget',
   'price.pBtn':'Einmal upgraden','price.s':'Abonnent','price.sNote':'/ Monat',
   'price.s1':'Alles aus Bezahlt','price.s2':'SYNC-Gruppen erstellen & verwalten (5 Geräte)','price.s3':'KI-Beleg-Scan','price.s4':'Höchste Limits im KI-Hilfe-Chat',
   'price.sBtn':'Abonnent werden',
@@ -725,7 +725,7 @@ var DE = {
   'ask.h2':'Noch unentschlossen? Frag einfach.',
   'ask.sub':'Unser KI-Assistent beantwortet Fragen zu Funktionen, Preisen und Datenschutz — gestützt auf dieselbe Wissensbasis wie die Hilfe in der App.',
   'ask.btn':'Mit dem Assistenten chatten',
-  'dl.h2':'Dein Geld. Deine Daten. Deine Kontrolle.','dl.sub':'Kostenlos starten. In Minuten eingerichtet. Verfügbar für Android — iOS folgt bald.',
+  'dl.h2':'Dein Geld. Deine Daten. Deine Kontrolle.','dl.sub':'Kostenlose Kernfunktionen. In Minuten eingerichtet. Verfügbar für Android — iOS folgt bald.',
   'dl.note':'BudgeTrak wird von Tech Advantage LLC entwickelt und veröffentlicht.',
   'foot.privacy':'Datenschutzerklärung','foot.contact':'Support kontaktieren',
   'foot.tm':'Google Play und das Google-Play-Logo sind Marken von Google LLC. Android ist eine Marke von Google LLC.',
@@ -744,7 +744,7 @@ var FR = {
   'hero.kicker':'Appli de budget quotidienne',
   'hero.h1':'Sache combien tu peux dépenser.<br><span class="accent">Chaque jour.</span>',
   'hero.lead':"BudgeTrak transforme tes revenus et factures réels en un montant sûr à dépenser, mis à jour en temps réel. Pas de tableurs, pas d'identifiants bancaires, pas de devinettes.",
-  'hero.tourBtn':'Voir la visite','hero.p1':'Gratuit pour commencer','hero.p2':"Pas d'accès bancaire",'hero.p3':'Aucun compte requis',
+  'hero.tourBtn':'Voir la visite','hero.p1':'Fonctions de base gratuites','hero.p2':"Pas d'accès bancaire",'hero.p3':'Aucun compte requis',
   'trust.t1':'Chiffré de bout en bout','trust.d1':'Les données SYNC sont chiffrées avant de quitter ton téléphone — même nos serveurs ne peuvent pas les lire.',
   'trust.t2':"Pas d'identifiants bancaires",'trust.d2':'Tes identifiants restent chez ta banque. Importe des relevés à la place — ou saisis-le simplement.',
   'trust.t3':'Fonctionne hors ligne','trust.d3':"L'appli complète tourne sur ton appareil. La synchronisation est optionnelle, pas obligatoire.",
@@ -758,7 +758,7 @@ var FR = {
   'feat.sub':'Conçue pour de vrais foyers : rapide au quotidien, puissante quand il le faut.',
   'feat.c1t':'Moteur de budget intelligent','feat.c1d':'Gère les paies irrégulières, les revenus variables et les factures groupées. Périodes journalières, hebdomadaires ou mensuelles — à toi de choisir.',
   'feat.c2t':"Widget d'écran d'accueil",'feat.c2d':"Ton argent disponible sur un widget façon tableau Solari — et tu peux enregistrer une dépense sans ouvrir l'appli.",
-  'feat.c3t':'Import de relevés bancaires <span class="badge paid">PAYANT</span>','feat.c3d':'Imports CSV et Excel avec détection des doublons, rapprochement intelligent des commerçants et catégorisation IA optionnelle.',
+  'feat.c3t':'Import de relevés bancaires <span class="badge paid">PAYANT</span>','feat.c3d':'Imports CSV avec détection des doublons, rapprochement intelligent des commerçants et catégorisation IA optionnelle.',
   'feat.c4t':'Scan de reçus par IA <span class="badge sub">ABONNÉ</span>','feat.c4d':"Photographie un reçu et l'IA remplit commerçant, date et montant — même les répartitions par catégorie, ligne par ligne.",
   'feat.c5t':'Rappels de factures <span class="badge paid">PAYANT</span>','feat.c5d':"Notifications d'échéance avec délai personnalisable et contrôle par facture — l'alerte va à celui qui paie, pas à toute la famille.",
   'feat.c6t':"Objectifs d'épargne & amortissement",'feat.c6d':'Épargne pour les achats prévus, ou étale une dépense surprise sur plusieurs mois — ton montant quotidien reste honnête.',
@@ -775,10 +775,10 @@ var FR = {
   'price.kick':'Tarifs','price.h2':"Des prix honnêtes. Pas de paywall sur l'essentiel.",
   'price.sub':"Le moteur de budget est gratuit pour toujours — pas de compte à rebours, pas de compte. Passe au Payant une seule fois pour les fonctions avancées, ou abonne-toi pour SYNC et le scan IA.",
   'price.f':'Gratuit','price.fNote':'pour toujours, sans compte',
-  'price.f1':'Moteur de budget et suivi complets','price.f2':"Widget d'écran d'accueil (1 saisie/jour)",'price.f3':"Dépenses récurrentes, objectifs d'épargne, calendrier",'price.f4':'Rejoindre un groupe SYNC','price.f5':'— Avec publicités',
+  'price.f1':'Moteur de budget et suivi complets','price.f2':"Essai du widget d'écran d'accueil (1 saisie/jour)",'price.f3':"Dépenses récurrentes, objectifs d'épargne, calendrier",'price.f4':'Rejoindre un groupe SYNC','price.f5':'— Avec publicités',
   'price.fBtn':'Commencer gratuitement','price.popTag':'Meilleur rapport','price.p':'Payant',
   'price.pNote':'une seule fois — à toi pour toujours',
-  'price.p1':'Tout le Gratuit, sans pubs','price.p2':'Import/export CSV & Excel, rapports PDF','price.p3':'Photos de reçus & PDF (5 par transaction)','price.p4':'Catégorisation CSV par IA','price.p5':"Notifications d'échéance",'price.p6':'Simulation de flux de trésorerie & widget illimité',
+  'price.p1':'Tout le Gratuit, sans pubs','price.p2':'Import CSV, export CSV & Excel, rapports PDF','price.p3':'Photos de reçus & PDF (5 par transaction)','price.p4':'Catégorisation CSV par IA','price.p5':"Notifications d'échéance",'price.p6':'Simulation de flux de trésorerie & widget illimité',
   'price.pBtn':'Passer au Payant','price.s':'Abonné','price.sNote':'/ mois',
   'price.s1':'Tout le niveau Payant','price.s2':'Créer et gérer des groupes SYNC (5 appareils)','price.s3':'Scan de reçus par IA','price.s4':"Limites maximales du chat d'aide IA",
   'price.sBtn':"S'abonner",
@@ -787,7 +787,7 @@ var FR = {
   'ask.h2':"Encore en train d'hésiter ? Demande.",
   'ask.sub':"Notre assistant IA répond aux questions sur les fonctionnalités, les tarifs et la confidentialité — appuyé sur la même base de connaissances que l'aide intégrée à l'appli.",
   'ask.btn':"Discuter avec l'assistant",
-  'dl.h2':'Ton argent. Tes données. Ton contrôle.','dl.sub':'Gratuit pour commencer. Prêt en quelques minutes. Disponible sur Android — iOS bientôt.',
+  'dl.h2':'Ton argent. Tes données. Ton contrôle.','dl.sub':'Fonctions de base gratuites. Prêt en quelques minutes. Disponible sur Android — iOS bientôt.',
   'dl.note':'BudgeTrak est développée et publiée par Tech Advantage LLC.',
   'foot.privacy':'Politique de confidentialité','foot.contact':'Contacter le support',
   'foot.tm':'Google Play et le logo Google Play sont des marques de Google LLC. Android est une marque de Google LLC.',
@@ -1063,10 +1063,10 @@ var TOUR = [
          fr:"Les abonnés peuvent éviter la saisie : scanne le reçu et l'IA remplit tout."} },
   { key:'transactions', x:50, y:13,
     title:{en:'Transactions, organized', es:'Transacciones, organizadas', de:'Transaktionen, geordnet', fr:'Transactions, organisées'},
-    text:{en:'Every expense in one place — filter by date or category, or search. Import bank statements (CSV or Excel) and duplicates are caught automatically.',
-          es:'Cada gasto en un solo lugar — filtra por fecha o categoría, o busca. Importa extractos bancarios (CSV o Excel) y los duplicados se detectan automáticamente.',
-          de:'Jede Ausgabe an einem Ort — filtere nach Datum oder Kategorie, oder such einfach. Importiere Kontoauszüge (CSV oder Excel), Duplikate werden automatisch erkannt.',
-          fr:'Chaque dépense au même endroit — filtre par date ou catégorie, ou fais une recherche. Importe des relevés bancaires (CSV ou Excel), les doublons sont détectés automatiquement.'},
+    text:{en:'Every expense in one place — filter by date or category, or search. Import bank statements (CSV) and duplicates are caught automatically.',
+          es:'Cada gasto en un solo lugar — filtra por fecha o categoría, o busca. Importa extractos bancarios (CSV) y los duplicados se detectan automáticamente.',
+          de:'Jede Ausgabe an einem Ort — filtere nach Datum oder Kategorie, oder such einfach. Importiere Kontoauszüge (CSV), Duplikate werden automatisch erkannt.',
+          fr:'Chaque dépense au même endroit — filtre par date ou catégorie, ou fais une recherche. Importe des relevés bancaires (CSV), les doublons sont détectés automatiquement.'},
     tip:{en:'AI categorization sorts unfamiliar merchants for you on import.',
          es:'La categorización con IA clasifica los comercios desconocidos al importar.',
          de:'Die KI-Kategorisierung sortiert unbekannte Händler beim Import für dich.',
@@ -1149,10 +1149,10 @@ var FAQ = [
        de:'Ja. Die zentrale Budget-Engine — Einkommen, Rechnungen, Sparziele, Kalender und Tracking — ist für immer kostenlos, ohne Konto und ohne Testuhr. Die Gratis-Stufe zeigt Werbung; das einmalige Upgrade entfernt sie und schaltet Import/Export, Beleg-Fotos, Benachrichtigungen und die Simulation frei.',
        fr:"Oui. Le moteur de budget — revenus, factures, objectifs d'épargne, calendrier et suivi — est gratuit pour toujours, sans compte ni période d'essai. Le niveau gratuit affiche des publicités ; la mise à niveau unique les supprime et débloque l'import/export, les photos de reçus, les notifications et la simulation."} },
   { q:{en:'Do I have to connect my bank account?', es:'¿Tengo que conectar mi cuenta bancaria?', de:'Muss ich mein Bankkonto verbinden?', fr:'Dois-je connecter mon compte bancaire ?'},
-    a:{en:'No — BudgeTrak never asks for bank credentials. Type transactions in (it takes seconds), or import CSV/Excel statements you download from your bank. Your logins stay with your bank, where they belong.',
-       es:'No — BudgeTrak nunca pide credenciales bancarias. Escribe las transacciones (toma segundos) o importa extractos CSV/Excel descargados de tu banco. Tus contraseñas se quedan con tu banco, donde deben estar.',
-       de:'Nein — BudgeTrak fragt nie nach Bank-Zugangsdaten. Tippe Transaktionen ein (dauert Sekunden) oder importiere CSV-/Excel-Auszüge, die du bei deiner Bank herunterlädst. Deine Logins bleiben bei deiner Bank, wo sie hingehören.',
-       fr:"Non — BudgeTrak ne demande jamais d'identifiants bancaires. Saisis les transactions (quelques secondes) ou importe des relevés CSV/Excel téléchargés depuis ta banque. Tes identifiants restent chez ta banque, à leur place."} },
+    a:{en:'No — BudgeTrak never asks for bank credentials. Type transactions in (it takes seconds), or import CSV statements you download from your bank. Your logins stay with your bank, where they belong.',
+       es:'No — BudgeTrak nunca pide credenciales bancarias. Escribe las transacciones (toma segundos) o importa extractos CSV descargados de tu banco. Tus contraseñas se quedan con tu banco, donde deben estar.',
+       de:'Nein — BudgeTrak fragt nie nach Bank-Zugangsdaten. Tippe Transaktionen ein (dauert Sekunden) oder importiere CSV-Auszüge, die du bei deiner Bank herunterlädst. Deine Logins bleiben bei deiner Bank, wo sie hingehören.',
+       fr:"Non — BudgeTrak ne demande jamais d'identifiants bancaires. Saisis les transactions (quelques secondes) ou importe des relevés CSV téléchargés depuis ta banque. Tes identifiants restent chez ta banque, à leur place."} },
   { q:{en:'How does the safe-to-spend number work?', es:'¿Cómo funciona el número seguro para gastar?', de:'Wie funktioniert die sichere Ausgaben-Zahl?', fr:'Comment fonctionne le montant sûr à dépenser ?'},
     a:{en:'You tell BudgeTrak your income schedule and recurring bills. It sets aside what upcoming bills and goals need, then divides what is left across your budget period — daily, weekly, or monthly. The result is one number: what you can spend right now without endangering a bill.',
        es:'Le dices a BudgeTrak tu calendario de ingresos y tus facturas recurrentes. Aparta lo que necesitan las facturas y metas próximas, y divide lo que queda en tu período — diario, semanal o mensual. El resultado es un número: lo que puedes gastar ahora sin poner en riesgo una factura.',
