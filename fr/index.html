@@ -1206,8 +1206,18 @@ document.querySelectorAll('#navLinks a').forEach(function(a){
   a.addEventListener('click', function(){ document.getElementById('navLinks').classList.remove('open'); });
 });
 document.getElementById('langSel').addEventListener('change', function(){
-  lang = this.value;
+  var newLang = this.value;
   document.getElementById('navLinks').classList.remove('open');  // close the mobile menu
+  try { localStorage.setItem('btk_lang', newLang); } catch(e){}
+  // Navigate to the real per-language URL (/de/ etc.) instead of just
+  // re-rendering in place, so the address bar/canonical/title match what's
+  // shown and the page is bookmarkable/shareable in that language.
+  var newPath = newLang === 'en' ? '/' : '/' + newLang + '/';
+  if (newPath !== location.pathname) {
+    location.href = newPath + location.hash;
+    return;
+  }
+  lang = newLang;
   applyLang();
 });
 
