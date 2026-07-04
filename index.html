@@ -1466,10 +1466,17 @@ document.getElementById('chatForm').addEventListener('submit', function(ev){
 (function(){
   var LANGS = ['en', 'es', 'de', 'fr'];
   var q = new URLSearchParams(location.search).get('lang');
+  // /es/, /de/, /fr/ are now real self-canonical pages (not redirect stubs),
+  // so a direct visit (including Googlebot's render) must default to that
+  // language even with no ?lang= param, no stored pref, and a non-matching
+  // browser locale — otherwise the indexed page's body language wouldn't
+  // match its own <title>/canonical/hreflang.
+  var pathLang = (location.pathname.match(/^\/(es|de|fr)\//) || [])[1] || null;
   var stored = null;
   try { stored = localStorage.getItem('btk_lang'); } catch(e){}
   var nav2 = (navigator.language || '').toLowerCase().slice(0, 2);
   if (LANGS.indexOf(q) !== -1) lang = q;
+  else if (pathLang) lang = pathLang;
   else if (LANGS.indexOf(stored) !== -1) lang = stored;
   else if (LANGS.indexOf(nav2) !== -1) lang = nav2;
   country = detectCountry();
