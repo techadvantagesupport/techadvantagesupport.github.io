@@ -48,6 +48,19 @@ If you enable SYNC, the following happens:
 
 When you leave a SYNC group or dissolve it, your local data is preserved on your device but the cloud copy is deleted (with a 90-day cleanup window for orphan data).
 
+### Notification Monitoring (Only If You Opt In)
+
+BudgeTrak includes an optional feature called the **Notification Monitor**, available to Paid and Subscriber tiers. It is **off by default**. Turning it on requires two separate deliberate actions: enabling it in Settings, and granting Android's notification-access permission yourself in your device's system settings. You then choose which apps you want watched.
+
+Your bank posts a notification within seconds of a card purchase. With your permission, BudgeTrak reads the title and text of notifications posted by the apps you selected, keeps only the ones that contain a money amount, and holds them in a review list on your device until you either load them as transactions or delete them. Captured alerts never become transactions on their own.
+
+- **Only apps you tick are read.** Until you select at least one app, nothing is captured.
+- **Only notifications containing a money amount are kept.** Everything else is discarded immediately and is never written to storage.
+- **Bank text messages.** BudgeTrak never requests permission to read your SMS inbox. Bank texts are read only as the notifications your messaging app posts, and only if you tick your messaging app **and** tick the individual senders you want watched. Until you select a sender, nothing from that app is stored — messages from anyone you have not selected are never saved, read, or transmitted.
+- **The app list is built from what arrives, not from what you have installed.** BudgeTrak cannot see your installed applications. The Configure screen offers only apps that have already posted a notification containing an amount. For a monitored messaging app we record the sender's name and a count, so you can choose them — never the message text.
+- **Everything stays on your device.** Captured alerts, your app and sender choices, and the formats described below are stored in the app's private storage and are **not** synced to your other devices, even if you use SYNC. Each device sees only its own notifications.
+- You can erase everything captured at any time with **Forget captured data** on the Configure screen, or turn the feature off entirely.
+
 ### Diagnostic and Crash Data
 
 To keep BudgeTrak stable and identify bugs, we use anonymous **crash reporting** and **usage telemetry** services from our cloud infrastructure provider. Both are **on by default** and share a single opt-out at **Settings → Privacy → Send crash reports and anonymous usage data**. Unchecking that box stops both immediately.
@@ -85,7 +98,7 @@ We want to be specific about this. BudgeTrak does **not** collect:
 
 - Your name, email address, phone number, or any other directly identifying personal information.
 - Your physical location, GPS coordinates, or IP address (beyond what the platform services receive automatically for routing).
-- Your contacts, calendar, photos library (other than receipt photos you explicitly attach), call history, SMS messages, or browsing history.
+- Your contacts, calendar, photos library (other than receipt photos you explicitly attach), call history, or browsing history. BudgeTrak never requests permission to read your SMS inbox. If you turn on the Notification Monitor and select your messaging app together with specific senders, it reads only the notifications those senders' messages post — see Notification Monitoring above.
 - Your bank account credentials, routing numbers, or login details for any financial institution.
 - Any health, fitness, or biometric data.
 
@@ -137,7 +150,7 @@ You can review the privacy practices of these providers at [https://policies.goo
 
 ## AI-Assisted Features (Opt-In)
 
-BudgeTrak offers three optional AI-assisted features. The first two are available to Paid and Subscriber tiers; the third, Help Chat, is available to all tiers (including Free). All three are off by default and require an explicit user action to enable.
+BudgeTrak offers four optional AI-assisted features. The first two are available to Paid and Subscriber tiers; the third, Help Chat, is available to all tiers (including Free); the fourth supports the Notification Monitor and is available to Paid and Subscriber tiers. All four are off by default and require an explicit user action to enable.
 
 ### AI Receipt Scanning (Subscribers)
 When a subscriber taps the sparkle icon in the transaction dialog, BudgeTrak sends the receipt photo to our AI service provider to extract the merchant, date, amount, and category. The response is returned directly to your device and stored only in your transaction record.
@@ -153,6 +166,11 @@ If you enable the Help Chat checkbox in **Settings → Privacy → Allow Chatbot
 - Each device manages its own consent independently. The checkbox is off by default on install and is **not** synced between SYNC devices. Unchecking it at any time revokes consent — past transcripts already on our servers remain subject to the 7-day TTL above and will then be deleted automatically, and no further messages will be uploaded from your device.
 - You can tap **Clear** in the Help Chat dialog at any time to immediately upload the existing transcript one last time and wipe the local buffer, starting a fresh chat with a new anonymous chat ID. Local messages older than 48 hours are also pruned automatically on each device regardless of whether you clear them.
 - You do **not** need a paid subscription, and Help Chat does **not** require SYNC. If you have not enabled SYNC, BudgeTrak will sign in anonymously the first time it needs to upload a transcript, solely so our server-side authentication requirement is satisfied; no personally-identifying information is collected through this anonymous sign-in.
+
+### Notification Format Learning (Paid and Subscriber tiers)
+If you use the Notification Monitor and BudgeTrak encounters an alert format it does not recognize, it can ask our AI service provider to work out a reusable **pattern** for that format — not to read the individual transaction. Before anything is sent, **every digit is replaced with a 9**, so amounts, card numbers and account numbers cannot be transmitted; our server rejects any sample that still contains a digit. The merchant name in the sample is sent, which is the same category of data as AI CSV Categorization above. The resulting pattern is stored on your device and reused, so this happens roughly once per bank rather than once per transaction.
+
+Patterns worked out from a bank's own app may be shared with other BudgeTrak users of the same bank, so they do not have to repeat the request. **Patterns worked out from text messages are never shared** — they are tied to an individual sender, and they stay on your device only.
 
 ### Website Chatbot (techadvantagesupport.github.io)
 Our website hosts an AI assistant that answers visitor questions about BudgeTrak, grounded in the same built-in help documentation as the in-app Help Chat. If you use it:

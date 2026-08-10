@@ -51,6 +51,19 @@ Si vous activez SYNC, voici ce qui se passe :
 
 Lorsque vous quittez un groupe SYNC ou le dissolvez, vos données locales sont conservées sur votre appareil, mais la copie dans le cloud est supprimée (avec une fenêtre de nettoyage de 90 jours pour les données orphelines).
 
+### Moniteur de notifications (uniquement si vous y consentez)
+
+BudgeTrak comprend une fonction facultative appelée **Moniteur de notifications**, disponible pour les niveaux Payant et Abonné. Elle est **désactivée par défaut**. Son activation exige deux actions délibérées et distinctes : l'activer dans les Paramètres, et accorder vous-même l'autorisation d'accès aux notifications d'Android dans les réglages système de votre appareil. Vous choisissez ensuite les applications à surveiller.
+
+Votre banque publie une notification quelques secondes après un achat par carte. Avec votre autorisation, BudgeTrak lit le titre et le texte des notifications publiées par les applications que vous avez sélectionnées, ne conserve que celles qui contiennent un montant, et les garde dans une liste de vérification sur votre appareil jusqu'à ce que vous les chargiez comme transactions ou les supprimiez. Les alertes capturées ne deviennent jamais des transactions d'elles-mêmes.
+
+- **Seules les applications que vous cochez sont lues.** Tant que vous n'en sélectionnez aucune, rien n'est capturé.
+- **Seules les notifications contenant un montant sont conservées.** Tout le reste est écarté immédiatement et n'est jamais enregistré.
+- **SMS bancaires.** BudgeTrak ne demande jamais l'autorisation de lire votre boîte de réception SMS. Les SMS bancaires ne sont lus que sous la forme des notifications publiées par votre application de messagerie, et uniquement si vous cochez votre application de messagerie **et** les expéditeurs précis que vous souhaitez surveiller. Tant que vous n'avez sélectionné aucun expéditeur, rien de cette application n'est stocké : les messages de toute personne que vous n'avez pas sélectionnée ne sont jamais enregistrés, lus ni transmis.
+- **La liste des applications provient de ce qui arrive, pas de ce que vous avez installé.** BudgeTrak ne peut pas voir vos applications installées. L'écran Configurer ne propose que les applications ayant déjà publié une notification contenant un montant. Pour une application de messagerie surveillée, nous enregistrons le nom de l'expéditeur et un compteur, afin que vous puissiez le choisir, jamais le texte du message.
+- **Tout reste sur votre appareil.** Les alertes capturées, vos choix d'applications et d'expéditeurs, ainsi que les formats décrits ci-dessous sont conservés dans le stockage privé de l'application et **ne sont pas** synchronisés avec vos autres appareils, même si vous utilisez SYNC. Chaque appareil ne voit que ses propres notifications.
+- Vous pouvez effacer à tout moment tout ce qui a été capturé avec **Oublier les données capturées** sur l'écran Configurer, ou désactiver entièrement la fonction.
+
 ### Données de diagnostic et de plantage
 
 Pour maintenir BudgeTrak stable et identifier les bogues, nous utilisons des services anonymes de **rapport de plantages** et de **télémétrie d'utilisation** fournis par notre fournisseur d'infrastructure cloud. Les deux sont **activés par défaut** et partagent une seule option de désactivation dans **Paramètres → Confidentialité → Envoyer les rapports de plantage et les données d'utilisation anonymes**. Décocher cette case les arrête tous les deux immédiatement.
@@ -88,7 +101,7 @@ Nous tenons à être précis sur ce point. BudgeTrak **ne collecte pas** :
 
 - Votre nom, votre adresse e-mail, votre numéro de téléphone ni aucune autre information personnelle directement identifiante.
 - Votre emplacement physique, vos coordonnées GPS ou votre adresse IP (au-delà de ce que les services de la plateforme reçoivent automatiquement pour le routage).
-- Vos contacts, votre calendrier, votre photothèque (autres que les photos de reçus que vous joignez explicitement), votre historique d'appels, vos messages SMS ou votre historique de navigation.
+- Vos contacts, votre calendrier, votre photothèque (autres que les photos de reçus que vous joignez explicitement), votre historique d'appels ou votre historique de navigation. BudgeTrak ne demande jamais l'autorisation de lire votre boîte de réception SMS. Si vous activez le Moniteur de notifications et sélectionnez votre application de messagerie ainsi que des expéditeurs précis, il ne lit que les notifications publiées par les messages de ces expéditeurs — voir Moniteur de notifications ci-dessus.
 - Les identifiants de votre compte bancaire, vos numéros d'acheminement ou vos informations de connexion à un quelconque établissement financier.
 - Toute donnée de santé, de forme physique ou biométrique.
 
@@ -140,7 +153,7 @@ Vous pouvez consulter les pratiques de confidentialité de ces fournisseurs à l
 
 ## Fonctions assistées par IA (facultatives)
 
-BudgeTrak propose trois fonctions facultatives assistées par IA. Les deux premières sont disponibles pour les niveaux Payant et Abonné ; la troisième, le Chat d'aide, est disponible pour tous les niveaux (y compris le niveau Gratuit). Les trois sont désactivées par défaut et nécessitent une action explicite de l'utilisateur pour être activées.
+BudgeTrak propose quatre fonctions facultatives assistées par IA. Les deux premières sont disponibles pour les niveaux Payant et Abonné ; la troisième, le Chat d'aide, est disponible pour tous les niveaux (y compris le niveau Gratuit) ; la quatrième accompagne le Moniteur de notifications et est disponible pour les niveaux Payant et Abonné. Les quatre sont désactivées par défaut et nécessitent une action explicite de l'utilisateur pour être activées.
 
 ### Numérisation de reçus par IA (Abonnés)
 Lorsqu'un abonné appuie sur l'icône d'étincelle dans la fenêtre de transaction, BudgeTrak envoie la photo du reçu à notre fournisseur de service d'IA pour en extraire le commerçant, la date, le montant et la catégorie. La réponse est renvoyée directement à votre appareil et stockée uniquement dans votre enregistrement de transaction.
@@ -156,6 +169,11 @@ Si vous activez la case du Chat d'aide dans **Paramètres → Confidentialité �
 - Chaque appareil gère son propre consentement de façon indépendante. La case est désactivée par défaut à l'installation et **n'est pas** synchronisée entre les appareils SYNC. La décocher à tout moment révoque le consentement — les transcriptions déjà présentes sur nos serveurs restent soumises au TTL de 7 jours décrit ci-dessus et seront ensuite supprimées automatiquement, et aucun autre message ne sera téléversé depuis votre appareil.
 - Vous pouvez appuyer sur **Effacer** dans la fenêtre du Chat d'aide à tout moment pour téléverser une dernière fois la transcription existante et vider la mémoire tampon locale, en démarrant un nouveau chat avec un nouvel identifiant de chat anonyme. Les messages locaux de plus de 48 heures sont également supprimés automatiquement sur chaque appareil, que vous les effaciez ou non.
 - Vous **n'avez pas** besoin d'un abonnement payant, et le Chat d'aide **ne nécessite pas** SYNC. Si vous n'avez pas activé SYNC, BudgeTrak se connectera de façon anonyme la première fois qu'il devra téléverser une transcription, uniquement pour satisfaire l'exigence d'authentification côté serveur ; aucune information personnelle identifiante n'est collectée par cette connexion anonyme.
+
+### Apprentissage des formats de notification (niveaux Payant et Abonné)
+Si vous utilisez le Moniteur de notifications et que BudgeTrak rencontre un format d'alerte qu'il ne reconnaît pas, il peut demander à notre fournisseur de services d'IA de déduire un **modèle** réutilisable pour ce format, et non de lire la transaction elle-même. Avant tout envoi, **chaque chiffre est remplacé par un 9**, de sorte que les montants, les numéros de carte et les numéros de compte ne peuvent pas être transmis ; notre serveur rejette tout échantillon contenant encore un chiffre. Le nom du commerçant présent dans l'échantillon est transmis, ce qui correspond à la même catégorie de données que la Catégorisation CSV par IA décrite ci-dessus. Le modèle obtenu est conservé sur votre appareil et réutilisé : cela se produit donc environ une fois par banque, et non une fois par transaction.
+
+Les modèles déduits de l'application d'une banque peuvent être partagés avec d'autres utilisateurs de BudgeTrak de la même banque, afin qu'ils n'aient pas à refaire la demande. **Les modèles déduits de SMS ne sont jamais partagés** : ils sont liés à un expéditeur précis et restent uniquement sur votre appareil.
 
 ### Chatbot du site web (techadvantagesupport.github.io)
 Notre site web héberge un assistant IA qui répond aux questions des visiteurs sur BudgeTrak, fondé sur la même documentation d'aide intégrée que le Chat d'aide dans l'application. Si vous l'utilisez :

@@ -51,6 +51,19 @@ Wenn Sie SYNC aktivieren, geschieht Folgendes:
 
 Wenn Sie eine SYNC-Gruppe verlassen oder auflösen, bleiben Ihre lokalen Daten auf Ihrem Gerät erhalten, die Cloud-Kopie wird jedoch gelöscht (mit einem 90-tägigen Bereinigungsfenster für verwaiste Daten).
 
+### Benachrichtigungs-Monitor (nur mit Ihrer Zustimmung)
+
+BudgeTrak enthält eine optionale Funktion namens **Benachrichtigungs-Monitor**, verfügbar für die Stufen "Kostenpflichtig" und "Abonnent". Sie ist **standardmäßig deaktiviert**. Die Aktivierung erfordert zwei getrennte, bewusste Handlungen: das Einschalten in den Einstellungen und die Erteilung der Android-Berechtigung für den Benachrichtigungszugriff durch Sie selbst in den Systemeinstellungen Ihres Geräts. Anschließend wählen Sie aus, welche Apps beobachtet werden sollen.
+
+Ihre Bank sendet Sekunden nach einem Kartenkauf eine Benachrichtigung. Mit Ihrer Erlaubnis liest BudgeTrak Titel und Text der Benachrichtigungen der von Ihnen ausgewählten Apps, behält nur diejenigen, die einen Geldbetrag enthalten, und sammelt sie in einer Prüfliste auf Ihrem Gerät, bis Sie sie als Transaktionen laden oder löschen. Erfasste Hinweise werden nie von allein zu Transaktionen.
+
+- **Es werden nur von Ihnen angehakte Apps gelesen.** Solange Sie keine App auswählen, wird nichts erfasst.
+- **Es werden nur Benachrichtigungen mit einem Geldbetrag behalten.** Alles andere wird sofort verworfen und nie gespeichert.
+- **Bank-SMS.** BudgeTrak fordert niemals die Berechtigung an, Ihren SMS-Posteingang zu lesen. Bank-SMS werden ausschließlich als die Benachrichtigungen gelesen, die Ihre Nachrichten-App anzeigt, und nur dann, wenn Sie Ihre Nachrichten-App **und** die einzelnen gewünschten Absender anhaken. Solange Sie keinen Absender auswählen, wird aus dieser App nichts gespeichert – Nachrichten von Personen, die Sie nicht ausgewählt haben, werden nie gespeichert, gelesen oder übertragen.
+- **Die App-Liste entsteht aus dem, was ankommt, nicht aus dem, was Sie installiert haben.** BudgeTrak kann Ihre installierten Anwendungen nicht sehen. Der Konfigurationsbildschirm bietet nur Apps an, die bereits eine Benachrichtigung mit einem Betrag gesendet haben. Bei einer beobachteten Nachrichten-App erfassen wir den Namen des Absenders und eine Anzahl, damit Sie ihn auswählen können – nie den Nachrichtentext.
+- **Alles bleibt auf Ihrem Gerät.** Erfasste Hinweise, Ihre App- und Absenderauswahl sowie die unten beschriebenen Formate werden im privaten Speicher der App abgelegt und **nicht** mit Ihren anderen Geräten synchronisiert, auch wenn Sie SYNC verwenden. Jedes Gerät sieht nur seine eigenen Benachrichtigungen.
+- Sie können alles Erfasste jederzeit über **Erfasste Daten vergessen** im Konfigurationsbildschirm löschen oder die Funktion ganz ausschalten.
+
 ### Diagnose- und Absturzdaten
 
 Um BudgeTrak stabil zu halten und Fehler zu identifizieren, verwenden wir anonyme Dienste zur **Absturzberichterstattung** und **Nutzungstelemetrie** von unserem Cloud-Infrastruktur-Anbieter. Beide sind **standardmäßig aktiviert** und teilen sich eine einzige Abmeldemöglichkeit unter **Einstellungen → Datenschutz → Absturzberichte und anonyme Nutzungsdaten senden**. Das Deaktivieren dieses Kästchens stoppt beide sofort.
@@ -88,7 +101,7 @@ Wir möchten hier konkret sein. BudgeTrak erhebt **nicht**:
 
 - Ihren Namen, Ihre E-Mail-Adresse, Ihre Telefonnummer oder andere direkt identifizierende personenbezogene Daten.
 - Ihren physischen Standort, GPS-Koordinaten oder Ihre IP-Adresse (über das hinaus, was die Plattformdienste automatisch für das Routing erhalten).
-- Ihre Kontakte, Ihren Kalender, Ihre Fotobibliothek (abgesehen von Belegfotos, die Sie ausdrücklich anhängen), Ihren Anrufverlauf, Ihre SMS-Nachrichten oder Ihren Browserverlauf.
+- Ihre Kontakte, Ihren Kalender, Ihre Fotobibliothek (abgesehen von Belegfotos, die Sie ausdrücklich anhängen), Ihren Anrufverlauf oder Ihren Browserverlauf. BudgeTrak fordert niemals die Berechtigung an, Ihren SMS-Posteingang zu lesen. Wenn Sie den Benachrichtigungs-Monitor einschalten und Ihre Nachrichten-App zusammen mit bestimmten Absendern auswählen, liest die App ausschließlich die Benachrichtigungen, die die Nachrichten dieser Absender auslösen – siehe Benachrichtigungs-Monitor oben.
 - Ihre Bankkontozugangsdaten, Bankleitzahlen oder Anmeldedaten für ein Finanzinstitut.
 - Gesundheits-, Fitness- oder biometrische Daten.
 
@@ -140,7 +153,7 @@ Sie können die Datenschutzpraktiken dieser Anbieter unter [https://policies.goo
 
 ## KI-gestützte Funktionen (Opt-in)
 
-BudgeTrak bietet drei optionale KI-gestützte Funktionen. Die ersten beiden sind für die Stufen "Kostenpflichtig" und "Abonnent" verfügbar; die dritte, der Hilfe-Chat, ist für alle Stufen verfügbar (einschließlich der kostenlosen). Alle drei sind standardmäßig deaktiviert und erfordern eine ausdrückliche Nutzeraktion zur Aktivierung.
+BudgeTrak bietet vier optionale KI-gestützte Funktionen. Die ersten beiden sind für die Stufen "Kostenpflichtig" und "Abonnent" verfügbar; die dritte, der Hilfe-Chat, ist für alle Stufen verfügbar (einschließlich der kostenlosen); die vierte ergänzt den Benachrichtigungs-Monitor und ist für die Stufen "Kostenpflichtig" und "Abonnent" verfügbar. Alle vier sind standardmäßig deaktiviert und erfordern eine ausdrückliche Nutzeraktion zur Aktivierung.
 
 ### KI-Beleg-Scan (Abonnenten)
 Wenn ein Abonnent im Transaktionsdialog auf das Funkel-Symbol tippt, sendet BudgeTrak das Belegfoto an unseren KI-Dienstleister, um Händler, Datum, Betrag und Kategorie zu extrahieren. Die Antwort wird direkt an Ihr Gerät zurückgegeben und nur in Ihrem Transaktionsdatensatz gespeichert.
@@ -156,6 +169,11 @@ Wenn Sie das Hilfe-Chat-Kästchen unter **Einstellungen → Datenschutz → Chat
 - Jedes Gerät verwaltet seine Einwilligung unabhängig. Das Kästchen ist bei der Installation standardmäßig deaktiviert und wird **nicht** zwischen SYNC-Geräten synchronisiert. Das Deaktivieren zu einem beliebigen Zeitpunkt widerruft die Einwilligung — bereits auf unseren Servern befindliche Transkripte unterliegen weiterhin der oben genannten 7-tägigen TTL und werden dann automatisch gelöscht, und von Ihrem Gerät werden keine weiteren Nachrichten hochgeladen.
 - Sie können jederzeit im Hilfe-Chat-Dialog auf **Löschen** tippen, um das vorhandene Transkript ein letztes Mal hochzuladen und den lokalen Puffer zu leeren, wodurch ein neuer Chat mit einer neuen anonymen Chat-ID begonnen wird. Lokale Nachrichten, die älter als 48 Stunden sind, werden auf jedem Gerät ebenfalls automatisch entfernt, unabhängig davon, ob Sie sie löschen.
 - Sie benötigen **kein** kostenpflichtiges Abonnement, und der Hilfe-Chat erfordert **kein** SYNC. Wenn Sie SYNC nicht aktiviert haben, meldet sich BudgeTrak beim ersten Hochladen eines Transkripts anonym an, ausschließlich um unsere serverseitige Authentifizierungsanforderung zu erfüllen; durch diese anonyme Anmeldung werden keine personenbezogenen Daten erhoben.
+
+### Erlernen von Benachrichtigungsformaten (Stufen "Kostenpflichtig" und "Abonnent")
+Wenn Sie den Benachrichtigungs-Monitor verwenden und BudgeTrak auf ein unbekanntes Hinweisformat trifft, kann die App unseren KI-Dienstleister bitten, ein wiederverwendbares **Muster** für dieses Format zu ermitteln – nicht, die einzelne Transaktion zu lesen. Vor jeder Übertragung wird **jede Ziffer durch eine 9 ersetzt**, sodass Beträge, Kartennummern und Kontonummern nicht übertragen werden können; unser Server weist jede Probe zurück, die noch eine Ziffer enthält. Der Händlername in der Probe wird übermittelt – dieselbe Datenkategorie wie bei der oben beschriebenen KI-CSV-Kategorisierung. Das entstandene Muster wird auf Ihrem Gerät gespeichert und wiederverwendet, sodass dies etwa einmal pro Bank geschieht und nicht einmal pro Transaktion.
+
+Muster, die aus der eigenen App einer Bank ermittelt wurden, können mit anderen BudgeTrak-Nutzern derselben Bank geteilt werden, damit diese die Anfrage nicht wiederholen müssen. **Aus SMS ermittelte Muster werden nie geteilt** – sie sind an einen einzelnen Absender gebunden und bleiben ausschließlich auf Ihrem Gerät.
 
 ### Website-Chatbot (techadvantagesupport.github.io)
 Unsere Website hostet einen KI-Assistenten, der Fragen von Besuchern zu BudgeTrak beantwortet und sich dabei auf dieselbe integrierte Hilfe-Dokumentation wie der In-App-Hilfe-Chat stützt. Wenn Sie ihn verwenden:
