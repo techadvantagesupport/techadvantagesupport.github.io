@@ -53,7 +53,7 @@ Wenn Sie eine SYNC-Gruppe verlassen oder auflösen, bleiben Ihre lokalen Daten a
 
 ### Benachrichtigungs-Monitor (nur mit Ihrer Zustimmung)
 
-BudgeTrak enthält eine optionale Funktion namens **Benachrichtigungs-Monitor**, verfügbar für die Stufen "Kostenpflichtig" und "Abonnent". Sie ist **standardmäßig deaktiviert**. Die Aktivierung erfordert zwei getrennte, bewusste Handlungen: das Einschalten in den Einstellungen und die Erteilung der Android-Berechtigung für den Benachrichtigungszugriff durch Sie selbst in den Systemeinstellungen Ihres Geräts. Anschließend wählen Sie aus, welche Apps beobachtet werden sollen.
+BudgeTrak enthält eine optionale Funktion namens **Benachrichtigungs-Monitor**, verfügbar für die Stufe "Abonnent". Sie ist **standardmäßig deaktiviert**. Die Aktivierung erfordert zwei getrennte, bewusste Handlungen: das Einschalten in den Einstellungen und die Erteilung der Android-Berechtigung für den Benachrichtigungszugriff durch Sie selbst in den Systemeinstellungen Ihres Geräts. Anschließend wählen Sie aus, welche Apps beobachtet werden sollen.
 
 Ihre Bank sendet Sekunden nach einem Kartenkauf eine Benachrichtigung. Mit Ihrer Erlaubnis liest BudgeTrak Titel und Text der Benachrichtigungen der von Ihnen ausgewählten Apps, behält nur diejenigen, die einen Geldbetrag enthalten, und sammelt sie in einer Prüfliste auf Ihrem Gerät, bis Sie sie als Transaktionen laden oder löschen. Erfasste Hinweise werden nie von allein zu Transaktionen.
 
@@ -153,7 +153,7 @@ Sie können die Datenschutzpraktiken dieser Anbieter unter [https://policies.goo
 
 ## KI-gestützte Funktionen (Opt-in)
 
-BudgeTrak bietet vier optionale KI-gestützte Funktionen. Die ersten beiden sind für die Stufen "Kostenpflichtig" und "Abonnent" verfügbar; die dritte, der Hilfe-Chat, ist für alle Stufen verfügbar (einschließlich der kostenlosen); die vierte ergänzt den Benachrichtigungs-Monitor und ist für die Stufen "Kostenpflichtig" und "Abonnent" verfügbar. Alle vier sind standardmäßig deaktiviert und erfordern eine ausdrückliche Nutzeraktion zur Aktivierung.
+BudgeTrak bietet vier optionale KI-gestützte Funktionen. Die ersten beiden sind für die Stufen "Kostenpflichtig" und "Abonnent" verfügbar; die dritte, der Hilfe-Chat, ist für alle Stufen verfügbar (einschließlich der kostenlosen); die vierte ergänzt den Benachrichtigungs-Monitor und ist für die Stufe "Abonnent" verfügbar. Alle vier sind standardmäßig deaktiviert und erfordern eine ausdrückliche Nutzeraktion zur Aktivierung.
 
 ### KI-Beleg-Scan (Abonnenten)
 Wenn ein Abonnent im Transaktionsdialog auf das Funkel-Symbol tippt, sendet BudgeTrak das Belegfoto an unseren KI-Dienstleister, um Händler, Datum, Betrag und Kategorie zu extrahieren. Die Antwort wird direkt an Ihr Gerät zurückgegeben und nur in Ihrem Transaktionsdatensatz gespeichert.
@@ -170,7 +170,7 @@ Wenn Sie das Hilfe-Chat-Kästchen unter **Einstellungen → Datenschutz → Chat
 - Sie können jederzeit im Hilfe-Chat-Dialog auf **Löschen** tippen, um das vorhandene Transkript ein letztes Mal hochzuladen und den lokalen Puffer zu leeren, wodurch ein neuer Chat mit einer neuen anonymen Chat-ID begonnen wird. Lokale Nachrichten, die älter als 48 Stunden sind, werden auf jedem Gerät ebenfalls automatisch entfernt, unabhängig davon, ob Sie sie löschen.
 - Sie benötigen **kein** kostenpflichtiges Abonnement, und der Hilfe-Chat erfordert **kein** SYNC. Wenn Sie SYNC nicht aktiviert haben, meldet sich BudgeTrak beim ersten Hochladen eines Transkripts anonym an, ausschließlich um unsere serverseitige Authentifizierungsanforderung zu erfüllen; durch diese anonyme Anmeldung werden keine personenbezogenen Daten erhoben.
 
-### Erlernen von Benachrichtigungsformaten (Stufen "Kostenpflichtig" und "Abonnent")
+### Erlernen von Benachrichtigungsformaten (Stufe "Abonnent")
 Wenn Sie den Benachrichtigungs-Monitor verwenden und BudgeTrak auf ein unbekanntes Hinweisformat trifft, kann die App unseren KI-Dienstleister bitten, ein wiederverwendbares **Muster** für dieses Format zu ermitteln – nicht, die einzelne Transaktion zu lesen. Vor jeder Übertragung wird **jede Ziffer durch eine 9 ersetzt**, sodass Beträge, Kartennummern und Kontonummern nicht übertragen werden können; unser Server weist jede Probe zurück, die noch eine Ziffer enthält. Der Händlername in der Probe wird übermittelt – dieselbe Datenkategorie wie bei der oben beschriebenen KI-CSV-Kategorisierung. Das entstandene Muster wird auf Ihrem Gerät gespeichert und wiederverwendet, sodass dies etwa einmal pro Bank geschieht und nicht einmal pro Transaktion.
 
 Muster, die aus der eigenen App einer Bank ermittelt wurden, können mit anderen BudgeTrak-Nutzern derselben Bank geteilt werden, damit diese die Anfrage nicht wiederholen müssen. **Aus SMS ermittelte Muster werden nie geteilt** – sie sind an einen einzelnen Absender gebunden und bleiben ausschließlich auf Ihrem Gerät.

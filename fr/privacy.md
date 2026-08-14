@@ -53,7 +53,7 @@ Lorsque vous quittez un groupe SYNC ou le dissolvez, vos données locales sont c
 
 ### Moniteur de notifications (uniquement si vous y consentez)
 
-BudgeTrak comprend une fonction facultative appelée **Moniteur de notifications**, disponible pour les niveaux Payant et Abonné. Elle est **désactivée par défaut**. Son activation exige deux actions délibérées et distinctes : l'activer dans les Paramètres, et accorder vous-même l'autorisation d'accès aux notifications d'Android dans les réglages système de votre appareil. Vous choisissez ensuite les applications à surveiller.
+BudgeTrak comprend une fonction facultative appelée **Moniteur de notifications**, disponible pour le niveau Abonné. Elle est **désactivée par défaut**. Son activation exige deux actions délibérées et distinctes : l'activer dans les Paramètres, et accorder vous-même l'autorisation d'accès aux notifications d'Android dans les réglages système de votre appareil. Vous choisissez ensuite les applications à surveiller.
 
 Votre banque publie une notification quelques secondes après un achat par carte. Avec votre autorisation, BudgeTrak lit le titre et le texte des notifications publiées par les applications que vous avez sélectionnées, ne conserve que celles qui contiennent un montant, et les garde dans une liste de vérification sur votre appareil jusqu'à ce que vous les chargiez comme transactions ou les supprimiez. Les alertes capturées ne deviennent jamais des transactions d'elles-mêmes.
 
@@ -153,7 +153,7 @@ Vous pouvez consulter les pratiques de confidentialité de ces fournisseurs à l
 
 ## Fonctions assistées par IA (facultatives)
 
-BudgeTrak propose quatre fonctions facultatives assistées par IA. Les deux premières sont disponibles pour les niveaux Payant et Abonné ; la troisième, le Chat d'aide, est disponible pour tous les niveaux (y compris le niveau Gratuit) ; la quatrième accompagne le Moniteur de notifications et est disponible pour les niveaux Payant et Abonné. Les quatre sont désactivées par défaut et nécessitent une action explicite de l'utilisateur pour être activées.
+BudgeTrak propose quatre fonctions facultatives assistées par IA. Les deux premières sont disponibles pour les niveaux Payant et Abonné ; la troisième, le Chat d'aide, est disponible pour tous les niveaux (y compris le niveau Gratuit) ; la quatrième accompagne le Moniteur de notifications et est disponible pour le niveau Abonné. Les quatre sont désactivées par défaut et nécessitent une action explicite de l'utilisateur pour être activées.
 
 ### Numérisation de reçus par IA (Abonnés)
 Lorsqu'un abonné appuie sur l'icône d'étincelle dans la fenêtre de transaction, BudgeTrak envoie la photo du reçu à notre fournisseur de service d'IA pour en extraire le commerçant, la date, le montant et la catégorie. La réponse est renvoyée directement à votre appareil et stockée uniquement dans votre enregistrement de transaction.
@@ -170,7 +170,7 @@ Si vous activez la case du Chat d'aide dans **Paramètres → Confidentialité �
 - Vous pouvez appuyer sur **Effacer** dans la fenêtre du Chat d'aide à tout moment pour téléverser une dernière fois la transcription existante et vider la mémoire tampon locale, en démarrant un nouveau chat avec un nouvel identifiant de chat anonyme. Les messages locaux de plus de 48 heures sont également supprimés automatiquement sur chaque appareil, que vous les effaciez ou non.
 - Vous **n'avez pas** besoin d'un abonnement payant, et le Chat d'aide **ne nécessite pas** SYNC. Si vous n'avez pas activé SYNC, BudgeTrak se connectera de façon anonyme la première fois qu'il devra téléverser une transcription, uniquement pour satisfaire l'exigence d'authentification côté serveur ; aucune information personnelle identifiante n'est collectée par cette connexion anonyme.
 
-### Apprentissage des formats de notification (niveaux Payant et Abonné)
+### Apprentissage des formats de notification (niveau Abonné)
 Si vous utilisez le Moniteur de notifications et que BudgeTrak rencontre un format d'alerte qu'il ne reconnaît pas, il peut demander à notre fournisseur de services d'IA de déduire un **modèle** réutilisable pour ce format, et non de lire la transaction elle-même. Avant tout envoi, **chaque chiffre est remplacé par un 9**, de sorte que les montants, les numéros de carte et les numéros de compte ne peuvent pas être transmis ; notre serveur rejette tout échantillon contenant encore un chiffre. Le nom du commerçant présent dans l'échantillon est transmis, ce qui correspond à la même catégorie de données que la Catégorisation CSV par IA décrite ci-dessus. Le modèle obtenu est conservé sur votre appareil et réutilisé : cela se produit donc environ une fois par banque, et non une fois par transaction.
 
 Les modèles déduits de l'application d'une banque peuvent être partagés avec d'autres utilisateurs de BudgeTrak de la même banque, afin qu'ils n'aient pas à refaire la demande. **Les modèles déduits de SMS ne sont jamais partagés** : ils sont liés à un expéditeur précis et restent uniquement sur votre appareil.

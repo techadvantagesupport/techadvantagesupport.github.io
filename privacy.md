@@ -50,7 +50,7 @@ When you leave a SYNC group or dissolve it, your local data is preserved on your
 
 ### Notification Monitoring (Only If You Opt In)
 
-BudgeTrak includes an optional feature called the **Notification Monitor**, available to Paid and Subscriber tiers. It is **off by default**. Turning it on requires two separate deliberate actions: enabling it in Settings, and granting Android's notification-access permission yourself in your device's system settings. You then choose which apps you want watched.
+BudgeTrak includes an optional feature called the **Notification Monitor**, available to the Subscriber tier. It is **off by default**. Turning it on requires two separate deliberate actions: enabling it in Settings, and granting Android's notification-access permission yourself in your device's system settings. You then choose which apps you want watched.
 
 Your bank posts a notification within seconds of a card purchase. With your permission, BudgeTrak reads the title and text of notifications posted by the apps you selected, keeps only the ones that contain a money amount, and holds them in a review list on your device until you either load them as transactions or delete them. Captured alerts never become transactions on their own.
 
@@ -150,7 +150,7 @@ You can review the privacy practices of these providers at [https://policies.goo
 
 ## AI-Assisted Features (Opt-In)
 
-BudgeTrak offers four optional AI-assisted features. The first two are available to Paid and Subscriber tiers; the third, Help Chat, is available to all tiers (including Free); the fourth supports the Notification Monitor and is available to Paid and Subscriber tiers. All four are off by default and require an explicit user action to enable.
+BudgeTrak offers four optional AI-assisted features. The first two are available to Paid and Subscriber tiers; the third, Help Chat, is available to all tiers (including Free); the fourth supports the Notification Monitor and is available to the Subscriber tier. All four are off by default and require an explicit user action to enable.
 
 ### AI Receipt Scanning (Subscribers)
 When a subscriber taps the sparkle icon in the transaction dialog, BudgeTrak sends the receipt photo to our AI service provider to extract the merchant, date, amount, and category. The response is returned directly to your device and stored only in your transaction record.
@@ -167,7 +167,7 @@ If you enable the Help Chat checkbox in **Settings → Privacy → Allow Chatbot
 - You can tap **Clear** in the Help Chat dialog at any time to immediately upload the existing transcript one last time and wipe the local buffer, starting a fresh chat with a new anonymous chat ID. Local messages older than 48 hours are also pruned automatically on each device regardless of whether you clear them.
 - You do **not** need a paid subscription, and Help Chat does **not** require SYNC. If you have not enabled SYNC, BudgeTrak will sign in anonymously the first time it needs to upload a transcript, solely so our server-side authentication requirement is satisfied; no personally-identifying information is collected through this anonymous sign-in.
 
-### Notification Format Learning (Paid and Subscriber tiers)
+### Notification Format Learning (Subscriber tier)
 If you use the Notification Monitor and BudgeTrak encounters an alert format it does not recognize, it can ask our AI service provider to work out a reusable **pattern** for that format — not to read the individual transaction. Before anything is sent, **every digit is replaced with a 9**, so amounts, card numbers and account numbers cannot be transmitted; our server rejects any sample that still contains a digit. The merchant name in the sample is sent, which is the same category of data as AI CSV Categorization above. The resulting pattern is stored on your device and reused, so this happens roughly once per bank rather than once per transaction.
 
 Patterns worked out from a bank's own app may be shared with other BudgeTrak users of the same bank, so they do not have to repeat the request. **Patterns worked out from text messages are never shared** — they are tied to an individual sender, and they stay on your device only.

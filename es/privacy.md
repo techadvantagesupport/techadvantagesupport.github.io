@@ -53,7 +53,7 @@ Cuando abandona un grupo SYNC o lo disuelve, sus datos locales se conservan en s
 
 ### Monitor de Notificaciones (Solo si Usted lo Activa)
 
-BudgeTrak incluye una función opcional llamada **Monitor de Notificaciones**, disponible para los niveles Pagado y Suscriptor. Está **desactivada por defecto**. Activarla requiere dos acciones deliberadas e independientes: habilitarla en Configuración y conceder usted mismo el permiso de acceso a las notificaciones en los ajustes del sistema de su dispositivo. Después usted elige qué aplicaciones desea vigilar.
+BudgeTrak incluye una función opcional llamada **Monitor de Notificaciones**, disponible para el nivel Suscriptor. Está **desactivada por defecto**. Activarla requiere dos acciones deliberadas e independientes: habilitarla en Configuración y conceder usted mismo el permiso de acceso a las notificaciones en los ajustes del sistema de su dispositivo. Después usted elige qué aplicaciones desea vigilar.
 
 Su banco publica una notificación segundos después de una compra con tarjeta. Con su permiso, BudgeTrak lee el título y el texto de las notificaciones publicadas por las aplicaciones que usted seleccionó, conserva únicamente las que contienen un monto de dinero y las mantiene en una lista de revisión en su dispositivo hasta que usted las cargue como transacciones o las elimine. Los avisos capturados nunca se convierten en transacciones por sí solos.
 
@@ -153,7 +153,7 @@ Puede consultar las prácticas de privacidad de estos proveedores en [https://po
 
 ## Funciones Asistidas por IA (Opcionales)
 
-BudgeTrak ofrece cuatro funciones opcionales asistidas por IA. Las dos primeras están disponibles para los niveles Pagado y Suscriptor; la tercera, Chat de Ayuda, está disponible para todos los niveles (incluido el Gratuito); la cuarta acompaña al Monitor de Notificaciones y está disponible para los niveles Pagado y Suscriptor. Las cuatro están desactivadas por defecto y requieren una acción explícita del usuario para habilitarse.
+BudgeTrak ofrece cuatro funciones opcionales asistidas por IA. Las dos primeras están disponibles para los niveles Pagado y Suscriptor; la tercera, Chat de Ayuda, está disponible para todos los niveles (incluido el Gratuito); la cuarta acompaña al Monitor de Notificaciones y está disponible para el nivel Suscriptor. Las cuatro están desactivadas por defecto y requieren una acción explícita del usuario para habilitarse.
 
 ### Lectura de Recibos con IA (Suscriptores)
 Cuando un suscriptor toca el ícono de chispa en el diálogo de transacción, BudgeTrak envía la foto del recibo a nuestro proveedor de servicio de IA para extraer el comercio, la fecha, el monto y la categoría. La respuesta se devuelve directamente a su dispositivo y se guarda solo en su registro de transacción.
@@ -170,7 +170,7 @@ Si activa la casilla del Chat de Ayuda en **Ajustes → Privacidad → Permitir 
 - Puede tocar **Borrar** en el diálogo del Chat de Ayuda en cualquier momento para subir la transcripción existente una última vez y borrar el búfer local, comenzando un nuevo chat con un nuevo identificador anónimo. Los mensajes locales con más de 48 horas también se eliminan automáticamente en cada dispositivo, sin importar si los borra.
 - **No** necesita una suscripción pagada, y el Chat de Ayuda **no** requiere SYNC. Si no ha habilitado SYNC, BudgeTrak iniciará sesión de forma anónima la primera vez que necesite subir una transcripción, únicamente para satisfacer el requisito de autenticación del lado del servidor; no se recopila información personal identificable mediante este inicio de sesión anónimo.
 
-### Aprendizaje de Formatos de Notificación (niveles Pagado y Suscriptor)
+### Aprendizaje de Formatos de Notificación (nivel Suscriptor)
 Si usted usa el Monitor de Notificaciones y BudgeTrak encuentra un formato de aviso que no reconoce, puede pedir a nuestro proveedor de servicios de IA que deduzca un **patrón** reutilizable para ese formato, no que lea la transacción concreta. Antes de enviar cualquier cosa, **cada dígito se reemplaza por un 9**, de modo que los montos, los números de tarjeta y los números de cuenta no se pueden transmitir; nuestro servidor rechaza cualquier muestra que todavía contenga un dígito. El nombre del comercio incluido en la muestra sí se envía, que es la misma categoría de datos que la Categorización de CSV con IA descrita arriba. El patrón resultante se guarda en su dispositivo y se reutiliza, así que esto ocurre aproximadamente una vez por banco y no una vez por transacción.
 
 Los patrones deducidos de la propia aplicación de un banco pueden compartirse con otros usuarios de BudgeTrak del mismo banco, para que no tengan que repetir la solicitud. **Los patrones deducidos de mensajes de texto nunca se comparten**: están ligados a un remitente concreto y permanecen solo en su dispositivo.
