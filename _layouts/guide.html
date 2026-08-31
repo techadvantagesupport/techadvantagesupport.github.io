@@ -6,7 +6,8 @@
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.description }}">
 <link rel="canonical" href="https://techadvantageapps.com{{ page.permalink }}">
-{%- assign L = site.data.guidenav[page.lang | default: 'en'] -%}
+{%- assign PL = page.lang | default: 'en' -%}
+{%- assign L = site.data.guidenav[PL] -%}
 {%- assign ALT = site.data.guidemap[page.group] -%}
 {%- if ALT %}
 <link rel="alternate" hreflang="en" href="https://techadvantageapps.com{{ ALT.en }}">
@@ -130,7 +131,7 @@ footer a{color:#D8E1E9}
   "@graph":[
     {
       "@type":"Article",
-      "inLanguage":"{{ page.lang | default: 'en' }}",
+      "inLanguage":"{{ PL }}",
       "headline":{{ page.title | jsonify }},
       "description":{{ page.description | jsonify }},
       "image":"https://techadvantageapps.com{{ page.hero }}",
