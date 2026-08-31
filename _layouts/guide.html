@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title }}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="canonical" href="https://techadvantageapps.com{{ page.permalink }}">
+<link rel="icon" type="image/png" href="/assets/favicon-64.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="BudgeTrak">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:description" content="{{ page.description }}">
+<meta property="og:url" content="https://techadvantageapps.com{{ page.permalink }}">
+<meta property="og:image" content="https://techadvantageapps.com{{ page.hero }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ page.title }}">
+<meta name="twitter:description" content="{{ page.description }}">
+<meta name="twitter:image" content="https://techadvantageapps.com{{ page.hero }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#2F4153;--navy2:#3A5168;--blue:#466A8E;--blue-d:#3A5876;--sage:#E7F0EC;--sage-d:#CFE0DB;
+--gold:#F2C14E;--gold-d:#DFA938;--ink:#22313F;--mut:#5B6B7A;--line:#E3E9EE;--bg:#FBFCFD;--card:#fff;
+--r:16px;--shadow:0 10px 30px rgba(47,65,83,.10)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);
+background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--blue)}
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(251,252,253,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1040px;margin:0 auto;padding:0 22px;height:60px;display:flex;align-items:center;gap:14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--ink);text-decoration:none;font-size:1.05rem}
+.brand img{height:28px;width:auto}
+.navcta{margin-left:auto;background:var(--navy);color:#fff;font-weight:800;font-size:.85rem;
+border-radius:10px;padding:8px 16px;text-decoration:none}
+.navcta:hover{background:var(--blue-d)}
+/* hero */
+.hero{background:linear-gradient(180deg,var(--sage) 0%,var(--bg) 100%);padding:34px 0 0}
+.hero-in{max-width:840px;margin:0 auto;padding:0 22px}
+.crumb{font-size:.82rem;color:var(--mut);margin-bottom:14px}
+.crumb a{color:var(--mut);text-decoration:none}.crumb a:hover{text-decoration:underline}
+.kicker{display:inline-block;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+color:var(--blue);background:#fff;border:1px solid var(--sage-d);border-radius:999px;padding:4px 14px;margin-bottom:14px}
+h1{font-size:clamp(1.75rem,4.4vw,2.5rem);line-height:1.18;font-weight:900;color:var(--navy);margin-bottom:.45em}
+.standfirst{font-size:1.12rem;color:var(--mut);max-width:660px}
+.meta{margin-top:18px;font-size:.8rem;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.heroimg{max-width:1040px;margin:26px auto 0;padding:0 22px}
+.heroimg img{border-radius:var(--r);box-shadow:var(--shadow)}
+/* body */
+main{max-width:840px;margin:0 auto;padding:10px 22px 70px}
+h2{font-size:clamp(1.3rem,2.6vw,1.62rem);font-weight:800;color:var(--navy);margin:2em 0 .5em;
+padding-top:1em;border-top:1px solid var(--line)}
+h3{font-size:1.06rem;font-weight:800;color:var(--navy);margin:1.7em 0 .4em}
+p{margin:0 0 1.05em}
+ul,ol{margin:0 0 1.15em 1.25em}
+li{margin:.4em 0}
+strong{color:var(--navy);font-weight:800}
+blockquote{margin:1.4em 0;padding:16px 20px;background:var(--sage);border-left:4px solid var(--blue);
+border-radius:0 12px 12px 0}
+blockquote p{margin:0}
+table{border-collapse:collapse;width:100%;margin:1.4em 0;font-size:.93rem}
+th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+th{background:var(--sage);font-weight:800;color:var(--navy)}
+tr:nth-child(even) td{background:#F5F9F7}
+code{background:var(--sage);border-radius:6px;padding:1px 6px;font-size:.88em}
+hr{border:0;border-top:1px solid var(--line);margin:2.2em 0}
+/* TOC */
+.toc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;margin:26px 0}
+.toc h4{font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;font-weight:800}
+.toc ol{margin:0 0 0 1.1em}
+.toc li{margin:.28em 0;font-size:.94rem}
+/* figures */
+figure{margin:1.8em 0}
+figure img{border-radius:12px;border:1px solid var(--line)}
+figure.shot img{max-width:290px;margin:0 auto;box-shadow:var(--shadow);border:none}
+figcaption{font-size:.85rem;color:var(--mut);text-align:center;margin-top:10px;font-style:italic}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:1.8em 0}
+.duo figure{margin:0}
+@media(max-width:620px){.duo{grid-template-columns:1fr}}
+/* callout */
+.note{background:var(--card);border:1px solid var(--sage-d);border-left:4px solid var(--gold);
+border-radius:0 12px 12px 0;padding:16px 20px;margin:1.6em 0}
+.note p:last-child{margin:0}
+/* CTA */
+.cta-band{background:var(--navy);border-radius:var(--r);padding:30px 28px;margin:2.4em 0;color:#fff;text-align:center}
+.cta-band h3{color:#fff;margin:0 0 .4em;font-size:1.28rem}
+.cta-band p{color:#C3D0DC;margin:0 0 18px;font-size:.98rem}
+.btn{display:inline-block;background:var(--gold);color:var(--navy);font-weight:900;border-radius:12px;
+padding:13px 26px;text-decoration:none}
+.btn:hover{background:var(--gold-d)}
+/* FAQ */
+.faq{margin:1.4em 0}
+.faq details{border:1px solid var(--line);border-radius:12px;background:var(--card);margin-bottom:10px;padding:0}
+.faq summary{cursor:pointer;font-weight:800;color:var(--navy);padding:15px 18px;list-style:none;font-size:.99rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--blue);font-weight:900}
+.faq details[open] summary::after{content:"−"}
+.faq .ans{padding:0 18px 15px;color:var(--ink)}
+.faq .ans p{margin:0 0 .7em}.faq .ans p:last-child{margin:0}
+/* related */
+.related{max-width:840px;margin:0 auto;padding:0 22px 70px}
+.related h3{font-size:.78rem;letter-spacing:.11em;text-transform:uppercase;color:var(--mut);margin-bottom:14px;font-weight:800}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:620px){.rgrid{grid-template-columns:1fr}}
+.rcard{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;
+text-decoration:none;color:var(--ink)}
+.rcard:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.rcard b{display:block;color:var(--navy);font-size:.98rem;margin-bottom:3px}
+.rcard span{font-size:.85rem;color:var(--mut)}
+footer{background:var(--navy);color:#B9C6D2;padding:32px 22px;font-size:.85rem}
+.foot-in{max-width:840px;margin:0 auto;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between;align-items:center}
+footer a{color:#D8E1E9}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Article",
+      "headline":{{ page.title | jsonify }},
+      "description":{{ page.description | jsonify }},
+      "image":"https://techadvantageapps.com{{ page.hero }}",
+      "datePublished":"{{ page.published }}",
+      "dateModified":"{{ page.modified | default: page.published }}",
+      "author":{"@type":"Organization","name":"Tech Advantage LLC","url":"https://techadvantageapps.com/"},
+      "publisher":{"@type":"Organization","name":"Tech Advantage LLC",
+        "logo":{"@type":"ImageObject","url":"https://techadvantageapps.com/budgetrak_logo.png"}},
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://techadvantageapps.com{{ page.permalink }}"}
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"BudgeTrak","item":"https://techadvantageapps.com/"},
+        {"@type":"ListItem","position":2,"name":"Guides","item":"https://techadvantageapps.com/guides/"},
+        {"@type":"ListItem","position":3,"name":{{ page.short_title | default: page.title | jsonify }},
+         "item":"https://techadvantageapps.com{{ page.permalink }}"}
+      ]
+    }{% if page.faq %},
+    {
+      "@type":"FAQPage",
+      "mainEntity":[{% for f in page.faq %}{"@type":"Question","name":{{ f.q | jsonify }},
+        "acceptedAnswer":{"@type":"Answer","text":{{ f.a | strip_newlines | jsonify }}}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+    }{% endif %}
+  ]
+}
+</script>
+</head>
+<body>
+<header class="nav">
+  <div class="nav-in">
+    <a class="brand" href="/"><img src="/ic_app_icon.png" alt="">BudgeTrak</a>
+    <a class="navcta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">Get the app</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-in">
+    <nav class="crumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › {{ page.short_title | default: page.title }}</nav>
+    {% if page.kicker %}<span class="kicker">{{ page.kicker }}</span>{% endif %}
+    <h1>{{ page.h1 | default: page.title }}</h1>
+    <p class="standfirst">{{ page.standfirst | default: page.description }}</p>
+    <div class="meta"><span>{{ page.reading_time }} min read</span><span>·</span><span>Updated {{ page.modified | default: page.published | date: "%B %Y" }}</span></div>
+  </div>
+  {% if page.hero %}
+  <div class="heroimg"><img src="{{ page.hero }}" alt="{{ page.hero_alt }}" width="1920" height="1080"></div>
+  {% endif %}
+</div>
+
+<main>
+{{ content }}
+
+{% if page.faq %}
+<h2 id="faq">Frequently asked questions</h2>
+<div class="faq">
+{% for f in page.faq %}
+  <details{% if forloop.first %} open{% endif %}>
+    <summary>{{ f.q }}</summary>
+    <div class="ans">{{ f.a | markdownify }}</div>
+  </details>
+{% endfor %}
+</div>
+{% endif %}
+
+<div class="cta-band">
+  <h3>{{ page.cta_title | default: "Try BudgeTrak free" }}</h3>
+  <p>{{ page.cta_text | default: "No bank login. No ads on paid tiers. Works on Android today." }}</p>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">Get it on Google Play</a>
+</div>
+</main>
+
+{% if page.related %}
+<section class="related">
+  <h3>Keep reading</h3>
+  <div class="rgrid">
+  {% for r in page.related %}
+    <a class="rcard" href="{{ r.url }}"><b>{{ r.title }}</b><span>{{ r.blurb }}</span></a>
+  {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+<footer>
+  <div class="foot-in">
+    <span>© 2026 Tech Advantage LLC</span>
+    <span><a href="/">Home</a> · <a href="/guides/">Guides</a> · <a href="/privacy">Privacy</a> · <a href="mailto:support@techadvantageapps.com">Contact</a></span>
+  </div>
+</footer>
+</body>
+</html>
