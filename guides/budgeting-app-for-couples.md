@@ -1,5 +1,7 @@
 ---
 layout: guide
+lang: en
+group: couples
 permalink: /guides/budgeting-app-for-couples/
 title: "The Best Budgeting App for Couples That Keeps Your Finances Private | BudgeTrak"
 short_title: "Budgeting app for couples"

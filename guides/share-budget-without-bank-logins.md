@@ -1,5 +1,7 @@
 ---
 layout: guide
+lang: en
+group: banklogins
 permalink: /guides/share-budget-without-bank-logins/
 title: "How Couples Can Share a Budget Without Sharing Bank Logins | BudgeTrak"
 short_title: "Sharing without bank logins"

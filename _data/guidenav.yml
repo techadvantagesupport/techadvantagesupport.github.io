@@ -1,0 +1,65 @@
+# UI chrome for the guide layout, per language.
+en:
+  home: Home
+  guides: Guides
+  hub_url: /guides/
+  read: min read
+  updated: Updated
+  faq_title: Frequently asked questions
+  keep_reading: Keep reading
+  cta_title: Try BudgeTrak free
+  cta_text: No bank login. No ads on paid tiers. Works on Android today.
+  cta_btn: Get it on Google Play
+  get_app: Get the app
+  privacy: Privacy
+  contact: Contact
+  privacy_url: /privacy
+  home_url: /
+es:
+  home: Inicio
+  guides: Guías
+  hub_url: /es/guias/
+  read: min de lectura
+  updated: Actualizado
+  faq_title: Preguntas frecuentes
+  keep_reading: Sigue leyendo
+  cta_title: Prueba BudgeTrak gratis
+  cta_text: Sin credenciales bancarias. Sin anuncios en los planes de pago. Disponible hoy en Android.
+  cta_btn: Descárgala en Google Play
+  get_app: Descargar
+  privacy: Privacidad
+  contact: Contacto
+  privacy_url: /es/privacy
+  home_url: /es/
+de:
+  home: Startseite
+  guides: Ratgeber
+  hub_url: /de/ratgeber/
+  read: Min. Lesezeit
+  updated: Aktualisiert
+  faq_title: Häufige Fragen
+  keep_reading: Weiterlesen
+  cta_title: BudgeTrak kostenlos testen
+  cta_text: Keine Bankzugangsdaten. Keine Werbung in den bezahlten Versionen. Heute schon für Android.
+  cta_btn: Bei Google Play herunterladen
+  get_app: App holen
+  privacy: Datenschutz
+  contact: Kontakt
+  privacy_url: /de/privacy
+  home_url: /de/
+fr:
+  home: Accueil
+  guides: Guides
+  hub_url: /fr/guides/
+  read: min de lecture
+  updated: Mis à jour
+  faq_title: Questions fréquentes
+  keep_reading: À lire ensuite
+  cta_title: Essaie BudgeTrak gratuitement
+  cta_text: Aucun identifiant bancaire. Aucune publicité dans les versions payantes. Disponible sur Android.
+  cta_btn: Télécharger sur Google Play
+  get_app: Télécharger
+  privacy: Confidentialité
+  contact: Contact
+  privacy_url: /fr/privacy
+  home_url: /fr/

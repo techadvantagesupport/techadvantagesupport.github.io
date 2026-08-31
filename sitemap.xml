@@ -68,42 +68,308 @@
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/budgeting-app-for-couples/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-para-parejas/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-app-fuer-paare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-pour-couples/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/app-de-presupuesto-para-parejas/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-para-parejas/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-app-fuer-paare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-pour-couples/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/budget-app-fuer-paare/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-para-parejas/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-app-fuer-paare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-pour-couples/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/application-budget-pour-couples/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-para-parejas/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-app-fuer-paare/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-pour-couples/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-app-for-couples/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/share-budget-without-bank-logins/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/compartir-presupuesto-sin-datos-bancarios/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-teilen-ohne-bankzugang/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/partager-budget-sans-identifiants-bancaires/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/compartir-presupuesto-sin-datos-bancarios/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/compartir-presupuesto-sin-datos-bancarios/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-teilen-ohne-bankzugang/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/partager-budget-sans-identifiants-bancaires/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/budget-teilen-ohne-bankzugang/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/compartir-presupuesto-sin-datos-bancarios/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-teilen-ohne-bankzugang/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/partager-budget-sans-identifiants-bancaires/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/partager-budget-sans-identifiants-bancaires/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/compartir-presupuesto-sin-datos-bancarios/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-teilen-ohne-bankzugang/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/partager-budget-sans-identifiants-bancaires/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/share-budget-without-bank-logins/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/family-budgeting-app/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/haushaltsbudget-app-familie/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-familial/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/app-de-presupuesto-familiar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/haushaltsbudget-app-familie/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-familial/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/haushaltsbudget-app-familie/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/haushaltsbudget-app-familie/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-familial/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/application-budget-familial/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/app-de-presupuesto-familiar/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/haushaltsbudget-app-familie/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/application-budget-familial/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/family-budgeting-app/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/safe-to-spend/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/cuanto-puedo-gastar-hoy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/sicheres-budget-erklaert/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sur-explique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/cuanto-puedo-gastar-hoy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/cuanto-puedo-gastar-hoy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/sicheres-budget-erklaert/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sur-explique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/sicheres-budget-erklaert/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/cuanto-puedo-gastar-hoy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/sicheres-budget-erklaert/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sur-explique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/budget-sur-explique/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/cuanto-puedo-gastar-hoy/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/sicheres-budget-erklaert/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sur-explique/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/safe-to-spend/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/presupuesto-sin-conectar-banco/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-ohne-bankverbindung/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sans-connexion-bancaire/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/presupuesto-sin-conectar-banco/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/presupuesto-sin-conectar-banco/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-ohne-bankverbindung/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sans-connexion-bancaire/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/budget-ohne-bankverbindung/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/presupuesto-sin-conectar-banco/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-ohne-bankverbindung/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sans-connexion-bancaire/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/budget-sans-connexion-bancaire/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/presupuesto-sin-conectar-banco/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/budget-ohne-bankverbindung/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/budget-sans-connexion-bancaire/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/budgeting-without-linking-bank-account/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/alternativa-privada-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/ynab-alternative-datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/alternative-privee-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/es/guias/alternativa-privada-a-ynab/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/alternativa-privada-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/ynab-alternative-datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/alternative-privee-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/de/ratgeber/ynab-alternative-datenschutz/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/alternativa-privada-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/ynab-alternative-datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/alternative-privee-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techadvantageapps.com/fr/guides/alternative-privee-a-ynab/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://techadvantageapps.com/es/guias/alternativa-privada-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://techadvantageapps.com/de/ratgeber/ynab-alternative-datenschutz/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://techadvantageapps.com/fr/guides/alternative-privee-a-ynab/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com/guides/private-alternative-to-ynab-everydollar/"/>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

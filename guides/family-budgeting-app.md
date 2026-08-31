@@ -1,5 +1,7 @@
 ---
 layout: guide
+lang: en
+group: family
 permalink: /guides/family-budgeting-app/
 title: "Family Budgeting App: One Budget Across Everyone's Phones | BudgeTrak"
 short_title: "Family budgeting app"

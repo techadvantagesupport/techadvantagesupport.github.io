@@ -17,6 +17,9 @@ import pathlib
 REPO = pathlib.Path("/storage/emulated/0/Download/Tech Advantage Pages")
 SRC = REPO / "index.html"
 
+# Localized /guides/ hub per language (see _data/guidemap.yml, key "hub").
+GUIDES_HUB = {"es": "/es/guias/", "de": "/de/ratgeber/", "fr": "/fr/guides/"}
+
 HEAD = {
     "es": {
         "title": "BudgeTrak — App de Presupuesto para Parejas y Familias | Gasto Seguro Diario",
@@ -104,6 +107,13 @@ def generate(lang: str, src_text: str) -> str:
     out = replace_one(
         r'"url": "https://techadvantageapps\.com/",\n  "description"',
         f'"url": "https://techadvantageapps.com/{lang}/",\n  "description"',
+        out,
+    )
+    # Guides hub link in the nav -- each language points at its own localized hub,
+    # otherwise a German visitor's "Ratgeber" link lands on the English hub.
+    out = replace_one(
+        r'<a href="/guides/" data-i18n="nav\.guides">',
+        f'<a href="{GUIDES_HUB[lang]}" data-i18n="nav.guides">',
         out,
     )
     return out

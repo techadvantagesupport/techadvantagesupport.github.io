@@ -1,0 +1,36 @@
+# hreflang groups: every translation of the same guide shares a `group` key.
+couples:
+  en: /guides/budgeting-app-for-couples/
+  es: /es/guias/app-de-presupuesto-para-parejas/
+  de: /de/ratgeber/budget-app-fuer-paare/
+  fr: /fr/guides/application-budget-pour-couples/
+banklogins:
+  en: /guides/share-budget-without-bank-logins/
+  es: /es/guias/compartir-presupuesto-sin-datos-bancarios/
+  de: /de/ratgeber/budget-teilen-ohne-bankzugang/
+  fr: /fr/guides/partager-budget-sans-identifiants-bancaires/
+family:
+  en: /guides/family-budgeting-app/
+  es: /es/guias/app-de-presupuesto-familiar/
+  de: /de/ratgeber/haushaltsbudget-app-familie/
+  fr: /fr/guides/application-budget-familial/
+safetospend:
+  en: /guides/safe-to-spend/
+  es: /es/guias/cuanto-puedo-gastar-hoy/
+  de: /de/ratgeber/sicheres-budget-erklaert/
+  fr: /fr/guides/budget-sur-explique/
+nobank:
+  en: /guides/budgeting-without-linking-bank-account/
+  es: /es/guias/presupuesto-sin-conectar-banco/
+  de: /de/ratgeber/budget-ohne-bankverbindung/
+  fr: /fr/guides/budget-sans-connexion-bancaire/
+compare:
+  en: /guides/private-alternative-to-ynab-everydollar/
+  es: /es/guias/alternativa-privada-a-ynab/
+  de: /de/ratgeber/ynab-alternative-datenschutz/
+  fr: /fr/guides/alternative-privee-a-ynab/
+hub:
+  en: /guides/
+  es: /es/guias/
+  de: /de/ratgeber/
+  fr: /fr/guides/

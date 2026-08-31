@@ -1,5 +1,7 @@
 ---
 layout: guide
+lang: en
+group: safetospend
 permalink: /guides/safe-to-spend/
 title: "What 'Safe to Spend' Means and How BudgeTrak Calculates It | BudgeTrak"
 short_title: "Safe to spend, explained"

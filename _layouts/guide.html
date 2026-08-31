@@ -6,6 +6,15 @@
 <title>{{ page.title }}</title>
 <meta name="description" content="{{ page.description }}">
 <link rel="canonical" href="https://techadvantageapps.com{{ page.permalink }}">
+{%- assign L = site.data.guidenav[page.lang | default: 'en'] -%}
+{%- assign ALT = site.data.guidemap[page.group] -%}
+{%- if ALT %}
+<link rel="alternate" hreflang="en" href="https://techadvantageapps.com{{ ALT.en }}">
+<link rel="alternate" hreflang="es" href="https://techadvantageapps.com{{ ALT.es }}">
+<link rel="alternate" hreflang="de" href="https://techadvantageapps.com{{ ALT.de }}">
+<link rel="alternate" hreflang="fr" href="https://techadvantageapps.com{{ ALT.fr }}">
+<link rel="alternate" hreflang="x-default" href="https://techadvantageapps.com{{ ALT.en }}">
+{%- endif %}
 <link rel="icon" type="image/png" href="/assets/favicon-64.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="BudgeTrak">
@@ -121,6 +130,7 @@ footer a{color:#D8E1E9}
   "@graph":[
     {
       "@type":"Article",
+      "inLanguage":"{{ page.lang | default: 'en' }}",
       "headline":{{ page.title | jsonify }},
       "description":{{ page.description | jsonify }},
       "image":"https://techadvantageapps.com{{ page.hero }}",
@@ -134,8 +144,8 @@ footer a{color:#D8E1E9}
     {
       "@type":"BreadcrumbList",
       "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"BudgeTrak","item":"https://techadvantageapps.com/"},
-        {"@type":"ListItem","position":2,"name":"Guides","item":"https://techadvantageapps.com/guides/"},
+        {"@type":"ListItem","position":1,"name":"BudgeTrak","item":"https://techadvantageapps.com{{ L.home_url }}"},
+        {"@type":"ListItem","position":2,"name":{{ L.guides | jsonify }},"item":"https://techadvantageapps.com{{ L.hub_url }}"},
         {"@type":"ListItem","position":3,"name":{{ page.short_title | default: page.title | jsonify }},
          "item":"https://techadvantageapps.com{{ page.permalink }}"}
       ]
@@ -152,18 +162,18 @@ footer a{color:#D8E1E9}
 <body>
 <header class="nav">
   <div class="nav-in">
-    <a class="brand" href="/"><img src="/ic_app_icon.png" alt="">BudgeTrak</a>
-    <a class="navcta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">Get the app</a>
+    <a class="brand" href="{{ L.home_url }}"><img src="/ic_app_icon.png" alt="">BudgeTrak</a>
+    <a class="navcta" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">{{ L.get_app }}</a>
   </div>
 </header>
 
 <div class="hero">
   <div class="hero-in">
-    <nav class="crumb"><a href="/">Home</a> › <a href="/guides/">Guides</a> › {{ page.short_title | default: page.title }}</nav>
+    <nav class="crumb"><a href="{{ L.home_url }}">{{ L.home }}</a> › <a href="{{ L.hub_url }}">{{ L.guides }}</a> › {{ page.short_title | default: page.title }}</nav>
     {% if page.kicker %}<span class="kicker">{{ page.kicker }}</span>{% endif %}
     <h1>{{ page.h1 | default: page.title }}</h1>
     <p class="standfirst">{{ page.standfirst | default: page.description }}</p>
-    <div class="meta"><span>{{ page.reading_time }} min read</span><span>·</span><span>Updated {{ page.modified | default: page.published | date: "%B %Y" }}</span></div>
+    <div class="meta"><span>{{ page.reading_time }} {{ L.read }}</span><span>·</span><span>{{ L.updated }} {{ page.modified | default: page.published | date: "%Y-%m" }}</span></div>
   </div>
   {% if page.hero %}
   <div class="heroimg"><img src="{{ page.hero }}" alt="{{ page.hero_alt }}" width="1920" height="1080"></div>
@@ -174,7 +184,7 @@ footer a{color:#D8E1E9}
 {{ content }}
 
 {% if page.faq %}
-<h2 id="faq">Frequently asked questions</h2>
+<h2 id="faq">{{ L.faq_title }}</h2>
 <div class="faq">
 {% for f in page.faq %}
   <details{% if forloop.first %} open{% endif %}>
@@ -186,15 +196,15 @@ footer a{color:#D8E1E9}
 {% endif %}
 
 <div class="cta-band">
-  <h3>{{ page.cta_title | default: "Try BudgeTrak free" }}</h3>
-  <p>{{ page.cta_text | default: "No bank login. No ads on paid tiers. Works on Android today." }}</p>
-  <a class="btn" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">Get it on Google Play</a>
+  <h3>{{ page.cta_title | default: L.cta_title }}</h3>
+  <p>{{ page.cta_text | default: L.cta_text }}</p>
+  <a class="btn" href="https://play.google.com/store/apps/details?id=com.techadvantage.budgetrak">{{ L.cta_btn }}</a>
 </div>
 </main>
 
 {% if page.related %}
 <section class="related">
-  <h3>Keep reading</h3>
+  <h3>{{ L.keep_reading }}</h3>
   <div class="rgrid">
   {% for r in page.related %}
     <a class="rcard" href="{{ r.url }}"><b>{{ r.title }}</b><span>{{ r.blurb }}</span></a>
@@ -206,7 +216,7 @@ footer a{color:#D8E1E9}
 <footer>
   <div class="foot-in">
     <span>© 2026 Tech Advantage LLC</span>
-    <span><a href="/">Home</a> · <a href="/guides/">Guides</a> · <a href="/privacy">Privacy</a> · <a href="mailto:support@techadvantageapps.com">Contact</a></span>
+    <span><a href="{{ L.home_url }}">{{ L.home }}</a> · <a href="{{ L.hub_url }}">{{ L.guides }}</a> · <a href="{{ L.privacy_url }}">{{ L.privacy }}</a> · <a href="mailto:support@techadvantageapps.com">{{ L.contact }}</a></span>
   </div>
 </footer>
 </body>

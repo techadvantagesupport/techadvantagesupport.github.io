@@ -1,5 +1,7 @@
 ---
 layout: guide
+lang: en
+group: nobank
 permalink: /guides/budgeting-without-linking-bank-account/
 title: "Budgeting Without Linking Your Bank Account | BudgeTrak"
 short_title: "No bank linking"

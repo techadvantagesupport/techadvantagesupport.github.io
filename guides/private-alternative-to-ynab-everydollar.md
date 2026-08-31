@@ -1,5 +1,7 @@
 ---
 layout: guide
+lang: en
+group: compare
 permalink: /guides/private-alternative-to-ynab-everydollar/
 title: "A Private Alternative to YNAB and EveryDollar for Couples | BudgeTrak"
 short_title: "Alternative to YNAB & EveryDollar"
