@@ -1488,6 +1488,21 @@ document.getElementById('chatForm').addEventListener('submit', function(ev){
   // browser locale — otherwise the indexed page's body language wouldn't
   // match its own <title>/canonical/hreflang.
   var pathLang = (location.pathname.match(/^\/(es|de|fr)\//) || [])[1] || null;
+  // Old ?lang=xx links (pre-2026-07 query-param switcher, still reachable via
+  // stale bookmarks/backlinks) now forward to the real per-language URL
+  // instead of repainting this page in place -- consolidates that traffic
+  // onto the page that's actually indexable, and keeps the address bar
+  // honest. Preserves any other query params (utm_* etc.) and the hash.
+  if (LANGS.indexOf(q) !== -1) {
+    var qPath = q === 'en' ? '/' : '/' + q + '/';
+    if (qPath !== location.pathname) {
+      var params = new URLSearchParams(location.search);
+      params.delete('lang');
+      var qs = params.toString();
+      location.replace(qPath + (qs ? '?' + qs : '') + location.hash);
+      return;
+    }
+  }
   var stored = null;
   try { stored = localStorage.getItem('btk_lang'); } catch(e){}
   var nav2 = (navigator.language || '').toLowerCase().slice(0, 2);
